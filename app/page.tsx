@@ -1,328 +1,126 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import MotionEnhancer from "./MotionEnhancer";
+import Link from "next/link";
+import { BookingCTA } from "./_components/BookingCTA";
+import { Button } from "./_components/Button";
+import { SectionLabel } from "./_components/SectionLabel";
+import { BOOKING_URL, INSTAGRAM_URL, services } from "./_data/site";
 
-const bookingUrl = "https://lymphandwellnessco.simplybook.me/v2/";
+export const metadata: Metadata = {
+  title: "Lymphatic Drainage & Wellness Clinic Melbourne",
+  description: "Specialised lymphatic drainage, post-operative care, facial treatments and EMS body sculpting in a calm Melbourne studio.",
+};
 
-const treatments = [
-  {
-    number: "01",
-    title: "Brazilian Manual Lymphatic",
-    eyebrow: "60 or 90 minutes",
-    description:
-      "A full-body, hands-on treatment designed to encourage lymphatic flow, ease fluid retention and leave the body feeling lighter and more defined.",
-    price: "From $180",
-    notes: "Optional LED, wood therapy and dry cupping add-ons",
-  },
-  {
-    number: "02",
-    title: "Post-Op Recovery",
-    eyebrow: "60 or 90 minutes",
-    description:
-      "Gentle, considered lymphatic support for clients four weeks or more after surgery, with a focus on swelling, comfort and a smoother recovery experience.",
-    price: "From $200",
-    notes: "Whole-body LED and infrared options available",
-  },
-  {
-    number: "03",
-    title: "Facial Sculpting",
-    eyebrow: "45 minutes and packages",
-    description:
-      "A non-invasive facial workout using massage and optional facial cupping to support circulation, ease puffiness and reveal a fresh, naturally lifted glow.",
-    price: "From $110",
-    notes: "Ultra Sculpt, facial cupping and LED options",
-  },
-  {
-    number: "04",
-    title: "EMS Body Sculpting",
-    eyebrow: "30 or 60 minutes",
-    description:
-      "Targeted electro muscle stimulation sessions created to complement body-contouring goals by engaging and toning treated muscle groups.",
-    price: "From $200",
-    notes: "Single, double and lymphatic-combination sessions",
-  },
+const principles = [
+  ["Targeted", "Treatments are tailored around your body’s individual needs."],
+  ["Restorative", "Designed to support circulation, recovery and wellbeing."],
+  ["Considered", "Every treatment is delivered with care, precision and intention."],
+  ["Personalised", "A thoughtful approach centred around your treatment goals."],
 ];
 
-const memberships = [
-  "The Beachside Essential",
-  "The Lymph Ritual",
-  "The Glow & Detox",
-  "The VIP Experience",
-];
-
-const reviews = [
-  {
-    quote:
-      "Seda was welcoming, professional, knowledgeable and warm. I’ll recommend her anytime.",
-    name: "Daliatu",
-    treatment: "Lymphatic drainage massage",
-  },
-  {
-    quote:
-      "Seda’s warm, inviting nature and gentle touch made it even more special. It felt like I was on holidays.",
-    name: "Nash",
-    treatment: "Deluxe Ultra Sculpting",
-  },
-  {
-    quote:
-      "A genuinely beautiful experience. I felt comfortable and cared for the entire time and could already see a difference.",
-    name: "Braejhan",
-    treatment: "Facial sculpting and cupping",
-  },
+const education = [
+  ["01", "Support circulation", "Gentle manual techniques are designed to support lymphatic movement and general wellbeing."],
+  ["02", "Ease the feeling of heaviness", "Many clients seek treatment when their body feels puffy, tired or in need of considered care."],
+  ["03", "Support recovery", "Post-operative care can form one part of a broader recovery plan when clinically appropriate."],
+  ["04", "Encourage relaxation", "Rhythmic touch and an unhurried environment create space for the nervous system to settle."],
 ];
 
 export default function Home() {
   return (
-    <main>
-      <MotionEnhancer />
-      <div className="announcement">
-        <span>Women&apos;s lymphatic & wellness clinic</span>
-        <span className="announcement-dot">◆</span>
-        <span>Melbourne&apos;s west</span>
-      </div>
-
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Lymph and Wellness home">
-          <span>LYMPH &</span>
-          <span>WELLNESS</span>
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#treatments">Treatments</a>
-          <a href="#about">Our approach</a>
-          <a href="#memberships">Memberships</a>
-          <a href="#contact">Visit</a>
-        </nav>
-        <a className="button button-small" href={bookingUrl} target="_blank" rel="noreferrer">
-          Book a treatment
-        </a>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation"><span>Menu</span><i aria-hidden="true" /></summary>
-          <nav aria-label="Mobile navigation">
-            <a href="#treatments">Treatments</a>
-            <a href="#about">Our approach</a>
-            <a href="#memberships">Memberships</a>
-            <a href="#contact">Visit the studio</a>
-          </nav>
-        </details>
-      </header>
-
-      <section className="hero" id="top">
-        <div className="hero-copy" data-reveal>
-          <p className="kicker">Restoration, sculpting & renewal</p>
-          <h1>
-            Feel lighter.
-            <br />
-            Move easier.
-            <br />
-            <em>Restore within.</em>
-          </h1>
-          <p className="hero-intro">
-            Advanced lymphatic care, post-operative support and targeted wellness treatments in a calm, private space designed exclusively for women.
-          </p>
-          <div className="hero-actions">
-            <a className="button" href={bookingUrl} target="_blank" rel="noreferrer">
-              Book your treatment <span aria-hidden="true">↗</span>
-            </a>
-            <a className="text-link" href="#treatments">
-              Explore treatments <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-          <div className="hero-note">
-            <span className="brand-monogram">LW</span>
-            <span>Women-only care, tailored to your body&apos;s rhythm.</span>
-          </div>
+    <main id="main">
+      <section className="home-hero">
+        <Image className="home-hero-image" src="/images/flow-editorial.webp" alt="Layered ivory fabric in soft natural light" fill priority sizes="100vw" />
+        <div className="home-hero-wash" />
+        <div className="home-hero-copy">
+          <p className="eyebrow hero-eyebrow">Melbourne, Australia</p>
+          <h1><span>Restore.</span><span>Sculpt.</span><span><em>Rebalance.</em></span></h1>
+          <p className="hero-intro">Specialised lymphatic treatments designed to support circulation, recovery and your natural wellbeing.</p>
+          <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link></div>
         </div>
+        <div className="hero-side-note"><span>01</span><span>Lymphatic care<br />from within</span></div>
+        <div className="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></div>
+      </section>
 
-        <div className="hero-visual" aria-label="Lymph and Wellness studio">
-          <Image src="/images/studio-preview.jpg" alt="The softly lit Lymph and Wellness treatment studio" fill priority sizes="(max-width: 820px) 100vw, 47vw" />
-          <div className="hero-arch" aria-hidden="true" />
-          <div className="hero-caption">
-            <span>Private studio</span>
-            <span>Melbourne, VIC</span>
-          </div>
+      <section className="brand-intro section-space" data-reveal>
+        <div className="brand-intro-art"><div className="arch-frame"><Image src="/images/facial-profile.jpg" alt="Low-saturation close crop of natural skin" fill sizes="(max-width: 760px) 88vw, 36vw" /></div><span className="vertical-caption">TOUCH / CARE / RESTORATION</span></div>
+        <div className="brand-intro-copy">
+          <SectionLabel number="01">Our approach</SectionLabel>
+          <h2>Lymphatic care,<br /><em>reimagined.</em></h2>
+          <p className="lead">Our studio specialises in rejuvenating lymphatic massage and targeted wellness treatments designed to enhance your natural radiance and support wellbeing from the inside out.</p>
+          <p>Precise technique. A private setting. Care shaped around how your body feels today.</p>
+          <Link className="text-link" href="/about">Our philosophy <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="Clinic highlights" data-reveal>
-        <div><strong>5.0</strong><span>Google rating</span></div>
-        <div><strong>53</strong><span>client reviews</span></div>
-        <div><strong>Women only</strong><span>private, considered care</span></div>
-        <div><strong>Mon—Sat</strong><span>10:30am — 5:00pm</span></div>
-      </section>
-
-      <section className="intro-section section-pad" id="about" data-reveal>
-        <div className="section-label"><span>01</span> Our philosophy</div>
-        <div className="intro-heading">
-          <p className="kicker">Where wellness meets intention</p>
-          <h2>Care that works with your body, not against it.</h2>
-        </div>
-        <div className="intro-copy">
-          <p>
-            Every session is a sanctuary—rooted in specialised technique, guided by compassion and tailored to honour your body&apos;s natural rhythm.
-          </p>
-          <p>
-            Whether your focus is recovery, circulation, reduced puffiness or simply a deeper sense of wellbeing, the experience is unhurried, discreet and designed around you.
-          </p>
-          <a className="text-link" href="#meet-seda">Meet Seda <span aria-hidden="true">↘</span></a>
-        </div>
-      </section>
-
-      <section className="treatments section-pad" id="treatments" data-reveal>
-        <div className="section-topline">
-          <div className="section-label section-label-light"><span>02</span> Treatments</div>
-          <p>Thoughtful care. Refined technique. A lighter way to feel.</p>
-        </div>
-        <div className="treatment-heading">
-          <h2>Choose the care your body is asking for.</h2>
-          <a className="button button-light" href={bookingUrl} target="_blank" rel="noreferrer">View all appointments ↗</a>
-        </div>
-        <div className="treatment-list">
-          {treatments.map((treatment) => (
-            <article className="treatment-row" key={treatment.number}>
-              <span className="treatment-number">{treatment.number}</span>
-              <div>
-                <p className="treatment-eyebrow">{treatment.eyebrow}</p>
-                <h3>{treatment.title}</h3>
-              </div>
-              <p className="treatment-description">{treatment.description}</p>
-              <div className="treatment-meta">
-                <strong>{treatment.price}</strong>
-                <span>{treatment.notes}</span>
-              </div>
-              <a className="circle-link" aria-label={`Book ${treatment.title}`} href={bookingUrl} target="_blank" rel="noreferrer">↗</a>
-            </article>
-          ))}
-        </div>
-        <p className="price-note">Current pricing is shown as a guide. Available times, packages and add-ons are confirmed in the booking portal.</p>
-      </section>
-
-      <section className="experience section-pad" data-reveal>
-        <div className="experience-collage">
-          <Image className="experience-room" src="/images/treatment-room.jpg" alt="A serene Lymph and Wellness treatment room" fill sizes="(max-width: 820px) 84vw, 40vw" />
-          <Image className="experience-detail" src="/images/robe-detail.jpg" alt="A Lymph and Wellness robe prepared for a client" width={361} height={640} sizes="(max-width: 820px) 48vw, 22vw" />
-          <span className="collage-stamp">A quiet ritual<br />of care</span>
-        </div>
-        <div className="experience-copy">
-          <div className="section-label"><span>03</span> The experience</div>
-          <p className="kicker">Arrive. Exhale. Let go.</p>
-          <h2>Every detail is part of the treatment.</h2>
-          <p>
-            From a luxury robe, slippers and fresh towels to complimentary refreshments waiting on arrival, each touch is considered so you can settle in from the moment you enter.
-          </p>
-          <ol className="steps">
-            <li><span>01</span><div><strong>Consult</strong><p>We begin with your goals, history and how your body feels today.</p></div></li>
-            <li><span>02</span><div><strong>Tailor</strong><p>Your session is shaped to your needs, comfort and chosen treatment.</p></div></li>
-            <li><span>03</span><div><strong>Restore</strong><p>Leave with thoughtful aftercare guidance and space to continue the ritual.</p></div></li>
-          </ol>
-        </div>
-      </section>
-
-      <section className="founder section-pad" id="meet-seda" data-reveal>
-        <div className="founder-copy">
-          <div className="section-label section-label-light"><span>04</span> Meet the founder</div>
-          <p className="kicker">A personal approach to wellbeing</p>
-          <h2>Care, guided by Seda.</h2>
-          <p>
-            Lymph & Wellness was founded on a simple belief: women deserve a private, supportive space where specialised body care feels as restorative as it is considered.
-          </p>
-          <p>
-            Seda brings a warm, intuitive presence to every appointment, taking time to understand what your body needs and creating a treatment experience that feels entirely your own.
-          </p>
-          <blockquote>“This is more than a treatment. It&apos;s an experience of renewal, balance and refined self-care.”</blockquote>
-          <span className="signature">— Seda, Founder</span>
-        </div>
-        <div className="founder-image-wrap">
-          <Image src="/images/seda-founder.jpg" alt="Seda, founder of Lymph and Wellness" width={360} height={640} sizes="(max-width: 820px) 86vw, 40vw" />
-          <span>Founder / Lymphatic specialist</span>
-        </div>
-      </section>
-
-      <section className="memberships section-pad" id="memberships" data-reveal>
-        <div className="membership-copy">
-          <div className="section-label"><span>05</span> Memberships</div>
-          <p className="kicker">Wellness, made consistent</p>
-          <h2>Turn self-care into a rhythm.</h2>
-          <p>
-            Created for women ready to make recovery, self-care and wellbeing part of their lifestyle—not simply something reserved for every now and then.
-          </p>
-          <a className="button" href={bookingUrl} target="_blank" rel="noreferrer">Enquire about membership ↗</a>
-        </div>
-        <div className="membership-list">
-          {memberships.map((membership, index) => (
-            <div className="membership-item" key={membership}>
-              <span>0{index + 1}</span>
-              <strong>{membership}</strong>
-              <span aria-hidden="true">↗</span>
-            </div>
-          ))}
-          <div className="membership-footnote">Founding membership availability may be limited. Contact the studio for current inclusions.</div>
-        </div>
-        <Image className="membership-image" src="/images/membership-detail.jpg" alt="Lymph and Wellness membership welcome detail" width={360} height={640} sizes="310px" />
-      </section>
-
-      <section className="reviews section-pad" data-reveal>
-        <div className="section-topline">
-          <div className="section-label"><span>06</span> Client words</div>
-          <div className="rating"><strong>5.0</strong><span>★★★★★</span><small>53 Google reviews</small></div>
-        </div>
-        <h2>Felt in the body.<br /><em>Seen in the glow.</em></h2>
-        <div className="review-grid">
-          {reviews.map((review) => (
-            <blockquote key={review.name}>
-              <span className="quote-mark">“</span>
-              <p>{review.quote}</p>
-              <footer><strong>{review.name}</strong><span>{review.treatment}</span></footer>
-            </blockquote>
+      <section className="service-index section-space" data-reveal>
+        <div className="index-heading"><SectionLabel number="02">Treatments</SectionLabel><h2>Care, considered<br />from every angle.</h2><p>Four treatment pathways. One deeply personal approach.</p></div>
+        <div className="index-list">
+          {services.map(service => (
+            <Link className="index-row" href={`/services#${service.slug}`} key={service.slug}>
+              <span className="index-number">{service.number}</span><span className="index-title">{service.shortTitle}</span><span className="index-arrow" aria-hidden="true">↗</span>
+              <span className="index-preview"><Image src={service.image} alt="" fill sizes="240px" /></span>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="faq section-pad" data-reveal>
-        <div>
-          <div className="section-label"><span>07</span> Before you book</div>
-          <p className="kicker">Good to know</p>
-          <h2>Your questions, answered.</h2>
-        </div>
-        <div className="faq-list">
-          <details open>
-            <summary>Who are treatments for?<span>＋</span></summary>
-            <p>Our services are exclusively available to female clients, helping maintain a private, supportive and comfortable treatment environment.</p>
-          </details>
-          <details>
-            <summary>When can I book post-op lymphatic massage?<span>＋</span></summary>
-            <p>Post-operative appointments are offered from four weeks after surgery. Please follow the advice of your surgeon or healthcare professional before booking.</p>
-          </details>
-          <details>
-            <summary>Do I need to pay a deposit?<span>＋</span></summary>
-            <p>A $50 deposit is shown for current treatment bookings. The booking portal will confirm the amount and any applicable terms before you complete your appointment.</p>
-          </details>
-          <details>
-            <summary>Where is the studio?<span>＋</span></summary>
-            <p>The private studio is located at 6 Bellevue Drive, Melbourne VIC 3029. Use the map link below for directions.</p>
-          </details>
+      <section className="featured-service section-space" data-reveal>
+        <div className="featured-image"><Image src="/images/cream-texture.jpg" alt="Sculptural cream texture" fill sizes="(max-width: 760px) 100vw, 48vw" /><span>Body / Rhythm / Flow</span></div>
+        <div className="featured-copy">
+          <SectionLabel number="03">Featured treatment</SectionLabel>
+          <h2>Brazilian manual<br /><em>lymphatic drainage.</em></h2>
+          <p>A rhythmic, full-body treatment with a refined, focused approach to lymphatic wellbeing.</p>
+          <div className="duration-grid"><div><span>Duration</span><strong>60</strong><small>Minutes</small></div><div><span>Duration</span><strong>90</strong><small>Minutes</small></div></div>
+          <div className="add-ons"><p className="eyebrow">Optional additions</p><span>Whole Body LED Therapy</span><span>Wood Therapy</span><span>Dry Cupping</span></div>
+          <Button href={BOOKING_URL}>Book this treatment</Button>
         </div>
       </section>
 
-      <section className="visit section-pad" id="contact" data-reveal>
-        <div className="visit-heading">
-          <div className="section-label section-label-light"><span>08</span> Visit the studio</div>
-          <h2>Your next ritual<br />starts here.</h2>
-          <a className="button button-light" href={bookingUrl} target="_blank" rel="noreferrer">Book your appointment ↗</a>
-        </div>
-        <div className="visit-details">
-          <div><span>Address</span><a href="https://www.google.com/maps/search/?api=1&query=6%20Bellevue%20Drive%2C%20Melbourne%20VIC%203029" target="_blank" rel="noreferrer">6 Bellevue Drive<br />Melbourne VIC 3029 ↗</a></div>
-          <div><span>Hours</span><p>Monday—Saturday<br />10:30am—5:00pm<br /><small>Sunday closed</small></p></div>
-          <div><span>Contact</span><a href="tel:+61420273015">+61 420 273 015</a><a href="mailto:info@lymphandwellnessco.com.au">info@lymphandwellnessco.com.au</a></div>
-          <div><span>Follow</span><a href="https://www.instagram.com/lymph.wellnessco/" target="_blank" rel="noreferrer">@lymph.wellnessco ↗</a></div>
+      <section className="experience-dark section-space" data-reveal>
+        <div className="experience-title"><SectionLabel number="04" light>The Lymph &amp; Wellness experience</SectionLabel><h2>Care that moves<br /><em>with your body.</em></h2></div>
+        <div className="principle-grid">{principles.map(([title, copy], i) => <article key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+      </section>
+
+      <section className="image-break" data-reveal>
+        <Image src="/images/arched-studio.jpg" alt="Sculptural arched wellness interior" fill sizes="100vw" />
+        <div className="image-break-overlay" />
+        <p>Feel lighter.<br />Move easier.<br /><em>Restore balance.</em></p>
+        <span>Melbourne / Victoria</span>
+      </section>
+
+      <section className="postop-feature section-space" data-reveal>
+        <div className="postop-copy"><SectionLabel number="05">Recovery care</SectionLabel><h2>Post-operative<br /><em>lymphatic drainage.</em></h2><p className="lead">A gentle treatment designed to support healing after surgery, helping manage swelling, inflammation and fluid build-up while supporting a smoother recovery experience.</p><div className="inline-list"><span>LED Whole Body</span><span>Recovery Boots</span><span>Dry Cupping</span></div><Button href="/post-op">Explore post-op care</Button><small>Treatment suitability varies. Please seek guidance from your surgeon or medical practitioner where appropriate.</small></div>
+        <div className="postop-visual"><Image src="/images/layered-interior.jpg" alt="Layered architectural interior with soft shadows" fill sizes="(max-width: 760px) 100vw, 42vw" /><div className="postop-note"><span>Gentle</span><span>Considered</span><span>Individual</span></div></div>
+      </section>
+
+      <section className="facials section-space" data-reveal>
+        <div className="facials-heading"><SectionLabel number="06">Facial rituals</SectionLabel><h2>Touch, light<br />&amp; <em>definition.</em></h2></div>
+        <div className="facial-grid">
+          <article className="facial-main"><Image src="/images/skin-closeup.jpg" alt="Natural skin texture close-up" fill sizes="(max-width: 760px) 100vw, 52vw" /><div><span>01</span><h3>Facial Sculpting</h3></div></article>
+          <article><Image src="/images/facial-profile.jpg" alt="Low-saturation facial profile" fill sizes="(max-width: 760px) 100vw, 30vw" /><div><span>02</span><h3>Facial Cupping</h3></div></article>
+          <article className="facial-texture"><Image src="/images/cream-texture.jpg" alt="Cream treatment texture" fill sizes="(max-width: 760px) 100vw, 30vw" /><div><span>03</span><h3>LED Face Light Therapy</h3></div></article>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="footer-wordmark"><span>LYMPH &</span><span>WELLNESS</span></div>
-        <p>Specialised lymphatic and wellness treatments for women in Melbourne.</p>
-        <div className="footer-bottom"><span>© 2026 Lymph & Wellness Co</span><span>Treatments are wellness services and are not a substitute for medical care.</span><a href="#top">Back to top ↑</a></div>
-      </footer>
+      <section className="body-sculpt section-space" data-reveal>
+        <div className="body-sculpt-number">07</div><div className="body-sculpt-copy"><SectionLabel>Body contouring</SectionLabel><h2>EMS body<br /><em>sculpting.</em></h2><p>Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.</p><p>Treatment plans may include a series of sessions depending on individual goals and suitability. Outcomes vary.</p><Button href="/services#body-sculpting" variant="line">Learn more</Button></div><div className="body-sculpt-art"><Image src="/images/architectural-curve.jpg" alt="Sculptural architectural curves" fill sizes="(max-width: 760px) 100vw, 36vw" /></div>
+      </section>
 
-      <a className="mobile-book" href={bookingUrl} target="_blank" rel="noreferrer">Book now <span>↗</span></a>
+      <section className="education section-space" data-reveal>
+        <div className="education-intro"><SectionLabel number="08">Why lymphatic wellness</SectionLabel><h2>Support that begins<br /><em>with listening.</em></h2><p>Our approach is grounded in careful treatment, realistic expectations and respect for the body’s individual response.</p></div>
+        <div className="education-list">{education.map(([n,title,copy]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+      </section>
+
+      <section className="testimonials section-space" data-reveal>
+        <SectionLabel number="09">Client words</SectionLabel><div className="testimonial-layout"><h2>What care<br /><em>feels like.</em></h2><div className="testimonial-placeholder"><span>“</span><blockquote>Client testimonial will appear here.</blockquote><p>REAL CLIENT NAME / TREATMENT</p></div><div className="testimonial-placeholder secondary"><span>“</span><blockquote>Client testimonial will appear here.</blockquote><p>REAL CLIENT NAME / TREATMENT</p></div></div><p className="placeholder-note">Testimonial placeholders — replace with verified client feedback before launch.</p>
+      </section>
+
+      <BookingCTA />
+
+      <section className="instagram section-space" data-reveal>
+        <div className="instagram-heading"><SectionLabel number="10">Follow the ritual</SectionLabel><h2>@LYMPH.WELLNESSCO</h2><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Visit Instagram ↗</a></div>
+        <div className="instagram-grid">{["skin-closeup.jpg","cream-texture.jpg","robe.webp","arched-studio.jpg","facial-profile.jpg","studio.webp"].map((img,i) => <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" key={img}><Image src={`/images/${img}`} alt={["Natural skin detail","Cream treatment texture","Lymph and Wellness robe","Arched studio interior","Facial treatment mood","Lymph and Wellness studio"][i]} fill sizes="(max-width: 760px) 50vw, 17vw" /></a>)}</div>
+      </section>
     </main>
   );
 }
