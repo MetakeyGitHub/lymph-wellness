@@ -4,7 +4,7 @@ import { SectionLabel } from "./SectionLabel";
 export function PageHero({ eyebrow, title, intro, image, imageAlt, dark = false }: { eyebrow: string; title: React.ReactNode; intro: string; image?: string; imageAlt?: string; dark?: boolean }) {
   return (
     <section className={`page-hero ${dark ? "dark" : ""}`}>
-      <div className="page-hero-copy" data-reveal>
+      <div className="page-hero-copy">
         <SectionLabel>{eyebrow}</SectionLabel>
         <h1>{title}</h1>
         <p>{intro}</p>
@@ -13,4 +13,3 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, dark = false 
     </section>
   );
 }
-

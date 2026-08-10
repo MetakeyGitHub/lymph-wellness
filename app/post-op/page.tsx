@@ -6,8 +6,9 @@ import { Button } from "../_components/Button";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { BOOKING_URL } from "../_data/site";
+import { SITE_URL } from "../_data/seo";
 
-export const metadata: Metadata = { title: "Post-Operative Lymphatic Care", description: "Gentle, considered post-operative lymphatic drainage in Melbourne, with careful suitability guidance and realistic expectations." };
+export const metadata: Metadata = { title: "Post-Op Lymphatic Drainage Melbourne", description: "Gentle post-operative lymphatic drainage at a women-only Truganina clinic, with surgeon-clearance guidance and realistic expectations.", alternates: { canonical: `${SITE_URL}/post-op` }, openGraph: { url: `${SITE_URL}/post-op` } };
 
 const postFaqs = [
   { q: "When can I begin post-operative treatment?", a: "Timing depends on your procedure, recovery and your surgeon’s advice. Obtain clearance where required before booking." },

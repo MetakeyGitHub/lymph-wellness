@@ -16,9 +16,9 @@ export const openingHours = [
 ] as const;
 
 export const navigation = [
-  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/memberships", label: "Memberships" },
+  { href: "/journal", label: "Journal" },
   { href: "/about", label: "About" },
   { href: "/post-op", label: "Post-Op" },
   { href: "/faq", label: "FAQ" },
@@ -35,6 +35,7 @@ export const services = [
     suitable: "Often chosen by clients seeking considered support for fluid retention, circulation, relaxation or general wellbeing.",
     addOns: ["Whole Body LED Therapy", "Wood Therapy", "Dry Cupping"],
     image: "/images/cream-texture.jpg",
+    href: "/treatments/lymphatic-drainage-melbourne",
   },
   {
     number: "02",
@@ -46,6 +47,7 @@ export const services = [
     suitable: "For clients seeking a non-invasive facial ritual focused on puffiness, relaxation and skin wellbeing.",
     addOns: ["Facial Sculpting", "Facial Cupping", "LED Face Light Therapy"],
     image: "/images/skin-closeup.jpg",
+    href: "/treatments/facial-sculpting-melbourne",
   },
   {
     number: "03",
@@ -57,6 +59,7 @@ export const services = [
     suitable: "Treatment plans may include a series of sessions depending on individual goals and suitability.",
     addOns: [],
     image: "/images/architectural-curve.jpg",
+    href: "/treatments/ems-body-sculpting-melbourne",
   },
   {
     number: "04",
@@ -68,6 +71,7 @@ export const services = [
     suitable: "For eligible clients who have received appropriate guidance or clearance from their surgeon or treating practitioner.",
     addOns: ["LED Whole Body", "Recovery Boots", "Dry Cupping"],
     image: "/images/layered-interior.jpg",
+    href: "/post-op",
   },
 ];
 

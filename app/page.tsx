@@ -5,10 +5,13 @@ import { BookingCTA } from "./_components/BookingCTA";
 import { Button } from "./_components/Button";
 import { SectionLabel } from "./_components/SectionLabel";
 import { BOOKING_URL, GOOGLE_REVIEWS_URL, INSTAGRAM_URL, services, testimonials } from "./_data/site";
+import { SITE_URL } from "./_data/seo";
 
 export const metadata: Metadata = {
   title: "Lymphatic Drainage & Wellness Clinic Melbourne",
-  description: "Specialised lymphatic drainage, post-operative care, facial treatments and EMS body sculpting in a calm Melbourne studio.",
+  description: "Women-only lymphatic drainage, post-operative care, facial treatments and EMS body sculpting at a private Truganina clinic in Melbourne's west.",
+  alternates: { canonical: SITE_URL },
+  openGraph: { url: SITE_URL },
 };
 
 const principles = [
@@ -32,9 +35,9 @@ export default function Home() {
         <Image className="home-hero-image" src="/images/flow-editorial.webp" alt="Layered ivory fabric in soft natural light" fill priority sizes="100vw" />
         <div className="home-hero-wash" />
         <div className="home-hero-copy">
-          <p className="eyebrow hero-eyebrow">Melbourne, Australia</p>
+          <p className="eyebrow hero-eyebrow">Truganina / Melbourne west</p>
           <h1><span>Restore.</span><span>Sculpt.</span><span><em>Rebalance.</em></span></h1>
-          <p className="hero-intro">Specialised lymphatic treatments designed to support circulation, recovery and your natural wellbeing.</p>
+          <p className="hero-intro">Specialised lymphatic drainage and body-care treatments in a private women-only Truganina clinic, designed to support circulation, recovery and wellbeing.</p>
           <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link><a className="hero-reviews" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" aria-label="Read 53 Google reviews, rated 5 out of 5"><span className="review-stars" aria-hidden="true">★★★★★</span><strong>5.0</strong><span>53 Google reviews</span></a></div>
         </div>
         <div className="hero-side-note"><span>01</span><span>Lymphatic care<br />from within</span></div>
@@ -56,7 +59,7 @@ export default function Home() {
         <div className="index-heading"><SectionLabel number="02">Treatments</SectionLabel><h2>Care, considered<br />from every angle.</h2><p>Four treatment pathways. One deeply personal approach.</p></div>
         <div className="index-list">
           {services.map(service => (
-            <Link className="index-row" href={`/services#${service.slug}`} key={service.slug}>
+            <Link className="index-row" href={service.href} key={service.slug}>
               <span className="index-number">{service.number}</span><span className="index-title">{service.shortTitle}</span><span className="index-arrow" aria-hidden="true">↗</span>
               <span className="index-preview"><Image src={service.image} alt="" fill sizes="240px" /></span>
             </Link>
@@ -85,7 +88,7 @@ export default function Home() {
         <Image src="/images/arched-studio.jpg" alt="Sculptural arched wellness interior" fill sizes="100vw" />
         <div className="image-break-overlay" />
         <p>Feel lighter.<br />Move easier.<br /><em>Restore balance.</em></p>
-        <span>Melbourne / Victoria</span>
+        <span>Truganina / Melbourne west</span>
       </section>
 
       <section className="postop-feature section-space" data-reveal>
@@ -103,7 +106,7 @@ export default function Home() {
       </section>
 
       <section className="body-sculpt section-space" data-reveal>
-        <div className="body-sculpt-number">07</div><div className="body-sculpt-copy"><SectionLabel>Body contouring</SectionLabel><h2>EMS body<br /><em>sculpting.</em></h2><p>Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.</p><p>Treatment plans may include a series of sessions depending on individual goals and suitability. Outcomes vary.</p><Button href="/services#body-sculpting" variant="line">Learn more</Button></div><div className="body-sculpt-art"><Image src="/images/architectural-curve.jpg" alt="Sculptural architectural curves" fill sizes="(max-width: 760px) 100vw, 36vw" /></div>
+        <div className="body-sculpt-number">07</div><div className="body-sculpt-copy"><SectionLabel>Body contouring</SectionLabel><h2>EMS body<br /><em>sculpting.</em></h2><p>Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.</p><p>Treatment plans may include a series of sessions depending on individual goals and suitability. Outcomes vary.</p><Button href="/treatments/ems-body-sculpting-melbourne" variant="line">Learn more</Button></div><div className="body-sculpt-art"><Image src="/images/architectural-curve.jpg" alt="Sculptural architectural curves" fill sizes="(max-width: 760px) 100vw, 36vw" /></div>
       </section>
 
       <section className="education section-space" data-reveal>
@@ -119,8 +122,17 @@ export default function Home() {
 
       <BookingCTA />
 
+      <section className="home-journal section-space" data-reveal>
+        <div><SectionLabel number="10">The journal</SectionLabel><h2>Know more.<br /><em>Choose clearly.</em></h2><p>Evidence-aware guidance about lymphatic drainage, post-operative care and treatment suitability.</p><Link className="text-link" href="/journal">Explore all guides <span aria-hidden="true">↗</span></Link></div>
+        <div>{[
+          ["What is lymphatic drainage massage?", "/journal/what-is-lymphatic-drainage-massage"],
+          ["A careful guide to post-operative lymphatic drainage", "/journal/post-operative-lymphatic-drainage-guide"],
+          ["How to choose a lymphatic drainage clinic in Melbourne", "/journal/choosing-a-lymphatic-drainage-clinic-melbourne"],
+        ].map(([title, href], index) => <Link href={href} key={href}><span>0{index + 1}</span><strong>{title}</strong><i aria-hidden="true">↗</i></Link>)}</div>
+      </section>
+
       <section className="instagram section-space" data-reveal>
-        <div className="instagram-heading"><SectionLabel number="10">Follow the ritual</SectionLabel><h2>@LYMPH.WELLNESSCO</h2><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Visit Instagram ↗</a></div>
+        <div className="instagram-heading"><SectionLabel number="11">Follow the ritual</SectionLabel><h2>@LYMPH.WELLNESSCO</h2><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Visit Instagram ↗</a></div>
         <div className="instagram-grid">{["skin-closeup.jpg","cream-texture.jpg","robe.webp","arched-studio.jpg","facial-profile.jpg","studio.webp"].map((img,i) => <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" key={img}><Image src={`/images/${img}`} alt={["Natural skin detail","Cream treatment texture","Lymph and Wellness robe","Arched studio interior","Facial treatment mood","Lymph and Wellness studio"][i]} fill sizes="(max-width: 760px) 50vw, 17vw" /></a>)}</div>
       </section>
     </main>
