@@ -346,23 +346,52 @@ em { font-weight: 400; }
 .legal-page p:not(.eyebrow) { color: var(--taupe); }
 
 /* Memberships */
-.membership-intro { display: grid; grid-template-columns: 46% 46%; gap: 8%; background: var(--off-white); }
-.membership-intro h2, .membership-note h2 { margin: 4rem 0 2.5rem; font-size: clamp(3.8rem,6.5vw,7rem); }
-.membership-intro > div:last-child { padding-top: 5rem; }
-.membership-intro > div:last-child > p:not(.lead), .membership-note > div:last-child > p { max-width: 36rem; color: var(--taupe); }
-.membership-intro .button, .membership-note .button { margin-top: 2rem; }
-.membership-list { background: var(--stone-light); }
-.membership-list-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; }
-.membership-list-heading > p { max-width: 28rem; margin: 0; color: var(--taupe); }
-.membership-rows { margin-top: 5rem; border-top: 1px solid var(--line); }
-.membership-rows article { min-height: 10rem; display: grid; grid-template-columns: 5rem 1.5fr 1fr auto; gap: 2rem; align-items: center; border-bottom: 1px solid var(--line); }
-.membership-number { color: var(--taupe); font-family: var(--font-playfair); font-size: 1.3rem; }
-.membership-rows h2 { font-size: clamp(2rem,3vw,3.4rem); }
-.membership-rows article div p, .membership-inclusions { margin: .45rem 0 0; color: var(--taupe); font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.membership-rows strong { font-family: var(--font-playfair); font-size: clamp(2rem,3vw,3.5rem); font-weight: 400; }
-.membership-note { display: grid; grid-template-columns: 44% 48%; gap: 8%; align-items: center; }
-.membership-note-image { min-height: 50rem; position: relative; }
-.membership-note-image img { object-fit: cover; }
+.membership-hero { min-height: min(100svh, 62rem); display: grid; grid-template-columns: 44% 56%; background: var(--off-white); }
+.membership-hero-copy { padding: clamp(10rem,14vh,13rem) max(4vw,calc((100vw - 1440px)/2)) 4rem; display: flex; flex-direction: column; justify-content: center; }
+.membership-hero-copy h1 { margin: clamp(2.5rem,5vw,4.5rem) 0 2rem; font-size: clamp(4rem,7.3vw,8rem); }
+.membership-hero-copy > p:not(.eyebrow) { max-width: 31rem; color: var(--taupe); }
+.membership-hero-copy .button { margin-top: 1.2rem; }
+.membership-hero-meta { margin-top: auto; padding-top: 3rem; display: flex; gap: 1.6rem; color: var(--taupe); font-size: .58rem; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
+.membership-hero-meta span + span { padding-left: 1.6rem; border-left: 1px solid var(--line); }
+.membership-hero-image { min-height: 50rem; position: relative; overflow: hidden; }
+.membership-hero-image img { object-fit: cover; object-position: center; }
+.membership-hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(242,240,233,.5) 0%,rgba(242,240,233,0) 17%,rgba(68,55,48,.06) 48%,rgba(68,55,48,.34) 100%); }
+.membership-hero-image > span { position: absolute; z-index: 1; right: 2rem; bottom: 2rem; color: var(--ivory); font-size: .56rem; letter-spacing: .18em; text-transform: uppercase; }
+.membership-modalities { display: grid; grid-template-columns: 39% 55%; gap: 6%; background: var(--ivory); }
+.membership-modalities-heading h2 { margin: clamp(3rem,6vw,5rem) 0 2rem; font-size: clamp(3.7rem,6.7vw,7.2rem); }
+.membership-modalities-heading > p { max-width: 28rem; color: var(--taupe); }
+.membership-modality-list { border-top: 1px solid var(--line); }
+.membership-modality-list article { min-height: 9.5rem; padding: 1.7rem 0; display: grid; grid-template-columns: 4rem 1fr; gap: 1.5rem; align-items: start; border-bottom: 1px solid var(--line); }
+.membership-modality-list article > span { color: var(--taupe); font-family: var(--font-playfair); }
+.membership-modality-list h3 { font-size: clamp(1.8rem,3vw,3.2rem); }
+.membership-modality-list p { max-width: 32rem; margin: .7rem 0 0; color: var(--taupe); font-size: .84rem; }
+.membership-comparison { background: var(--espresso); color: var(--ivory); }
+.membership-comparison-heading { display: flex; justify-content: space-between; align-items: end; gap: 4rem; }
+.membership-comparison-heading h2 { margin: clamp(3rem,5vw,4.5rem) 0 0; font-size: clamp(4rem,7vw,7.6rem); }
+.membership-comparison-heading > p { max-width: 30rem; margin: 0; color: var(--stone-light); }
+.membership-table-wrap { margin-top: clamp(4rem,7vw,7rem); border-top: 1px solid var(--line-light); }
+.membership-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.membership-table th, .membership-table td { padding: 1.6rem .8rem; border-bottom: 1px solid var(--line-light); text-align: left; vertical-align: middle; }
+.membership-table thead th { color: var(--taupe-light); font-size: .55rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+.membership-table thead th:first-child { width: 20%; }
+.membership-table tbody th { font-family: var(--font-playfair); font-size: clamp(1.2rem,1.7vw,1.7rem); font-weight: 400; line-height: 1.12; }
+.membership-table tbody td { color: var(--stone-light); font-size: .72rem; }
+.membership-table tbody td strong { color: var(--ivory); font-family: var(--font-playfair); font-size: clamp(1.6rem,2.5vw,2.5rem); font-weight: 400; }
+.membership-status { display: inline-flex; align-items: center; gap: .5rem; font-size: .59rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.membership-status.included > span:first-child { color: var(--sand); font-size: .55rem; }
+.membership-status.choice { padding-bottom: .2rem; border-bottom: 1px solid var(--taupe-light); color: var(--ivory); }
+.membership-status.excluded { color: var(--taupe-light); }
+.membership-table-footer { margin-top: 2.4rem; display: flex; justify-content: space-between; align-items: center; }
+.membership-table-footer p { margin: 0; color: var(--taupe-light); font-size: .58rem; letter-spacing: .13em; text-transform: uppercase; }
+.membership-table-footer p span { margin-right: .45rem; color: var(--sand); }
+.membership-editorial { min-height: 56rem; display: grid; grid-template-columns: 58% 42%; background: var(--off-white); }
+.membership-editorial-image { min-height: 56rem; position: relative; overflow: hidden; }
+.membership-editorial-image img { object-fit: cover; }
+.membership-editorial-copy { padding: var(--space) max(4vw,calc((100vw - 1440px)/2)) var(--space) clamp(3rem,6vw,7rem); align-self: center; }
+.membership-editorial-copy h2 { margin: clamp(3rem,5vw,4.5rem) 0 2.4rem; font-size: clamp(3.5rem,5.8vw,6rem); }
+.membership-editorial-copy > p:not(.lead) { max-width: 35rem; color: var(--taupe); }
+.membership-editorial-copy .membership-disclaimer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .75rem; }
+.membership-editorial-copy .button { margin-top: 1.5rem; }
 
 /* Footer */
 .site-footer { padding: 0 max(4vw, calc((100vw - 1440px)/2)) 2rem; background: var(--espresso); color: var(--ivory); }
@@ -455,15 +484,34 @@ em { font-weight: 400; }
   .body-sculpt-art { min-height: 38rem; grid-row: 1; }
   .education-list article { grid-template-columns: 3rem 1fr; }
   .education-list article p { grid-column: 2; }
-  .testimonial-heading, .testimonial-footer, .membership-list-heading { align-items: flex-start; flex-direction: column; }
+  .testimonial-heading, .testimonial-footer { align-items: flex-start; flex-direction: column; }
   .google-score { margin-top: 3rem; }
   .testimonial-layout { grid-template-columns: 1fr; }
   .testimonial-card { min-height: 22rem; }
-  .membership-intro, .membership-note { grid-template-columns: 1fr; }
-  .membership-intro > div:last-child { padding-top: 0; }
-  .membership-rows article { padding: 2rem 0; grid-template-columns: 2.5rem 1fr auto; gap: 1rem; }
-  .membership-inclusions { grid-column: 2/-1; }
-  .membership-note-image { min-height: 38rem; }
+  .membership-hero { min-height: auto; padding-top: 4.7rem; grid-template-columns: 1fr; }
+  .membership-hero-copy { min-height: 38rem; padding: 4.5rem 6vw 3rem; }
+  .membership-hero-copy h1 { font-size: clamp(4rem,17vw,6rem); }
+  .membership-hero-meta { margin-top: 3rem; }
+  .membership-hero-image { min-height: 34rem; }
+  .membership-hero-image > span { right: 6vw; bottom: 1.5rem; }
+  .membership-modalities { grid-template-columns: 1fr; gap: 4rem; }
+  .membership-modalities-heading h2 { font-size: clamp(3.7rem,15vw,5.5rem); }
+  .membership-modality-list article { min-height: 8rem; grid-template-columns: 2.7rem 1fr; gap: 1rem; }
+  .membership-comparison-heading { align-items: flex-start; flex-direction: column; }
+  .membership-comparison-heading h2 { font-size: clamp(4rem,16vw,6rem); }
+  .membership-table-wrap { margin-top: 4rem; border-top: 0; }
+  .membership-table, .membership-table tbody { display: block; }
+  .membership-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .membership-table tr { margin-bottom: 1rem; padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.2rem; border: 1px solid var(--line-light); }
+  .membership-table tbody th { grid-column: 1/-1; padding: 0 0 1.25rem; border-bottom: 1px solid var(--line-light); font-size: 1.75rem; }
+  .membership-table td { min-height: 4.1rem; padding: 1rem 0; display: flex; align-items: flex-end; justify-content: space-between; gap: .7rem; border-bottom: 1px solid var(--line-light); }
+  .membership-table td::before { content: attr(data-label); align-self: flex-start; color: var(--taupe-light); font-size: .5rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+  .membership-table td:last-child { grid-column: 1/-1; padding-bottom: 0; border-bottom: 0; }
+  .membership-table-footer { align-items: flex-start; flex-direction: column; gap: 2rem; }
+  .membership-editorial { min-height: auto; grid-template-columns: 1fr; }
+  .membership-editorial-image { min-height: 32rem; }
+  .membership-editorial-copy { padding: 5rem 6vw 6rem; }
+  .membership-editorial-copy h2 { font-size: clamp(3.5rem,14vw,5.2rem); }
   .booking-cta, .booking-cta.compact { height: 42rem; }
   .booking-cta h2 { font-size: clamp(4.5rem,19vw,7rem); }
   .instagram-heading { display: block; }

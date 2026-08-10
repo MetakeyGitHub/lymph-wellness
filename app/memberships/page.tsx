@@ -1,48 +1,114 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "../_components/Button";
-import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
-import { MEMBERSHIP_URL, memberships } from "../_data/site";
+import { MEMBERSHIP_URL } from "../_data/site";
 
 export const metadata: Metadata = {
   title: "Wellness Memberships Melbourne",
-  description: "Explore weekly, bi-weekly and monthly Lymph & Wellness memberships for sauna, recovery boots, body roller and LED bed access.",
+  description:
+    "Compare weekly, bi-weekly and monthly Lymph & Wellness memberships for sauna, recovery boots, body roller and LED bed access.",
 };
+
+const plans = [
+  { name: "VIP Reset", rhythm: "Weekly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$139" },
+  { name: "Beachside Essential", rhythm: "Monthly", sauna: "Not included", boots: "Not included", roller: "Choose one", led: "Choose one", price: "$196" },
+  { name: "Glow and Detox", rhythm: "Bi-weekly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$198" },
+  { name: "Lymph Ritual", rhythm: "Monthly", sauna: "Not included", boots: "Included", roller: "Included", led: "Not included", price: "$316" },
+  { name: "Glow and Detox", rhythm: "Monthly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$396" },
+] as const;
+
+const modalities = [
+  ["01", "Sauna", "A warm, quiet ritual designed to complement rest and recovery."],
+  ["02", "Recovery Boots", "Compression-based sessions for a considered recovery routine."],
+  ["03", "Body Roller", "A targeted body-care option available within selected memberships."],
+  ["04", "LED Bed", "Whole-body light therapy offered within selected membership access."],
+] as const;
+
+function Inclusion({ value }: { value: "Included" | "Not included" | "Choose one" }) {
+  if (value === "Included") return <span className="membership-status included"><span aria-hidden="true">●</span><span>Included</span></span>;
+  if (value === "Choose one") return <span className="membership-status choice">Choose one</span>;
+  return <span className="membership-status excluded"><span aria-hidden="true">−</span><span className="sr-only">Not included</span></span>;
+}
 
 export default function MembershipsPage() {
   return (
     <main id="main">
-      <PageHero
-        eyebrow="Memberships"
-        title={<>A rhythm of<br /><em>regular care.</em></>}
-        intro="Considered membership options for women who want to make lymphatic wellness, recovery and restoration part of a regular routine."
-        image="/images/cream-texture.jpg"
-        imageAlt="Sculptural cream texture in warm neutral tones"
-      />
-
-      <section className="membership-intro section-space" data-reveal>
-        <div><SectionLabel number="01">Choose your rhythm</SectionLabel><h2>Care that fits<br /><em>your routine.</em></h2></div>
-        <div><p className="lead">Choose from weekly, bi-weekly and monthly passes with selected access to sauna, recovery boots, body roller and LED bed services.</p><p>Each option is designed around a different pace of care. Review the current inclusions and purchase through the secure membership portal.</p><Button href={MEMBERSHIP_URL} external>View memberships</Button></div>
+      <section className="membership-hero">
+        <div className="membership-hero-copy">
+          <p className="eyebrow">Lymph &amp; Wellness memberships</p>
+          <h1>Your ritual,<br /><em>on repeat.</em></h1>
+          <p>Thoughtful weekly, bi-weekly and monthly options for women who want recovery and restoration to become part of their regular rhythm.</p>
+          <Button href={MEMBERSHIP_URL} external>Explore memberships</Button>
+          <div className="membership-hero-meta" aria-label="Available membership rhythms">
+            <span>Weekly</span><span>Bi-weekly</span><span>Monthly</span>
+          </div>
+        </div>
+        <div className="membership-hero-image">
+          <Image src="/images/membership-suite.webp" alt="Private wellness recovery suite with sauna and recovery boots" fill priority sizes="(max-width: 780px) 100vw, 56vw" />
+          <span>Regular care, considered around you</span>
+        </div>
       </section>
 
-      <section className="membership-list section-space" data-reveal>
-        <div className="membership-list-heading"><SectionLabel number="02">Current options</SectionLabel><p>Membership prices and inclusions shown below reflect the current portal listing.</p></div>
-        <div className="membership-rows">
-          {memberships.map((membership, index) => (
-            <article key={`${membership.name}-${membership.price}`}>
-              <span className="membership-number">{String(index + 1).padStart(2, "0")}</span>
-              <div><h2>{membership.name}</h2><p>{membership.cadence}</p></div>
-              <p className="membership-inclusions">{membership.inclusions}</p>
-              <strong>{membership.price}</strong>
+      <section className="membership-modalities section-space" data-reveal>
+        <div className="membership-modalities-heading">
+          <SectionLabel number="01">Inside the ritual</SectionLabel>
+          <h2>Four ways to<br /><em>restore.</em></h2>
+          <p>Memberships combine selected access to four studio experiences. Your inclusions depend on the plan you choose.</p>
+        </div>
+        <div className="membership-modality-list">
+          {modalities.map(([number, title, copy]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <div><h3>{title}</h3><p>{copy}</p></div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="membership-note section-space" data-reveal>
-        <div className="membership-note-image"><Image src="/images/architectural-curve.jpg" alt="Soft architectural curves" fill sizes="(max-width: 780px) 100vw, 42vw" /></div>
-        <div><SectionLabel number="03">Before you purchase</SectionLabel><h2>Clear, considered<br /><em>membership care.</em></h2><p>Membership availability, inclusions and purchase conditions are confirmed in the external portal. Review all current terms before purchasing.</p><p>Treatment and service suitability varies. Membership access does not replace medical advice or guarantee a particular outcome.</p><Button href={MEMBERSHIP_URL} external>Purchase a membership</Button></div>
+      <section className="membership-comparison section-space" data-reveal>
+        <div className="membership-comparison-heading">
+          <div><SectionLabel number="02" light>Compare memberships</SectionLabel><h2>Find your<br /><em>rhythm.</em></h2></div>
+          <p>Each price reflects the current membership portal listing. Beachside Essential includes a choice of Body Roller or LED Bed.</p>
+        </div>
+
+        <div className="membership-table-wrap">
+          <table className="membership-table">
+            <caption className="sr-only">Comparison of Lymph &amp; Wellness membership plans and inclusions</caption>
+            <thead><tr><th scope="col">Membership</th><th scope="col">Rhythm</th><th scope="col">Sauna</th><th scope="col">Recovery boots</th><th scope="col">Body roller</th><th scope="col">LED bed</th><th scope="col">Price</th></tr></thead>
+            <tbody>
+              {plans.map((plan) => (
+                <tr key={`${plan.name}-${plan.rhythm}`}>
+                  <th scope="row">{plan.name}</th>
+                  <td data-label="Rhythm">{plan.rhythm}</td>
+                  <td data-label="Sauna"><Inclusion value={plan.sauna} /></td>
+                  <td data-label="Recovery boots"><Inclusion value={plan.boots} /></td>
+                  <td data-label="Body roller"><Inclusion value={plan.roller} /></td>
+                  <td data-label="LED bed"><Inclusion value={plan.led} /></td>
+                  <td data-label="Price"><strong>{plan.price}</strong></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="membership-table-footer">
+          <p><span aria-hidden="true">●</span> Included</p>
+          <Button href={MEMBERSHIP_URL} external variant="light">Select a membership</Button>
+        </div>
+      </section>
+
+      <section className="membership-editorial" data-reveal>
+        <div className="membership-editorial-image">
+          <Image src="/images/membership-ritual.webp" alt="Body roller and LED light therapy in a private treatment room" fill sizes="(max-width: 780px) 100vw, 58vw" />
+        </div>
+        <div className="membership-editorial-copy">
+          <SectionLabel number="03">Before you purchase</SectionLabel>
+          <h2>Choose the pace.<br /><em>Keep the ritual.</em></h2>
+          <p className="lead">A membership is a simple way to reserve space for regular care, without overcomplicating your routine.</p>
+          <p>Availability, inclusions and purchase conditions are confirmed in the secure external portal. Please review the current terms before purchasing.</p>
+          <p className="membership-disclaimer">Service suitability varies. Membership access does not replace medical advice or guarantee a particular outcome.</p>
+          <Button href={MEMBERSHIP_URL} external>Purchase a membership</Button>
+        </div>
       </section>
     </main>
   );
