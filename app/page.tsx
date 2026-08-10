@@ -1,3 +1,6 @@
+import Image from "next/image";
+import MotionEnhancer from "./MotionEnhancer";
+
 const bookingUrl = "https://lymphandwellnessco.simplybook.me/v2/";
 
 const treatments = [
@@ -70,6 +73,7 @@ const reviews = [
 export default function Home() {
   return (
     <main>
+      <MotionEnhancer />
       <div className="announcement">
         <span>Women&apos;s lymphatic & wellness clinic</span>
         <span className="announcement-dot">◆</span>
@@ -90,10 +94,19 @@ export default function Home() {
         <a className="button button-small" href={bookingUrl} target="_blank" rel="noreferrer">
           Book a treatment
         </a>
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation"><span>Menu</span><i aria-hidden="true" /></summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#treatments">Treatments</a>
+            <a href="#about">Our approach</a>
+            <a href="#memberships">Memberships</a>
+            <a href="#contact">Visit the studio</a>
+          </nav>
+        </details>
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
+        <div className="hero-copy" data-reveal>
           <p className="kicker">Restoration, sculpting & renewal</p>
           <h1>
             Feel lighter.
@@ -120,7 +133,7 @@ export default function Home() {
         </div>
 
         <div className="hero-visual" aria-label="Lymph and Wellness studio">
-          <img src="/images/studio-preview.jpg" alt="The softly lit Lymph and Wellness treatment studio" />
+          <Image src="/images/studio-preview.jpg" alt="The softly lit Lymph and Wellness treatment studio" fill priority sizes="(max-width: 820px) 100vw, 47vw" />
           <div className="hero-arch" aria-hidden="true" />
           <div className="hero-caption">
             <span>Private studio</span>
@@ -129,14 +142,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="Clinic highlights">
+      <section className="trust-strip" aria-label="Clinic highlights" data-reveal>
         <div><strong>5.0</strong><span>Google rating</span></div>
         <div><strong>53</strong><span>client reviews</span></div>
         <div><strong>Women only</strong><span>private, considered care</span></div>
         <div><strong>Mon—Sat</strong><span>10:30am — 5:00pm</span></div>
       </section>
 
-      <section className="intro-section section-pad" id="about">
+      <section className="intro-section section-pad" id="about" data-reveal>
         <div className="section-label"><span>01</span> Our philosophy</div>
         <div className="intro-heading">
           <p className="kicker">Where wellness meets intention</p>
@@ -153,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="treatments section-pad" id="treatments">
+      <section className="treatments section-pad" id="treatments" data-reveal>
         <div className="section-topline">
           <div className="section-label section-label-light"><span>02</span> Treatments</div>
           <p>Thoughtful care. Refined technique. A lighter way to feel.</p>
@@ -182,10 +195,10 @@ export default function Home() {
         <p className="price-note">Current pricing is shown as a guide. Available times, packages and add-ons are confirmed in the booking portal.</p>
       </section>
 
-      <section className="experience section-pad">
+      <section className="experience section-pad" data-reveal>
         <div className="experience-collage">
-          <img className="experience-room" src="/images/treatment-room.jpg" alt="A serene Lymph and Wellness treatment room" />
-          <img className="experience-detail" src="/images/robe-detail.jpg" alt="A Lymph and Wellness robe prepared for a client" />
+          <Image className="experience-room" src="/images/treatment-room.jpg" alt="A serene Lymph and Wellness treatment room" fill sizes="(max-width: 820px) 84vw, 40vw" />
+          <Image className="experience-detail" src="/images/robe-detail.jpg" alt="A Lymph and Wellness robe prepared for a client" width={361} height={640} sizes="(max-width: 820px) 48vw, 22vw" />
           <span className="collage-stamp">A quiet ritual<br />of care</span>
         </div>
         <div className="experience-copy">
@@ -203,7 +216,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="founder section-pad" id="meet-seda">
+      <section className="founder section-pad" id="meet-seda" data-reveal>
         <div className="founder-copy">
           <div className="section-label section-label-light"><span>04</span> Meet the founder</div>
           <p className="kicker">A personal approach to wellbeing</p>
@@ -218,12 +231,12 @@ export default function Home() {
           <span className="signature">— Seda, Founder</span>
         </div>
         <div className="founder-image-wrap">
-          <img src="/images/seda-founder.jpg" alt="Seda, founder of Lymph and Wellness" />
+          <Image src="/images/seda-founder.jpg" alt="Seda, founder of Lymph and Wellness" width={360} height={640} sizes="(max-width: 820px) 86vw, 40vw" />
           <span>Founder / Lymphatic specialist</span>
         </div>
       </section>
 
-      <section className="memberships section-pad" id="memberships">
+      <section className="memberships section-pad" id="memberships" data-reveal>
         <div className="membership-copy">
           <div className="section-label"><span>05</span> Memberships</div>
           <p className="kicker">Wellness, made consistent</p>
@@ -243,10 +256,10 @@ export default function Home() {
           ))}
           <div className="membership-footnote">Founding membership availability may be limited. Contact the studio for current inclusions.</div>
         </div>
-        <img className="membership-image" src="/images/membership-detail.jpg" alt="Lymph and Wellness membership welcome detail" />
+        <Image className="membership-image" src="/images/membership-detail.jpg" alt="Lymph and Wellness membership welcome detail" width={360} height={640} sizes="310px" />
       </section>
 
-      <section className="reviews section-pad">
+      <section className="reviews section-pad" data-reveal>
         <div className="section-topline">
           <div className="section-label"><span>06</span> Client words</div>
           <div className="rating"><strong>5.0</strong><span>★★★★★</span><small>53 Google reviews</small></div>
@@ -263,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="faq section-pad">
+      <section className="faq section-pad" data-reveal>
         <div>
           <div className="section-label"><span>07</span> Before you book</div>
           <p className="kicker">Good to know</p>
@@ -289,7 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="visit section-pad" id="contact">
+      <section className="visit section-pad" id="contact" data-reveal>
         <div className="visit-heading">
           <div className="section-label section-label-light"><span>08</span> Visit the studio</div>
           <h2>Your next ritual<br />starts here.</h2>
