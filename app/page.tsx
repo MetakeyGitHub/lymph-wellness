@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BookingCTA } from "./_components/BookingCTA";
 import { Button } from "./_components/Button";
 import { SectionLabel } from "./_components/SectionLabel";
-import { BOOKING_URL, INSTAGRAM_URL, services } from "./_data/site";
+import { BOOKING_URL, GOOGLE_REVIEWS_URL, INSTAGRAM_URL, services, testimonials } from "./_data/site";
 
 export const metadata: Metadata = {
   title: "Lymphatic Drainage & Wellness Clinic Melbourne",
@@ -35,7 +35,7 @@ export default function Home() {
           <p className="eyebrow hero-eyebrow">Melbourne, Australia</p>
           <h1><span>Restore.</span><span>Sculpt.</span><span><em>Rebalance.</em></span></h1>
           <p className="hero-intro">Specialised lymphatic treatments designed to support circulation, recovery and your natural wellbeing.</p>
-          <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link></div>
+          <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link><a className="hero-reviews" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" aria-label="Read 53 Google reviews, rated 5 out of 5"><span className="review-stars" aria-hidden="true">★★★★★</span><strong>5.0</strong><span>53 Google reviews</span></a></div>
         </div>
         <div className="hero-side-note"><span>01</span><span>Lymphatic care<br />from within</span></div>
         <div className="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></div>
@@ -112,7 +112,9 @@ export default function Home() {
       </section>
 
       <section className="testimonials section-space" data-reveal>
-        <SectionLabel number="09">Client words</SectionLabel><div className="testimonial-layout"><h2>What care<br /><em>feels like.</em></h2><div className="testimonial-placeholder"><span>“</span><blockquote>Client testimonial will appear here.</blockquote><p>REAL CLIENT NAME / TREATMENT</p></div><div className="testimonial-placeholder secondary"><span>“</span><blockquote>Client testimonial will appear here.</blockquote><p>REAL CLIENT NAME / TREATMENT</p></div></div><p className="placeholder-note">Testimonial placeholders — replace with verified client feedback before launch.</p>
+        <div className="testimonial-heading"><div><SectionLabel number="09">Google reviews</SectionLabel><h2>What care<br /><em>feels like.</em></h2></div><div className="google-score"><strong>5.0</strong><span className="review-stars" aria-hidden="true">★★★★★</span><p>Based on 53 Google reviews</p></div></div>
+        <div className="testimonial-layout">{testimonials.map(({ name, treatment, quote }) => <article className="testimonial-card" key={name}><span aria-hidden="true">“</span><blockquote>{quote}</blockquote><p><strong>{name}</strong>{treatment}</p></article>)}</div>
+        <div className="testimonial-footer"><p>Verified Google review excerpts. Individual experiences and treatment outcomes vary.</p><a className="text-link" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">Read all Google reviews <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <BookingCTA />

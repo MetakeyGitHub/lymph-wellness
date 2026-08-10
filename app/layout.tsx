@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: ["lymphatic drainage Melbourne", "lymphatic massage Melbourne", "manual lymphatic drainage Melbourne", "post op lymphatic drainage Melbourne", "facial sculpting Melbourne", "body sculpting Melbourne"],
     alternates: { canonical: "/" },
     icons: { icon: "/images/mark.webp", apple: "/images/mark.webp" },
-    openGraph: { title: "Lymph & Wellness", description, type: "website", locale: "en_AU", images: [{ url: "/og.png", width: 1536, height: 909, alt: "Lymph & Wellness — Restore. Sculpt. Rebalance." }] },
+    openGraph: { title: "Lymph & Wellness", description, type: "website", locale: "en_AU", images: [{ url: "/og.png", width: 1536, height: 909, alt: "Lymph & Wellness: Restore. Sculpt. Rebalance." }] },
     twitter: { card: "summary_large_image", title: "Lymph & Wellness", description, images: ["/og.png"] },
     robots: { index: true, follow: true },
   };
@@ -34,11 +34,14 @@ const structuredData = {
   name: "Lymph & Wellness",
   description: "Boutique Melbourne wellness clinic specialising in lymphatic drainage, facial treatments, body sculpting and post-operative lymphatic care.",
   areaServed: { "@type": "City", name: "Melbourne" },
-  address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "VIC", addressCountry: "AU" },
-  sameAs: ["https://www.instagram.com/lymph.wellnessco/"],
+  telephone: "+61 452 599 300",
+  address: { "@type": "PostalAddress", streetAddress: "6 Bellevue Drive", addressLocality: "Truganina", postalCode: "3029", addressRegion: "VIC", addressCountry: "AU" },
+  openingHours: ["Mo-Sa 10:30-17:00"],
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "53", bestRating: "5" },
+  sameAs: ["https://www.instagram.com/lymph.wellnessco/", "https://share.google/PfSn7CcBq24fN0Uwy"],
   hasOfferCatalog: {
     "@type": "OfferCatalog", name: "Treatments", itemListElement: [
-      "Brazilian Manual Lymphatic Drainage", "Facial Treatments", "EMS Body Sculpting", "Post-Operative Lymphatic Drainage",
+      "Brazilian Manual Lymphatic Drainage", "Facial Treatments", "EMS Body Sculpting", "Post-Operative Lymphatic Drainage", "Wellness Memberships",
     ].map(name => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
   },
 };

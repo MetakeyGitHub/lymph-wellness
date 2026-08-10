@@ -12,7 +12,7 @@ test("homepage contains the core brand and booking journey", async () => {
 });
 
 test("all core App Router pages exist", async () => {
-  for (const route of ["services", "about", "post-op", "faq", "contact"]) {
+  for (const route of ["services", "memberships", "about", "post-op", "faq", "contact"]) {
     const page = await read(`app/${route}/page.tsx`);
     assert.match(page, /export default function/);
   }

@@ -1,10 +1,24 @@
-export const BOOKING_URL = "/contact#book";
-export const CONTACT_EMAIL = "CONTACT_EMAIL";
+export const BOOKING_URL = "https://lymphandwellnessco.simplybook.me/v2/";
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.wellnessco/";
+export const MEMBERSHIP_URL = "https://lymphwell.ap.zenoti.com/webstoreNew/giftcards/ab0f43de-2383-47ca-b282-967daa002f72";
+export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
+export const PHONE_DISPLAY = "0452 599 300";
+export const PHONE_URL = "tel:+61452599300";
+
+export const openingHours = [
+  ["Monday", "10:30 AM to 5:00 PM"],
+  ["Tuesday", "10:30 AM to 5:00 PM"],
+  ["Wednesday", "10:30 AM to 5:00 PM"],
+  ["Thursday", "10:30 AM to 5:00 PM"],
+  ["Friday", "10:30 AM to 5:00 PM"],
+  ["Saturday", "10:30 AM to 5:00 PM"],
+  ["Sunday", "Closed"],
+] as const;
 
 export const navigation = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/memberships", label: "Memberships" },
   { href: "/about", label: "About" },
   { href: "/post-op", label: "Post-Op" },
   { href: "/faq", label: "FAQ" },
@@ -68,5 +82,41 @@ export const faqs = [
   { q: "What should I expect after treatment?", a: "Responses vary. Some clients report feeling relaxed or lighter, while others notice little immediate change. Follow the aftercare guidance provided and contact a healthcare professional if you feel unwell." },
   { q: "What is facial cupping?", a: "Facial cupping uses small, gentle cups moved across the skin as part of a non-invasive facial treatment. It is delivered with care and adjusted to your comfort and skin needs." },
   { q: "What is EMS body sculpting?", a: "EMS uses controlled electrical impulses to stimulate targeted muscle contractions. It is positioned here as a body-contouring wellness treatment, not as a guaranteed fat-loss or weight-loss solution." },
-  { q: "How do I choose the right treatment?", a: "Start with what you want support with—relaxation, lymphatic care, facial treatment, body contouring or post-operative comfort. If you are still unsure, contact the studio before booking." },
+  { q: "How do I choose the right treatment?", a: "Start with what you want support with, such as relaxation, lymphatic care, facial treatment, body contouring or post-operative comfort. If you are still unsure, contact the studio before booking." },
 ];
+
+export const memberships = [
+  { name: "VIP Reset", cadence: "Weekly members pass", inclusions: "Sauna + Boots", price: "$139" },
+  { name: "Beachside Essential", cadence: "Monthly members pass", inclusions: "Body Roller or LED Bed", price: "$196" },
+  { name: "Glow and Detox", cadence: "Bi-weekly members pass", inclusions: "Sauna + Boots", price: "$198" },
+  { name: "Lymph Ritual", cadence: "Monthly members pass", inclusions: "Roller + Boots", price: "$316" },
+  { name: "Glow and Detox", cadence: "Monthly members pass", inclusions: "Sauna + Boots", price: "$396" },
+] as const;
+
+export const testimonials = [
+  {
+    name: "Mia Smith",
+    treatment: "Lymphatic massage",
+    quote: "My first lymphatic massage was beyond relaxing. I walked out feeling lighter, refreshed, and so calm. The whole experience from start to finish was 10/10. You can truly tell Seda cares about making you feel comfortable and looked after.",
+  },
+  {
+    name: "jayde jek",
+    treatment: "Lymphatic wellness",
+    quote: "A luxurious, safe and clean space. What truly sets her apart is her technique. She is focused on the lymphatic system and also creates a sense of calm within the nervous system. Each session is tailored to what you need most.",
+  },
+  {
+    name: "Michelle",
+    treatment: "Lymphatic drainage facial",
+    quote: "Seda has the most positive, calming energy. My first lymphatic drainage facial felt so relaxing and welcoming. In addition to feeling lighter and refreshed, the whole experience was both healing and restorative.",
+  },
+  {
+    name: "Angela G",
+    treatment: "Personalised treatment",
+    quote: "Seda’s kindness, patience, compassion and professionalism are evident from the moment you meet her. She listened attentively and offered her expertise and knowledge, which made me feel heard and cared for.",
+  },
+  {
+    name: "Tobina Hurdoyal",
+    treatment: "Red light therapy and facial massage",
+    quote: "The red light therapy was relaxing and left me feeling refreshed. I also loved the gentle massage and facial oil massage, which were soothing and professionally delivered. The clinic has a calm and welcoming atmosphere.",
+  },
+] as const;
