@@ -3,11 +3,14 @@ import Image from "next/image";
 import { Button } from "../_components/Button";
 import { SectionLabel } from "../_components/SectionLabel";
 import { MEMBERSHIP_URL } from "../_data/site";
+import { SITE_URL } from "../_data/seo";
 
 export const metadata: Metadata = {
   title: "Wellness Memberships Melbourne",
   description:
     "Compare weekly, bi-weekly and monthly Lymph & Wellness memberships for sauna, recovery boots, body roller and LED bed access.",
+  alternates: { canonical: `${SITE_URL}/memberships` },
+  openGraph: { url: `${SITE_URL}/memberships` },
 };
 
 const plans = [

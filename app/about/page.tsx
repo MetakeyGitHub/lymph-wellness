@@ -3,8 +3,9 @@ import Image from "next/image";
 import { BookingCTA } from "../_components/BookingCTA";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
+import { SITE_URL } from "../_data/seo";
 
-export const metadata: Metadata = { title: "About", description: "Discover the considered philosophy behind Lymph & Wellness, a private Melbourne lymphatic and body-care studio." };
+export const metadata: Metadata = { title: "About Our Truganina Wellness Clinic", description: "Discover Lymph & Wellness, a private women-only lymphatic and body-care studio in Truganina, Melbourne west.", alternates: { canonical: `${SITE_URL}/about` }, openGraph: { url: `${SITE_URL}/about` } };
 
 export default function AboutPage() {
   return <main id="main">
