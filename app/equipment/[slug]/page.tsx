@@ -18,11 +18,11 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     if (!item) return {};
     return pageMetadata({
       title: `${item.name} Melbourne`,
-      description: `${item.name} at our women-only Truganina studio. Learn what to expect, how access works and how to enquire.`,
+      description: `${item.name} at our women-only Altona studio. Learn what to expect, how access works and how to enquire.`,
       path: `/equipment/${item.slug}`,
       image: "/images/social-memberships.jpg",
       imageAlt: `${item.name} at Lymph & Wellness`,
-      keywords: [item.name, `${item.name} Melbourne`, `${item.name} Truganina`, "women's wellness sanctuary Melbourne"],
+      keywords: [item.name, `${item.name} Melbourne`, `${item.name} Altona`, "women's wellness sanctuary Melbourne"],
     });
   });
 }

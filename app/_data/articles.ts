@@ -84,7 +84,7 @@ export const articles: Article[] = [
     faqs: [
       { question: "Is lymphatic drainage a deep massage?", answer: "No. Lymphatic techniques are usually light and rhythmic because superficial lymphatic vessels sit close to the skin." },
       { question: "Will one treatment permanently reduce swelling?", answer: "No outcome should be guaranteed. Responses vary, and persistent or unexplained swelling needs medical assessment." },
-      { question: "Where is Lymph & Wellness located?", answer: "The women-only clinic is at 6 Bellevue Drive, Truganina, serving clients across Melbourne's western suburbs." },
+      { question: "Where is Lymph & Wellness located?", answer: "The women-only clinic is at 1/22 Pier Street, Altona, serving clients across Melbourne's western suburbs." },
     ],
     sources: [healthdirect, nhsTreatment],
   },
@@ -156,7 +156,7 @@ export const articles: Article[] = [
     readingTime: "5 minute read",
     image: "/images/robe-detail.jpg",
     imageAlt: "Soft clinic robe prepared for a private treatment appointment",
-    keywords: ["prepare for lymphatic drainage massage", "first lymphatic massage", "lymphatic drainage Truganina"],
+    keywords: ["prepare for lymphatic drainage massage", "first lymphatic massage", "lymphatic drainage Altona"],
     sections: [
       {
         heading: "Keep preparation simple",
@@ -209,8 +209,8 @@ export const articles: Article[] = [
     published: "2026-08-10",
     modified: "2026-08-10",
     readingTime: "6 minute read",
-    image: "/images/soft-blur.jpg",
-    imageAlt: "Quiet softly lit clinic space after a wellness treatment",
+    image: "/images/architectural-curve.jpg",
+    imageAlt: "Quiet sculptural wellness interior in warm neutral tones",
     keywords: ["after lymphatic drainage massage", "lymphatic massage aftercare", "lymphatic drainage Melbourne"],
     sections: [
       {
@@ -266,7 +266,7 @@ export const articles: Article[] = [
     readingTime: "8 minute read",
     image: "/images/layered-interior.jpg",
     imageAlt: "Private layered treatment environment for calm post-operative care",
-    keywords: ["post op lymphatic drainage Melbourne", "post surgery lymphatic massage Melbourne", "post operative lymphatic drainage Truganina"],
+    keywords: ["post op lymphatic drainage Melbourne", "post surgery lymphatic massage Melbourne", "post operative lymphatic drainage Altona"],
     sections: [
       {
         heading: "Start with the surgical team",
@@ -299,7 +299,7 @@ export const articles: Article[] = [
         heading: "What a considered clinic should do",
         paragraphs: [
           "The clinic should ask questions, explain its scope, use gentle pressure and protect your privacy. It should never override your surgeon's advice or promise a guaranteed recovery timeline.",
-          "At Lymph & Wellness in Truganina, post-operative appointments are positioned as supportive wellness care. Suitability is assessed individually, and clients are directed back to their treating practitioner when a concern falls outside that scope.",
+          "At Lymph & Wellness in Altona, post-operative appointments are positioned as supportive wellness care. Suitability is assessed individually, and clients are directed back to their treating practitioner when a concern falls outside that scope.",
         ],
       },
       {
@@ -405,7 +405,7 @@ export const articles: Article[] = [
         heading: "Choosing a facial treatment in Melbourne",
         paragraphs: [
           "Look for clear descriptions, realistic language and a private consultation. Ask whether the session includes facial drainage, sculpting, cupping or LED, and disclose recent aesthetic or medical treatments before booking.",
-          "Lymph & Wellness offers facial sculpting, facial cupping and LED face light therapy from its women-only Truganina clinic. The most suitable combination depends on your skin, comfort and treatment history.",
+          "Lymph & Wellness offers facial sculpting, facial cupping and LED face light therapy from its women-only Altona clinic. The most suitable combination depends on your skin, comfort and treatment history.",
         ],
       },
     ],
@@ -561,7 +561,7 @@ export const articles: Article[] = [
       {
         heading: "Local care in Melbourne's west",
         paragraphs: [
-          "Lymph & Wellness is a private women-only clinic at 6 Bellevue Drive, Truganina. The studio serves clients from Truganina, Tarneit, Williams Landing, Hoppers Crossing, Point Cook, Werribee, Wyndham Vale, Manor Lakes, Laverton, Altona Meadows, Seabrook, Derrimut and surrounding western suburbs.",
+          "Lymph & Wellness is a private women-only clinic at 1/22 Pier Street, Altona. The studio serves clients from Altona, Williamstown, Newport, Altona North, Seaholme, Yarraville, Point Cook and surrounding western suburbs.",
           "The clinic offers Brazilian manual lymphatic drainage, facial treatments, EMS body sculpting, post-operative lymphatic care and selected wellness memberships. Booking remains subject to individual suitability.",
         ],
       },
@@ -569,7 +569,7 @@ export const articles: Article[] = [
     faqs: [
       { question: "What should I ask before booking lymphatic drainage?", answer: "Ask what the treatment includes, who it may suit, what health information is required and whether medical clearance applies to you." },
       { question: "Are five-star reviews a guarantee?", answer: "No. Reviews describe other people's experiences and cannot guarantee your treatment response." },
-      { question: "Which suburbs does Lymph & Wellness serve?", answer: "The Truganina clinic welcomes clients from across Wyndham and Melbourne's western suburbs, including Tarneit, Williams Landing, Point Cook, Hoppers Crossing and Werribee." },
+      { question: "Which suburbs does Lymph & Wellness serve?", answer: "The Altona clinic welcomes clients from across Hobsons Bay and Melbourne's western suburbs, including Williamstown, Newport, Altona North, Yarraville and Point Cook." },
     ],
     sources: [healthdirect, nhsTreatment],
   },

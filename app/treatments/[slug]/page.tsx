@@ -78,8 +78,8 @@ export default async function TreatmentLandingPage({ params }: Props) {
       </section>
 
       <section className="treatment-local section-space" data-reveal>
-        <div><SectionLabel number="03">Melbourne west</SectionLabel><h2>Private care in<br /><em>Truganina.</em></h2></div>
-        <div><p className="lead">A women-only clinic serving Truganina, Tarneit, Williams Landing, Point Cook, Hoppers Crossing, Werribee and surrounding western suburbs.</p><p>Appointments are available Monday to Saturday from 10:30 am to 5:00 pm at 6 Bellevue Drive, Truganina VIC 3029.</p><Link className="text-link" href="/areas-we-serve">View areas we serve <span aria-hidden="true">↗</span></Link></div>
+        <div><SectionLabel number="03">Melbourne west</SectionLabel><h2>Private care in<br /><em>Altona.</em></h2></div>
+        <div><p className="lead">A women-only clinic serving Altona, Williamstown, Newport, Altona North, Yarraville, Point Cook and surrounding western suburbs.</p><p>Appointments are available Monday to Saturday from 10:30 am to 5:00 pm at 1/22 Pier Street, Altona VIC 3018.</p><Link className="text-link" href="/areas-we-serve">View areas we serve <span aria-hidden="true">↗</span></Link></div>
       </section>
 
       <section className="treatment-reading section-space">

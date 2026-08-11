@@ -55,7 +55,7 @@ export default async function ArticlePage({ params }: Props) {
       dateModified: article.modified,
       mainEntityOfPage: canonical,
       author: { "@type": "Person", name: "Seda Yener", url: `${SITE_URL}/about#seda-yener` },
-      publisher: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/images/mark.webp` } },
+      publisher: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/logomark-dark.svg` } },
     },
     {
       "@context": "https://schema.org",

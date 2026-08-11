@@ -18,7 +18,7 @@ export function pageMetadata({
   description,
   path = "",
   image = "/images/social-home.jpg",
-  imageAlt = "Lymph & Wellness women-only wellness sanctuary in Truganina",
+  imageAlt = "Lymph & Wellness women-only wellness sanctuary in Altona",
   keywords,
   type = "website",
   publishedTime,

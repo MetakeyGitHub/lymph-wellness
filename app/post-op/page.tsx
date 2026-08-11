@@ -7,7 +7,7 @@ import { SectionLabel } from "../_components/SectionLabel";
 import { bookingOptions } from "../_data/site";
 import { pageMetadata } from "../_data/metadata";
 
-export const metadata = pageMetadata({ title: "Post-Op Lymphatic Drainage Melbourne", description: "Gentle post-operative lymphatic drainage at a women-only Truganina clinic, with surgeon-clearance guidance and realistic expectations.", path: "/post-op", image: "/images/social-postop.jpg", imageAlt: "Gentle, private post-operative lymphatic care" });
+export const metadata = pageMetadata({ title: "Post-Op Lymphatic Drainage Melbourne", description: "Gentle post-operative lymphatic drainage at a women-only Altona clinic, with surgeon-clearance guidance and realistic expectations.", path: "/post-op", image: "/images/social-postop.jpg", imageAlt: "Gentle, private post-operative lymphatic care" });
 
 const postFaqs = [
   { q: "When can I begin post-operative treatment?", a: "Timing depends on your procedure, recovery and your surgeon’s advice. Obtain clearance where required before booking." },

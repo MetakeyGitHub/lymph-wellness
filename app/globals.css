@@ -60,8 +60,10 @@ em { font-weight: 400; }
 .site-header:not(.is-scrolled) { background: linear-gradient(180deg,rgba(242,240,233,.78),rgba(242,240,233,.2) 78%,transparent); }
 .site-header.is-scrolled { height: 4.7rem; background: rgba(242,240,233,.9); border-color: var(--line); backdrop-filter: blur(18px); }
 .brand-link { width: max-content; display: flex; align-items: center; gap: .9rem; }
-.brand-link img { width: 2.25rem; height: 2.25rem; object-fit: cover; }
-.brand-link span { font-size: .64rem; line-height: 1.16; letter-spacing: .21em; }
+.brand-link .header-logo { width: clamp(7.8rem,9vw,9.2rem); height: auto; object-fit: contain; }
+.brand-link .header-logo-light { display: none; }
+.site-header.menu-is-open .header-logo-dark { display: none; }
+.site-header.menu-is-open .header-logo-light { display: block; }
 .desktop-nav { display: flex; align-items: center; gap: clamp(1.2rem,2.8vw,3rem); }
 .desktop-nav a, .header-book { font-size: .61rem; font-weight: 760; letter-spacing: .17em; text-transform: uppercase; }
 .desktop-nav a { position: relative; }
@@ -219,10 +221,11 @@ em { font-weight: 400; }
 .testimonial-footer { margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .testimonial-footer > p { max-width: 35rem; margin: 0; color: var(--taupe); font-size: .68rem; }
 .booking-cta { height: min(84vh, 54rem); position: relative; overflow: hidden; color: var(--ivory); }
+.booking-cta::after { content: ""; width: clamp(14rem,24vw,26rem); aspect-ratio: 115/109; position: absolute; right: max(4vw,calc((100vw - 1440px)/2)); bottom: -6%; z-index: 1; background: url("/brand/logomark-light.svg") center/contain no-repeat; opacity: .09; pointer-events: none; }
 .booking-cta.compact { height: min(70vh, 46rem); }
 .booking-cta img { object-fit: cover; }
 .booking-cta-overlay { position: absolute; inset: 0; background: rgba(68,55,48,.69); }
-.booking-cta-content { position: absolute; inset: 0; padding: var(--space) max(4vw, calc((100vw - 1440px)/2)); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.booking-cta-content { position: absolute; inset: 0; z-index: 2; padding: var(--space) max(4vw, calc((100vw - 1440px)/2)); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .booking-cta h2 { margin: 2rem 0 3rem; font-size: clamp(5rem,10vw,10.5rem); line-height: .83; }
 .instagram-heading { display: grid; grid-template-columns: 1fr auto; align-items: end; }
 .instagram-heading .section-label { grid-column: 1/-1; margin-bottom: 3rem; }
@@ -610,12 +613,15 @@ em { font-weight: 400; }
 .not-found > div { margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
 
 /* Footer */
-.site-footer { padding: 0 max(4vw, calc((100vw - 1440px)/2)) 2rem; background: var(--espresso); color: var(--ivory); }
+.site-footer { padding: 0 max(4vw, calc((100vw - 1440px)/2)) 2rem; position: relative; overflow: hidden; background: var(--espresso); color: var(--ivory); }
+.site-footer::before { content: ""; width: clamp(22rem,38vw,42rem); aspect-ratio: 115/109; position: absolute; right: -8%; bottom: -18%; background: url("/brand/logomark-light.svg") center/contain no-repeat; opacity: .035; pointer-events: none; }
+.site-footer > * { position: relative; z-index: 1; }
 .footer-top { min-height: 18rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line-light); }
 .footer-statement { max-width: 48rem; margin: 0; font-family: var(--font-playfair); font-size: clamp(2.8rem,5vw,5.2rem); line-height: 1; }
 .footer-grid { padding: 5rem 0; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
 .footer-grid > div:not(.footer-brand) { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; }
-.footer-brand { display: flex; flex-direction: column; font-size: clamp(2.4rem,5vw,5rem); letter-spacing: .18em; line-height: 1; }
+.footer-brand { display: flex; flex-direction: column; }
+.footer-logo { width: clamp(13rem,18vw,18rem); height: auto; }
 .footer-brand .footer-women-only { width: max-content; margin: 2.15rem 0 .35rem; padding: .7rem .85rem; border: 1px solid var(--line-light); color: var(--stone-light); font-family: var(--font-nunito); font-size: .58rem; font-weight: 750; letter-spacing: .2em; line-height: 1.25; text-transform: uppercase; }
 .footer-brand .footer-location { margin: 2rem 0 0; color: var(--taupe-light); font-family: var(--font-nunito); font-size: .68rem; letter-spacing: .08em; line-height: 1.7; }
 .footer-brand .footer-location a { display: inline-block; margin-top: .5rem; color: var(--ivory); }
@@ -648,8 +654,7 @@ em { font-weight: 400; }
   :root { --space: 4.5rem; }
   .section-space { padding-left: 6vw; padding-right: 6vw; }
   .site-header { height: 4.7rem; padding: 0 5.5vw; grid-template-columns: 1fr auto; }
-  .brand-link img { width: 2rem; height: 2rem; }
-  .brand-link span { font-size: .54rem; }
+  .brand-link .header-logo { width: 7.2rem; height: auto; }
   .desktop-nav, .header-book { display: none; }
   .menu-toggle { width: 2.75rem; height: 2.75rem; padding: 0; display: grid; place-content: center; gap: .38rem; border: 0; background: transparent; color: currentColor; cursor: pointer; }
   .site-header .brand-link, .site-header .menu-toggle { position: relative; z-index: 2; }
