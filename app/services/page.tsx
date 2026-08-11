@@ -8,11 +8,11 @@ import { SectionLabel } from "../_components/SectionLabel";
 import { BOOKING_URL, services } from "../_data/site";
 import { SITE_URL } from "../_data/seo";
 
-export const metadata: Metadata = { title: "Lymphatic & Body Treatments Melbourne", description: "Explore manual lymphatic drainage, facial sculpting, EMS body sculpting and post-operative lymphatic treatments at a women-only Truganina clinic.", alternates: { canonical: `${SITE_URL}/services` }, openGraph: { url: `${SITE_URL}/services` } };
+export const metadata: Metadata = { title: "Women's Wellness Treatments Melbourne", description: "Explore lymphatic drainage, facial sculpting, EMS body sculpting and post-operative care at a women-only wellness sanctuary in Truganina.", alternates: { canonical: `${SITE_URL}/services` }, openGraph: { url: `${SITE_URL}/services` } };
 
 export default function ServicesPage() {
   return <main id="main">
-    <PageHero eyebrow="Treatments / Melbourne" title={<>Treatments for<br />restoration,<br /><em>recovery &amp; wellbeing.</em></>} intro="Four considered treatment pathways, shaped around how your body feels and what you want support with." image="/images/cream-texture.jpg" imageAlt="Sculptural cream treatment texture" />
+    <PageHero eyebrow="Women’s only / Treatments / Melbourne" title={<>Treatments for<br />restoration,<br /><em>recovery &amp; wellbeing.</em></>} intro="Four considered treatment pathways within a private women’s wellness sanctuary, shaped around how your body feels and what you want support with." image="/images/cream-texture.jpg" imageAlt="Sculptural cream treatment texture" />
     <section className="service-overview section-space" data-reveal><SectionLabel number="01">Treatment index</SectionLabel><div className="service-overview-list">{services.map(s => <a href={`#${s.slug}`} key={s.slug}><span>{s.number}</span><strong>{s.shortTitle}</strong><small>{s.duration}</small><i aria-hidden="true">↓</i></a>)}</div></section>
     <div className="treatment-sections">
       {services.map((service, index) => <section className={`treatment-detail ${index % 2 ? "reverse" : ""}`} id={service.slug} key={service.slug} data-reveal>

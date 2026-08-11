@@ -9,7 +9,7 @@ import { serviceAreas, SITE_URL } from "./_data/seo";
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F2F0E9" };
 
-const description = "Women-only lymphatic drainage, facial treatments, body sculpting and post-operative lymphatic care at a private Truganina clinic in Melbourne's west.";
+const description = "A women-only wellness sanctuary in Truganina for lymphatic drainage, facial treatments, body sculpting, recovery care and specialised wellness equipment.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   creator: "Lymph & Wellness",
   publisher: "Lymph & Wellness",
   category: "Health and beauty",
-  keywords: ["lymphatic drainage Melbourne", "lymphatic massage Melbourne", "manual lymphatic drainage Melbourne", "post op lymphatic drainage Melbourne", "lymphatic drainage Truganina", "facial sculpting Melbourne", "body sculpting Melbourne"],
+  keywords: ["women's wellness sanctuary Melbourne", "women only wellness clinic Melbourne", "lymphatic drainage Melbourne", "lymphatic massage Melbourne", "manual lymphatic drainage Melbourne", "post op lymphatic drainage Melbourne", "lymphatic drainage Truganina", "facial sculpting Melbourne", "body sculpting Melbourne", "infrared sauna Truganina", "red light therapy Melbourne west"],
   icons: { icon: "/images/mark.webp", apple: "/images/mark.webp" },
   openGraph: { siteName: "Lymph & Wellness", title: "Lymph & Wellness", description, type: "website", locale: "en_AU", url: SITE_URL, images: [{ url: "/og.png", width: 1536, height: 909, alt: "Lymph & Wellness: Restore. Sculpt. Rebalance." }] },
   twitter: { card: "summary_large_image", title: "Lymph & Wellness", description, images: ["/og.png"] },
@@ -49,7 +49,7 @@ const structuredData = [
     sameAs: ["https://www.instagram.com/lymph.wellnessco/", "https://share.google/PfSn7CcBq24fN0Uwy"],
     hasOfferCatalog: {
       "@type": "OfferCatalog", name: "Treatments", itemListElement: [
-        "Brazilian Manual Lymphatic Drainage", "Facial Treatments", "EMS Body Sculpting", "Post-Operative Lymphatic Drainage", "Wellness Memberships",
+        "Brazilian Manual Lymphatic Drainage", "Facial Treatments", "EMS Body Sculpting", "Post-Operative Lymphatic Drainage", "Wellness Memberships", "Lymphatic Drainage Body Rollers", "Full-Body Red Light Therapy", "Full-Spectrum Infrared Sauna", "Vacu Activ Vacuum Treadmill", "Vacu Activ Infrastep StairMill",
       ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     },
   },

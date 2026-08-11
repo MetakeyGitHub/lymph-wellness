@@ -45,7 +45,7 @@ export function Header() {
       </button>
       <div className={`mobile-menu ${open ? "is-open" : ""}`} id="mobile-menu" aria-hidden={!open} inert={!open}>
         <div className="mobile-menu-inner">
-          <p className="eyebrow">Melbourne, Australia</p>
+          <p className="eyebrow">Women’s only / Truganina</p>
           <nav aria-label="Mobile navigation">
             {navigation.map((item, index) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}</Link>

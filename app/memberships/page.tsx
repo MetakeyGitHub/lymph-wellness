@@ -8,7 +8,7 @@ import { SITE_URL } from "../_data/seo";
 export const metadata: Metadata = {
   title: "Wellness Memberships Melbourne",
   description:
-    "Compare weekly, bi-weekly and monthly Lymph & Wellness memberships for sauna, recovery boots, body roller and LED bed access.",
+    "Women-only wellness memberships in Truganina with infrared sauna, recovery boots, lymphatic body rollers and full-body red light therapy access.",
   alternates: { canonical: `${SITE_URL}/memberships` },
   openGraph: { url: `${SITE_URL}/memberships` },
 };
@@ -22,10 +22,10 @@ const plans = [
 ] as const;
 
 const modalities = [
-  ["01", "Sauna", "A warm, quiet ritual designed to complement rest and recovery."],
+  ["01", "Full-Spectrum Infrared Sauna", "A private heat-based ritual designed to complement rest and recovery."],
   ["02", "Recovery Boots", "Compression-based sessions for a considered recovery routine."],
-  ["03", "Body Roller", "A targeted body-care option available within selected memberships."],
-  ["04", "LED Bed", "Whole-body light therapy offered within selected membership access."],
+  ["03", "Lymphatic Drainage Body Roller", "A targeted roller-massage option available within selected memberships."],
+  ["04", "Full-Body Red Light Therapy Bed", "Whole-body light therapy offered within selected membership access."],
 ] as const;
 
 function Inclusion({ value }: { value: "Included" | "Not included" | "Choose one" }) {
@@ -39,9 +39,9 @@ export default function MembershipsPage() {
     <main id="main">
       <section className="membership-hero">
         <div className="membership-hero-copy">
-          <p className="eyebrow">Lymph &amp; Wellness memberships</p>
+          <p className="eyebrow">Women’s only wellness sanctuary</p>
           <h1>Your ritual,<br /><em>on repeat.</em></h1>
-          <p>Thoughtful weekly, bi-weekly and monthly options for women who want recovery and restoration to become part of their regular rhythm.</p>
+          <p>Thoughtful weekly, bi-weekly and monthly options for women who want sauna, light therapy and restorative body care to become part of their regular rhythm.</p>
           <Button href={MEMBERSHIP_URL} external>Explore memberships</Button>
           <div className="membership-hero-meta" aria-label="Available membership rhythms">
             <span>Weekly</span><span>Bi-weekly</span><span>Monthly</span>
