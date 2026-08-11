@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function JournalPage() {
   return (
-    <main id="main">
+    <main id="main" className="journal-page">
       <PageHero
         eyebrow="Journal / Guidance / Melbourne"
         title={<>Lymphatic care,<br /><em>clearly explained.</em></>}
@@ -31,7 +31,7 @@ export default function JournalPage() {
       />
       <section className="journal-intro section-space" data-reveal>
         <div><SectionLabel number="01">The journal</SectionLabel><h2>Useful before<br /><em>you book.</em></h2></div>
-        <div><p className="lead">Ten focused guides. Distinct questions. Clear limits.</p><p>These articles provide general wellness information and do not diagnose a condition or replace advice from your GP, surgeon or treating practitioner.</p></div>
+        <div><p className="lead">Clear guidance, grounded in care.</p><p>Explore practical information about lymphatic treatments, preparation and recovery. These articles offer general wellness education and do not replace advice from your GP, surgeon or treating practitioner.</p></div>
       </section>
       <section className="journal-grid section-space" aria-label="Lymphatic wellness articles">
         {articles.map((article, index) => (
