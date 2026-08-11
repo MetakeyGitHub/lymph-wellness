@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { BookingCTA } from "../_components/BookingCTA";
 import { Button } from "../_components/Button";
@@ -7,14 +6,17 @@ import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { BOOKING_URL } from "../_data/site";
 import { serviceAreas, SITE_URL } from "../_data/seo";
+import { pageMetadata } from "../_data/metadata";
+import { locationPages } from "../_data/growth";
 
-export const metadata: Metadata = {
-  title: "Lymphatic Drainage Melbourne West | Areas We Serve",
+export const metadata = pageMetadata({
+  title: "Lymphatic Drainage Melbourne West",
   description: "Women-only lymphatic drainage in Truganina, serving Tarneit, Williams Landing, Point Cook, Hoppers Crossing, Werribee and Melbourne's west.",
   keywords: ["lymphatic drainage Melbourne west", "lymphatic drainage Truganina", "lymphatic massage Tarneit", "lymphatic massage Point Cook", "lymphatic massage Werribee"],
-  alternates: { canonical: `${SITE_URL}/areas-we-serve` },
-  openGraph: { title: "Lymphatic Drainage Across Melbourne's West", description: "Private women-only lymphatic and body-care treatments in Truganina.", url: `${SITE_URL}/areas-we-serve`, images: ["/og.png"] },
-};
+  path: "/areas-we-serve",
+  image: "/images/social-treatments.jpg",
+  imageAlt: "Women-only lymphatic drainage in Melbourne's west",
+});
 
 export default function AreasWeServePage() {
   const jsonLd = [
@@ -48,7 +50,10 @@ export default function AreasWeServePage() {
 
       <section className="areas-list section-space" data-reveal>
         <div className="areas-list-heading"><SectionLabel number="02" light>Melbourne west</SectionLabel><h2>Areas we<br /><em>welcome.</em></h2><p>Travel time varies by route and traffic. Check your journey before booking.</p></div>
-        <ol>{serviceAreas.map((area, index) => <li key={area}><span>{String(index + 1).padStart(2, "0")}</span><strong>{area}</strong><small>Appointments in Truganina</small></li>)}</ol>
+        <ol>{serviceAreas.map((area, index) => {
+          const location = locationPages.find((entry) => entry.name === area);
+          return <li key={area}><span>{String(index + 1).padStart(2, "0")}</span><strong>{location ? <Link href={`/locations/${location.slug}`}>{area}</Link> : area}</strong><small>Appointments in Truganina</small></li>;
+        })}</ol>
       </section>
 
       <section className="areas-services section-space" data-reveal>

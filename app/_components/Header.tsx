@@ -32,7 +32,7 @@ export function Header() {
 
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}>
-      <Link className="brand-link" href="/" aria-label="Lymph and Wellness home" onClick={() => setOpen(false)}>
+      <Link className="brand-link" href="/" aria-label="Lymph & Wellness home" onClick={() => setOpen(false)}>
         <Image src="/images/mark.webp" alt="" width={72} height={72} priority />
         <span>LYMPH &amp;<br />WELLNESS</span>
       </Link>

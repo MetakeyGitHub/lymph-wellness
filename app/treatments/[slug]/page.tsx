@@ -8,6 +8,7 @@ import { JsonLd } from "../../_components/JsonLd";
 import { SectionLabel } from "../../_components/SectionLabel";
 import { articles } from "../../_data/articles";
 import { getTreatmentPage, SITE_URL, treatmentPages } from "../../_data/seo";
+import { pageMetadata } from "../../_data/metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -21,14 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const treatment = getTreatmentPage(slug);
   if (!treatment) return {};
-  const canonical = `${SITE_URL}/treatments/${treatment.slug}`;
-  return {
+  return pageMetadata({
     title: treatment.seoTitle,
     description: treatment.description,
-    keywords: [...treatment.keywords],
-    alternates: { canonical },
-    openGraph: { title: treatment.seoTitle, description: treatment.description, url: canonical, images: [{ url: treatment.image, alt: treatment.imageAlt }] },
-  };
+    keywords: treatment.keywords,
+    path: `/treatments/${treatment.slug}`,
+    image: "/images/social-treatments.jpg",
+    imageAlt: `${treatment.title} at Lymph & Wellness`,
+  });
 }
 
 export default async function TreatmentLandingPage({ params }: Props) {
@@ -62,8 +63,8 @@ export default async function TreatmentLandingPage({ params }: Props) {
     <main id="main">
       <JsonLd data={jsonLd} />
       <section className="treatment-landing-hero">
-        <div className="treatment-landing-copy"><p className="eyebrow">{treatment.eyebrow}</p><h1>{treatment.title}</h1><p className="lead">{treatment.intro}</p><div><Button href={treatment.bookingUrl} external>View live times</Button><Link className="text-link" href="/services">All treatments <span aria-hidden="true">↗</span></Link></div></div>
-        <div className="treatment-landing-image"><Image src={treatment.image} alt={treatment.imageAlt} fill priority sizes="(max-width: 780px) 100vw, 50vw" /></div>
+        <div className="treatment-landing-copy"><p className="eyebrow">{treatment.eyebrow}</p><h1>{treatment.title}</h1><p className="lead">{treatment.intro}</p><div><Button href={treatment.bookingUrl} external>{treatment.bookingLabel}</Button><Link className="text-link" href="/services">All treatments <span aria-hidden="true">↗</span></Link></div></div>
+        <div className="treatment-landing-image"><Image src={treatment.image} alt={treatment.imageAlt} fill loading="eager" fetchPriority="high" sizes="(max-width: 780px) 100vw, 50vw" /></div>
       </section>
 
       <section className="treatment-landing-overview section-space" data-reveal>

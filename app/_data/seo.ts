@@ -29,7 +29,7 @@ export const treatmentPages = [
     slug: "lymphatic-drainage-melbourne",
     eyebrow: "Lymphatic drainage / Melbourne",
     title: "Manual lymphatic drainage in Melbourne",
-    seoTitle: "Lymphatic Drainage Melbourne | Truganina Clinic",
+    seoTitle: "Lymphatic Drainage Melbourne",
     description: "Brazilian manual lymphatic drainage in Truganina, Melbourne. Choose a 60 or 90 minute women-only treatment with optional LED, wood therapy or dry cupping.",
     intro: "A rhythmic full-body treatment designed to support lymphatic movement, ease the feeling of heaviness and create space for deep relaxation.",
     image: "/images/cream-texture.jpg",
@@ -37,6 +37,7 @@ export const treatmentPages = [
     duration: "60 or 90 minutes",
     price: "From $180",
     bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/",
+    bookingLabel: "View lymphatic times",
     suitable: "Often chosen by clients seeking a gentle wellness treatment for puffiness, the feeling of heaviness, relaxation or regular body care.",
     expectations: [
       "A private consultation about your goals and relevant health history.",
@@ -60,6 +61,7 @@ export const treatmentPages = [
     duration: "Treatment dependent",
     price: "From $110",
     bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/",
+    bookingLabel: "View cupping + LED times",
     suitable: "For clients seeking non-invasive facial care focused on relaxation, the feeling of puffiness and fresh-looking skin.",
     expectations: [
       "A conversation about skin sensitivity and recent procedures.",
@@ -83,6 +85,7 @@ export const treatmentPages = [
     duration: "Plan tailored individually",
     price: "From $200",
     bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/",
+    bookingLabel: "View EMS times",
     suitable: "For suitable clients exploring a non-invasive body-contouring wellness treatment with realistic expectations.",
     expectations: [
       "A suitability conversation before treatment begins.",

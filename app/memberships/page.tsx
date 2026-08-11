@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "../_components/Button";
 import { SectionLabel } from "../_components/SectionLabel";
 import { MEMBERSHIP_URL } from "../_data/site";
-import { SITE_URL } from "../_data/seo";
+import { pageMetadata } from "../_data/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Wellness Memberships Melbourne",
   description:
     "Women-only wellness memberships in Truganina with infrared sauna, recovery boots, lymphatic body rollers and full-body red light therapy access.",
-  alternates: { canonical: `${SITE_URL}/memberships` },
-  openGraph: { url: `${SITE_URL}/memberships` },
-};
+  path: "/memberships",
+  image: "/images/social-memberships.jpg",
+  imageAlt: "Private sauna and recovery ritual at Lymph & Wellness",
+});
 
 const plans = [
   { name: "VIP Reset", rhythm: "Weekly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$139" },
@@ -48,30 +48,14 @@ export default function MembershipsPage() {
           </div>
         </div>
         <div className="membership-hero-image">
-          <Image src="/images/membership-suite.webp" alt="Private wellness recovery suite with sauna and recovery boots" fill priority sizes="(max-width: 780px) 100vw, 56vw" />
+          <Image src="/images/membership-suite.webp" alt="Private wellness recovery suite with sauna and recovery boots" fill loading="eager" fetchPriority="high" sizes="(max-width: 780px) 100vw, 56vw" />
           <span>Regular care, considered around you</span>
-        </div>
-      </section>
-
-      <section className="membership-modalities section-space" data-reveal>
-        <div className="membership-modalities-heading">
-          <SectionLabel number="01">Inside the ritual</SectionLabel>
-          <h2>Four ways to<br /><em>restore.</em></h2>
-          <p>Memberships combine selected access to four studio experiences. Your inclusions depend on the plan you choose.</p>
-        </div>
-        <div className="membership-modality-list">
-          {modalities.map(([number, title, copy]) => (
-            <article key={title}>
-              <span>{number}</span>
-              <div><h3>{title}</h3><p>{copy}</p></div>
-            </article>
-          ))}
         </div>
       </section>
 
       <section className="membership-comparison section-space" data-reveal>
         <div className="membership-comparison-heading">
-          <div><SectionLabel number="02" light>Compare memberships</SectionLabel><h2>Find your<br /><em>rhythm.</em></h2></div>
+          <div><SectionLabel number="01" light>Compare memberships</SectionLabel><h2>Find your<br /><em>rhythm.</em></h2></div>
           <p>Each price reflects the current membership portal listing. Beachside Essential includes a choice of Body Roller or LED Bed.</p>
         </div>
 
@@ -100,9 +84,25 @@ export default function MembershipsPage() {
         </div>
       </section>
 
+      <section className="membership-modalities section-space" data-reveal>
+        <div className="membership-modalities-heading">
+          <SectionLabel number="02">Inside the ritual</SectionLabel>
+          <h2>Four ways to<br /><em>restore.</em></h2>
+          <p>Memberships combine selected access to four studio experiences. Your inclusions depend on the plan you choose.</p>
+        </div>
+        <div className="membership-modality-list">
+          {modalities.map(([number, title, copy]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <div><h3>{title}</h3><p>{copy}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="membership-editorial" data-reveal>
         <div className="membership-editorial-image">
-          <Image src="/images/membership-ritual.webp" alt="Body roller and LED light therapy in a private treatment room" fill sizes="(max-width: 780px) 100vw, 58vw" />
+          <Image src="/images/social-memberships.jpg" alt="Sculptural private wellness suite in warm neutral light" fill sizes="(max-width: 780px) 100vw, 58vw" />
         </div>
         <div className="membership-editorial-copy">
           <SectionLabel number="03">Before you purchase</SectionLabel>
