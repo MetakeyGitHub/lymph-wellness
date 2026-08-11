@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BookingCTA } from "./_components/BookingCTA";
 import { Button } from "./_components/Button";
 import { SectionLabel } from "./_components/SectionLabel";
+import { TestimonialCarousel } from "./_components/TestimonialCarousel";
 import { BOOKING_URL, GOOGLE_REVIEWS_URL, services, studioEquipment, testimonials } from "./_data/site";
 import { SITE_URL } from "./_data/seo";
 
@@ -44,7 +45,7 @@ export default function Home() {
 
       <section className="testimonials testimonials-early section-space" data-reveal>
         <div className="testimonial-heading"><div><SectionLabel number="02">Google reviews</SectionLabel><h2>What care<br /><em>feels like.</em></h2></div><div className="google-score"><strong>5.0</strong><span className="review-stars" aria-hidden="true">★★★★★</span><p>Based on 53 Google reviews</p></div></div>
-        <div className="testimonial-layout" aria-label="Verified Google review excerpts">{testimonials.map(({ name, treatment, quote }) => <article className="testimonial-card" key={name}><span aria-hidden="true">“</span><blockquote>{quote}</blockquote><p><strong>{name}</strong>{treatment}</p></article>)}</div>
+        <TestimonialCarousel testimonials={testimonials} />
         <div className="testimonial-footer"><p>Verified Google review excerpts. Individual experiences and treatment outcomes vary.</p><a className="text-link" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">Read all Google reviews <span aria-hidden="true">↗</span></a></div>
       </section>
 
