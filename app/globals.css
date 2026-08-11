@@ -570,6 +570,7 @@ em { font-weight: 400; }
 .membership-table-footer { margin-top: 2.4rem; display: flex; justify-content: space-between; align-items: center; }
 .membership-table-footer p { margin: 0; color: var(--taupe-light); font-size: .58rem; letter-spacing: .13em; text-transform: uppercase; }
 .membership-table-footer p span { margin-right: .45rem; color: var(--sand); }
+.membership-mobile-list { display: none; } /* The compact chooser is enabled at mobile widths. */
 .membership-editorial { min-height: 56rem; display: grid; grid-template-columns: 58% 42%; background: var(--off-white); }
 .membership-editorial-image { min-height: 56rem; position: relative; overflow: hidden; }
 .membership-editorial-image img { object-fit: cover; }
@@ -738,17 +739,17 @@ em { font-weight: 400; }
   .membership-modalities-heading h2 { font-size: clamp(3.7rem,15vw,5.5rem); }
   .membership-modality-list article { min-height: 6.5rem; padding: 1.25rem 0; grid-template-columns: 2.7rem 1fr; gap: 1rem; }
   .membership-comparison-heading { align-items: flex-start; flex-direction: column; }
-  .membership-comparison-heading h2 { font-size: clamp(4rem,16vw,6rem); }
+  .membership-comparison-heading h2 { font-size: clamp(3.4rem,14vw,4.8rem); }
   .membership-comparison { padding-top: 4rem; padding-bottom: 4rem; }
-  .membership-table-wrap { margin-top: 3rem; border-top: 0; }
-  .membership-table, .membership-table tbody { display: block; }
-  .membership-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .membership-table tr { margin-bottom: .65rem; padding: 1rem; display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; border: 1px solid var(--line-light); }
-  .membership-table tbody th { grid-column: 1/-1; padding: 0 0 1rem; border-bottom: 1px solid var(--line-light); font-size: 1.55rem; }
-  .membership-table td { min-height: 3rem; padding: .6rem 0; display: flex; align-items: flex-end; justify-content: space-between; gap: .7rem; border-bottom: 1px solid var(--line-light); }
-  .membership-table td::before { content: attr(data-label); align-self: flex-start; color: var(--taupe-light); font-size: .5rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
-  .membership-table td:last-child { grid-column: 1/-1; padding-bottom: 0; border-bottom: 0; }
-  .membership-table-footer { align-items: flex-start; flex-direction: column; gap: 2rem; }
+  .membership-table-wrap, .membership-table-footer { display: none; }
+  .membership-mobile-list { margin-top: 2.5rem; display: grid; gap: .55rem; }
+  .membership-mobile-list article { padding: 1rem 1.1rem; border: 1px solid var(--line-light); background: rgba(242,240,233,.035); }
+  .membership-mobile-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.25rem; }
+  .membership-mobile-top p { margin: 0 0 .45rem; color: var(--taupe-light); font-size: .53rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+  .membership-mobile-top h3 { font-size: clamp(1.5rem,7vw,1.95rem); line-height: 1; }
+  .membership-mobile-top strong { flex: 0 0 auto; font-family: var(--font-playfair); font-size: 1.65rem; font-weight: 400; }
+  .membership-mobile-includes { margin: .75rem 0; color: var(--stone-light); font-size: .72rem; }
+  .membership-mobile-list article > a { min-height: 2.35rem; padding-top: .65rem; display: flex; justify-content: space-between; align-items: flex-start; border-top: 1px solid var(--line-light); color: var(--ivory); font-size: .56rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
   .membership-editorial { min-height: auto; grid-template-columns: 1fr; }
   .membership-editorial-image { min-height: 24rem; }
   .membership-editorial-copy { padding: 4rem 6vw 4.5rem; }

@@ -14,11 +14,11 @@ export const metadata = pageMetadata({
 });
 
 const plans = [
-  { name: "VIP Reset", rhythm: "Weekly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$139" },
-  { name: "Beachside Essential", rhythm: "Monthly", sauna: "Not included", boots: "Not included", roller: "Choose one", led: "Choose one", price: "$196" },
-  { name: "Glow and Detox", rhythm: "Bi-weekly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$198" },
-  { name: "Lymph Ritual", rhythm: "Monthly", sauna: "Not included", boots: "Included", roller: "Included", led: "Not included", price: "$316" },
-  { name: "Glow and Detox", rhythm: "Monthly", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$396" },
+  { name: "VIP Reset", rhythm: "Weekly", summary: "Infrared sauna + recovery boots", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$139" },
+  { name: "Beachside Essential", rhythm: "Monthly", summary: "Choose body roller or LED bed", sauna: "Not included", boots: "Not included", roller: "Choose one", led: "Choose one", price: "$196" },
+  { name: "Glow and Detox", rhythm: "Bi-weekly", summary: "Infrared sauna + recovery boots", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$198" },
+  { name: "Lymph Ritual", rhythm: "Monthly", summary: "Lymphatic body roller + recovery boots", sauna: "Not included", boots: "Included", roller: "Included", led: "Not included", price: "$316" },
+  { name: "Glow and Detox", rhythm: "Monthly", summary: "Infrared sauna + recovery boots", sauna: "Included", boots: "Included", roller: "Not included", led: "Not included", price: "$396" },
 ] as const;
 
 const modalities = [
@@ -42,7 +42,7 @@ export default function MembershipsPage() {
           <p className="eyebrow">Women’s only wellness sanctuary</p>
           <h1>Your ritual,<br /><em>on repeat.</em></h1>
           <p>Thoughtful weekly, bi-weekly and monthly options for women who want sauna, light therapy and restorative body care to become part of their regular rhythm.</p>
-          <Button href={MEMBERSHIP_URL}>Enquire about membership</Button>
+          <Button href={MEMBERSHIP_URL} external>View memberships</Button>
           <div className="membership-hero-meta" aria-label="Available membership rhythms">
             <span>Weekly</span><span>Bi-weekly</span><span>Monthly</span>
           </div>
@@ -56,7 +56,7 @@ export default function MembershipsPage() {
       <section className="membership-comparison section-space" data-reveal>
         <div className="membership-comparison-heading">
           <div><SectionLabel number="01" light>Compare memberships</SectionLabel><h2>Find your<br /><em>rhythm.</em></h2></div>
-          <p>Each price reflects the current membership portal listing. Beachside Essential includes a choice of Body Roller or LED Bed.</p>
+          <p>Choose a plan below to open the secure membership portal. Beachside Essential includes a choice of Body Roller or LED Bed.</p>
         </div>
 
         <div className="membership-table-wrap">
@@ -78,9 +78,21 @@ export default function MembershipsPage() {
             </tbody>
           </table>
         </div>
+        <div className="membership-mobile-list" aria-label="Membership options">
+          {plans.map((plan) => (
+            <article key={`${plan.name}-${plan.rhythm}`}>
+              <div className="membership-mobile-top">
+                <div><p>{plan.rhythm}</p><h3>{plan.name}</h3></div>
+                <strong>{plan.price}</strong>
+              </div>
+              <p className="membership-mobile-includes">{plan.summary}</p>
+              <a href={MEMBERSHIP_URL} target="_blank" rel="noreferrer">Choose membership <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
+        </div>
         <div className="membership-table-footer">
           <p><span aria-hidden="true">●</span> Included</p>
-          <Button href={MEMBERSHIP_URL} variant="light">Enquire about a plan</Button>
+          <Button href={MEMBERSHIP_URL} variant="light" external>View memberships</Button>
         </div>
       </section>
 
@@ -110,7 +122,7 @@ export default function MembershipsPage() {
           <p className="lead">A membership is a simple way to make regular care part of your routine.</p>
           <p>The vacuum treadmill V3 and Infrastep StairMill are studio experiences, but they are not included in the plans shown above. Enquire for current availability and the most suitable way to book.</p>
           <p className="membership-disclaimer">Service suitability varies. Membership access does not replace medical advice or guarantee a particular outcome.</p>
-          <Button href={MEMBERSHIP_URL}>Ask about membership</Button>
+          <Button href={MEMBERSHIP_URL} external>View membership options</Button>
         </div>
       </section>
     </main>
