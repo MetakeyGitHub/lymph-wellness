@@ -1,6 +1,6 @@
 export const BOOKING_URL = "/contact#book";
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.wellnessco/";
-export const MEMBERSHIP_URL = "/contact#enquiry";
+export const MEMBERSHIP_URL = "https://lymphwell.ap.zenoti.com/webstoreNew/giftcards/ab0f43de-2383-47ca-b282-967daa002f72";
 export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
 export const PHONE_DISPLAY = "0452 599 300";
 export const PHONE_URL = "tel:+61452599300";
