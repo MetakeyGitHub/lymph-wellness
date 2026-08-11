@@ -21,8 +21,17 @@ export function Header() {
     return () => document.body.classList.remove("menu-open");
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
+
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}>
       <Link className="brand-link" href="/" aria-label="Lymph and Wellness home" onClick={() => setOpen(false)}>
         <Image src="/images/mark.webp" alt="" width={72} height={72} priority />
         <span>LYMPH &amp;<br />WELLNESS</span>
@@ -34,7 +43,7 @@ export function Header() {
       <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
         <span /><span />
       </button>
-      <div className={`mobile-menu ${open ? "is-open" : ""}`} id="mobile-menu" aria-hidden={!open}>
+      <div className={`mobile-menu ${open ? "is-open" : ""}`} id="mobile-menu" aria-hidden={!open} inert={!open}>
         <div className="mobile-menu-inner">
           <p className="eyebrow">Melbourne, Australia</p>
           <nav aria-label="Mobile navigation">
