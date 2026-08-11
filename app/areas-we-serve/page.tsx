@@ -61,7 +61,7 @@ export default function AreasWeServePage() {
         ].map(([title, copy, href], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={href}>Explore <span aria-hidden="true">↗</span></Link></article>)}</div>
       </section>
 
-      <section className="areas-note section-space"><p className="eyebrow">Local search, real location</p><h2>One clinic.<br /><em>No false locations.</em></h2><p>Lymph & Wellness operates from Truganina. The suburbs listed above describe the wider community we serve, not additional clinic locations. This keeps directions clear for clients and location information accurate for search engines.</p></section>
+      <section className="areas-note section-space"><p className="eyebrow">One clear destination</p><h2>All appointments<br /><em>in Truganina.</em></h2><p>The suburbs above describe the community we welcome. Every appointment takes place at 6 Bellevue Drive, Truganina. Check your route and allow enough travel time before your treatment.</p></section>
       <BookingCTA compact />
     </main>
   );

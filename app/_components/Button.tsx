@@ -11,10 +11,10 @@ type ButtonProps = {
 
 export function Button({ href, children, variant = "dark", external, className = "" }: ButtonProps) {
   const props = external ? { target: "_blank", rel: "noreferrer" } : {};
+  const isBookingCta = href.includes("simplybook.me") || href === "/contact#book";
   return (
-    <Link className={`button button-${variant} ${className}`} href={href} {...props}>
+    <Link className={`button button-${variant} ${className}`} href={href} data-booking-cta={isBookingCta ? "true" : undefined} {...props}>
       <span>{children}</span><span aria-hidden="true">↗</span>
     </Link>
   );
 }
-

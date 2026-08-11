@@ -7,7 +7,6 @@ import { Button } from "../../_components/Button";
 import { JsonLd } from "../../_components/JsonLd";
 import { SectionLabel } from "../../_components/SectionLabel";
 import { articles } from "../../_data/articles";
-import { BOOKING_URL } from "../../_data/site";
 import { getTreatmentPage, SITE_URL, treatmentPages } from "../../_data/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -63,13 +62,13 @@ export default async function TreatmentLandingPage({ params }: Props) {
     <main id="main">
       <JsonLd data={jsonLd} />
       <section className="treatment-landing-hero">
-        <div className="treatment-landing-copy"><p className="eyebrow">{treatment.eyebrow}</p><h1>{treatment.title}</h1><p className="lead">{treatment.intro}</p><div><Button href={BOOKING_URL}>Book a treatment</Button><Link className="text-link" href="/services">All treatments <span aria-hidden="true">↗</span></Link></div></div>
+        <div className="treatment-landing-copy"><p className="eyebrow">{treatment.eyebrow}</p><h1>{treatment.title}</h1><p className="lead">{treatment.intro}</p><div><Button href={treatment.bookingUrl} external>View live times</Button><Link className="text-link" href="/services">All treatments <span aria-hidden="true">↗</span></Link></div></div>
         <div className="treatment-landing-image"><Image src={treatment.image} alt={treatment.imageAlt} fill priority sizes="(max-width: 780px) 100vw, 50vw" /></div>
       </section>
 
       <section className="treatment-landing-overview section-space" data-reveal>
         <div><SectionLabel number="01">Treatment overview</SectionLabel><h2>Care with<br /><em>clear expectations.</em></h2></div>
-        <div className="treatment-landing-facts"><div><span>Duration</span><p>{treatment.duration}</p></div><div><span>Who it may suit</span><p>{treatment.suitable}</p></div>{treatment.additions.length > 0 && <div><span>{treatment.slug === "facial-sculpting-melbourne" ? "Treatment options" : "Optional additions"}</span><ul>{treatment.additions.map((addition) => <li key={addition}>{addition}</li>)}</ul></div>}</div>
+        <div className="treatment-landing-facts"><div><span>Duration</span><p>{treatment.duration}</p></div><div><span>Price</span><p>{treatment.price}</p></div><div><span>Who it may suit</span><p>{treatment.suitable}</p></div>{treatment.additions.length > 0 && <div><span>{treatment.slug === "facial-sculpting-melbourne" ? "Treatment options" : "Optional additions"}</span><ul>{treatment.additions.map((addition) => <li key={addition}>{addition}</li>)}</ul></div>}</div>
       </section>
 
       <section className="treatment-expectations section-space" data-reveal>
@@ -84,7 +83,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
 
       <section className="treatment-reading section-space">
         <div><SectionLabel number="04">Before you book</SectionLabel><h2>Read with<br /><em>clarity.</em></h2></div>
-        <div className="treatment-reading-list">{related.map((article) => article && <article key={article.slug}><p>{article.category}</p><h3><Link href={`/journal/${article.slug}`}>{article.title}</Link></h3><Link className="text-link" href={`/journal/${article.slug}`}>Read guide <span aria-hidden="true">↗</span></Link></article>)}</div>
+        <div className="treatment-reading-list">{related.slice(0, 2).map((article) => article && <article key={article.slug}><p>{article.category}</p><h3><Link href={`/journal/${article.slug}`}>{article.title}</Link></h3><Link className="text-link" href={`/journal/${article.slug}`}>Read guide <span aria-hidden="true">↗</span></Link></article>)}</div>
       </section>
       <BookingCTA compact />
     </main>

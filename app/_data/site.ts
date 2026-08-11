@@ -1,9 +1,20 @@
-export const BOOKING_URL = "https://lymphandwellnessco.simplybook.me/v2/";
+export const BOOKING_URL = "/contact#book";
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.wellnessco/";
-export const MEMBERSHIP_URL = "https://lymphwell.ap.zenoti.com/webstoreNew/giftcards/ab0f43de-2383-47ca-b282-967daa002f72";
+export const MEMBERSHIP_URL = "/contact#enquiry";
 export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
-export const PHONE_DISPLAY = "0452 599 300";
-export const PHONE_URL = "tel:+61452599300";
+export const PHONE_DISPLAY = "0420 273 015";
+export const PHONE_URL = "tel:+61420273015";
+export const EMAIL_DISPLAY = "info@lymphandwellnessco.com.au";
+export const EMAIL_URL = `mailto:${EMAIL_DISPLAY}`;
+
+export const bookingOptions = [
+  { label: "60-minute lymphatic drainage", price: "$180", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/" },
+  { label: "90-minute lymphatic drainage", price: "$260", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/3/count/1/addons/no/" },
+  { label: "Facial sculpting", price: "From $110", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/" },
+  { label: "EMS body sculpting", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/" },
+  { label: "60-minute post-operative care", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/4/count/1/addons/no/" },
+  { label: "90-minute post-operative care", price: "$290", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/12/count/1/addons/no/" },
+] as const;
 
 export const openingHours = [
   ["Monday", "10:30 AM to 5:00 PM"],
@@ -22,6 +33,7 @@ export const navigation = [
   { href: "/about", label: "About" },
   { href: "/post-op", label: "Post-Op" },
   { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export const services = [
@@ -31,6 +43,8 @@ export const services = [
     title: "Brazilian Manual Lymphatic Drainage",
     shortTitle: "Lymphatic Drainage",
     duration: "60 or 90 minutes",
+    price: "From $180",
+    bookingUrl: bookingOptions[0].href,
     copy: "A rhythmic, hands-on treatment designed to support lymphatic flow, ease the feeling of heaviness and encourage a restored sense of balance.",
     suitable: "Often chosen by clients seeking considered support for fluid retention, circulation, relaxation or general wellbeing.",
     addOns: ["Whole Body LED Therapy", "Wood Therapy", "Dry Cupping"],
@@ -43,6 +57,8 @@ export const services = [
     title: "Facial Treatments",
     shortTitle: "Facial Treatments",
     duration: "Treatment dependent",
+    price: "From $110",
+    bookingUrl: bookingOptions[2].href,
     copy: "Targeted facial treatments that combine touch, sculpting techniques and optional light therapy in support of fresh, rested-looking skin.",
     suitable: "For clients seeking a non-invasive facial ritual focused on puffiness, relaxation and skin wellbeing.",
     addOns: ["Facial Sculpting", "Facial Cupping", "LED Face Light Therapy"],
@@ -55,6 +71,8 @@ export const services = [
     title: "EMS Body Sculpting",
     shortTitle: "Body Sculpting",
     duration: "Plan tailored to your goals",
+    price: "From $200",
+    bookingUrl: bookingOptions[3].href,
     copy: "A body-contouring wellness treatment using electrical muscle stimulation to engage targeted muscle groups.",
     suitable: "Treatment plans may include a series of sessions depending on individual goals and suitability.",
     addOns: [],
@@ -67,6 +85,8 @@ export const services = [
     title: "Post-Operative Lymphatic Drainage",
     shortTitle: "Post-Op Lymphatic Drainage",
     duration: "Treatment plan tailored individually",
+    price: "From $200",
+    bookingUrl: bookingOptions[4].href,
     copy: "A gentle treatment designed to support comfort after surgery and help manage swelling, inflammation and fluid build-up as part of a considered recovery plan.",
     suitable: "For eligible clients who have received appropriate guidance or clearance from their surgeon or treating practitioner.",
     addOns: ["LED Whole Body", "Recovery Boots", "Dry Cupping"],
@@ -81,30 +101,35 @@ export const studioEquipment = [
     title: "Lymphatic drainage body rollers",
     detail: "Roller massage",
     copy: "Self-guided roller sessions available as part of selected memberships and considered body-care routines.",
+    access: "Selected memberships",
   },
   {
     number: "02",
     title: "Full-body red light therapy bed",
     detail: "Whole-body light",
     copy: "A quiet, non-invasive light-based wellness session offered within selected studio access.",
+    access: "Selected memberships",
   },
   {
     number: "03",
     title: "Full-spectrum infrared sauna",
     detail: "Private heat ritual",
     copy: "A private sauna experience designed for warmth, rest and an unhurried wellness ritual.",
+    access: "Selected memberships",
   },
   {
     number: "04",
     title: "Vacu Activ vacuum treadmill V3",
     detail: "Guided movement",
     copy: "A technology-led walking experience combining controlled movement with adjustable vacuum and infrared functions.",
+    access: "Enquire for availability",
   },
   {
     number: "05",
     title: "Vacu Activ Infrastep StairMill",
     detail: "Stair climbing",
     copy: "A guided stair-climbing machine with adjustable settings and integrated infrared and red-light functions.",
+    access: "Enquire for availability",
   },
 ] as const;
 

@@ -42,7 +42,7 @@ export default function MembershipsPage() {
           <p className="eyebrow">Women’s only wellness sanctuary</p>
           <h1>Your ritual,<br /><em>on repeat.</em></h1>
           <p>Thoughtful weekly, bi-weekly and monthly options for women who want sauna, light therapy and restorative body care to become part of their regular rhythm.</p>
-          <Button href={MEMBERSHIP_URL} external>Explore memberships</Button>
+          <Button href={MEMBERSHIP_URL}>Enquire about membership</Button>
           <div className="membership-hero-meta" aria-label="Available membership rhythms">
             <span>Weekly</span><span>Bi-weekly</span><span>Monthly</span>
           </div>
@@ -96,7 +96,7 @@ export default function MembershipsPage() {
         </div>
         <div className="membership-table-footer">
           <p><span aria-hidden="true">●</span> Included</p>
-          <Button href={MEMBERSHIP_URL} external variant="light">Select a membership</Button>
+          <Button href={MEMBERSHIP_URL} variant="light">Enquire about a plan</Button>
         </div>
       </section>
 
@@ -107,10 +107,10 @@ export default function MembershipsPage() {
         <div className="membership-editorial-copy">
           <SectionLabel number="03">Before you purchase</SectionLabel>
           <h2>Choose the pace.<br /><em>Keep the ritual.</em></h2>
-          <p className="lead">A membership is a simple way to reserve space for regular care, without overcomplicating your routine.</p>
-          <p>Availability, inclusions and purchase conditions are confirmed in the secure external portal. Please review the current terms before purchasing.</p>
+          <p className="lead">A membership is a simple way to make regular care part of your routine.</p>
+          <p>The vacuum treadmill V3 and Infrastep StairMill are studio experiences, but they are not included in the plans shown above. Enquire for current availability and the most suitable way to book.</p>
           <p className="membership-disclaimer">Service suitability varies. Membership access does not replace medical advice or guarantee a particular outcome.</p>
-          <Button href={MEMBERSHIP_URL} external>Purchase a membership</Button>
+          <Button href={MEMBERSHIP_URL}>Ask about membership</Button>
         </div>
       </section>
     </main>

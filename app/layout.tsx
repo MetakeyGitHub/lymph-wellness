@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
 import "./globals.css";
 import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { MotionEnhancer } from "./_components/MotionEnhancer";
-import { BOOKING_URL } from "./_data/site";
+import { MobileStickyBook } from "./_components/MobileStickyBook";
 import { serviceAreas, SITE_URL } from "./_data/seo";
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F2F0E9" };
@@ -43,7 +42,8 @@ const structuredData = [
     image: `${SITE_URL}/og.png`,
     description,
     areaServed: serviceAreas.map((area) => ({ "@type": "Place", name: `${area}, Victoria` })),
-    telephone: "+61452599300",
+    telephone: "+61420273015",
+    email: "info@lymphandwellnessco.com.au",
     address: { "@type": "PostalAddress", streetAddress: "6 Bellevue Drive", addressLocality: "Truganina", postalCode: "3029", addressRegion: "VIC", addressCountry: "AU" },
     openingHoursSpecification: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: day, opens: "10:30", closes: "17:00" })),
     sameAs: ["https://www.instagram.com/lymph.wellnessco/", "https://share.google/PfSn7CcBq24fN0Uwy"],
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <MotionEnhancer />
         {children}
         <Footer />
-        <Link className="mobile-sticky-book" href={BOOKING_URL}>Book a treatment <span aria-hidden="true">↗</span></Link>
+        <MobileStickyBook />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       </body>
     </html>

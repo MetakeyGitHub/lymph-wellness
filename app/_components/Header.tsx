@@ -50,7 +50,6 @@ export function Header() {
             {navigation.map((item, index) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}</Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)}><span>{String(navigation.length + 1).padStart(2, "0")}</span>Contact</Link>
           </nav>
           <Link className="mobile-menu-book" href={BOOKING_URL} onClick={() => setOpen(false)}>Book a treatment <span aria-hidden="true">↗</span></Link>
           <div className="mobile-menu-meta"><span>@LYMPH.WELLNESSCO</span><span>TRUGANINA, VIC</span></div>

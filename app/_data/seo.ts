@@ -35,6 +35,8 @@ export const treatmentPages = [
     image: "/images/cream-texture.jpg",
     imageAlt: "Sculptural cream texture suggesting gentle lymphatic movement",
     duration: "60 or 90 minutes",
+    price: "From $180",
+    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/",
     suitable: "Often chosen by clients seeking a gentle wellness treatment for puffiness, the feeling of heaviness, relaxation or regular body care.",
     expectations: [
       "A private consultation about your goals and relevant health history.",
@@ -50,12 +52,14 @@ export const treatmentPages = [
     slug: "facial-sculpting-melbourne",
     eyebrow: "Facial treatments / Melbourne",
     title: "Facial sculpting and lymphatic care in Melbourne",
-    seoTitle: "Facial Sculpting Melbourne | Lymph & Wellness",
+    seoTitle: "Facial Sculpting Melbourne",
     description: "Facial sculpting, facial cupping and LED face light therapy at a private women-only clinic in Truganina, Melbourne west.",
     intro: "Gentle touch, considered sculpting techniques and optional light therapy for clients seeking a rested, refreshed facial ritual.",
     image: "/images/skin-closeup.jpg",
     imageAlt: "Natural skin close-up in diffused light",
     duration: "Treatment dependent",
+    price: "From $110",
+    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/",
     suitable: "For clients seeking non-invasive facial care focused on relaxation, the feeling of puffiness and fresh-looking skin.",
     expectations: [
       "A conversation about skin sensitivity and recent procedures.",
@@ -77,6 +81,8 @@ export const treatmentPages = [
     image: "/images/architectural-curve.jpg",
     imageAlt: "Sculptural architectural curve representing considered body contouring",
     duration: "Plan tailored individually",
+    price: "From $200",
+    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/",
     suitable: "For suitable clients exploring a non-invasive body-contouring wellness treatment with realistic expectations.",
     expectations: [
       "A suitability conversation before treatment begins.",

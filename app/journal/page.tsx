@@ -35,9 +35,9 @@ export default function JournalPage() {
       </section>
       <section className="journal-grid section-space" aria-label="Lymphatic wellness articles">
         {articles.map((article, index) => (
-          <article className={index === 0 || index === 5 ? "journal-card journal-card-featured" : "journal-card"} key={article.slug} data-reveal>
+          <article className={index === 0 ? "journal-card journal-card-featured" : "journal-card journal-card-compact"} key={article.slug} data-reveal>
             <Link className="journal-card-image" href={`/journal/${article.slug}`} aria-label={`Read ${article.title}`}>
-              <Image src={article.image} alt={article.imageAlt} fill sizes={index === 0 || index === 5 ? "(max-width: 780px) 100vw, 62vw" : "(max-width: 780px) 100vw, 31vw"} />
+              <Image src={article.image} alt={article.imageAlt} fill sizes={index === 0 ? "(max-width: 780px) 100vw, 62vw" : "(max-width: 780px) 7rem, 31vw"} />
             </Link>
             <div className="journal-card-copy">
               <p className="eyebrow">{String(index + 1).padStart(2, "0")} / {article.category}</p>

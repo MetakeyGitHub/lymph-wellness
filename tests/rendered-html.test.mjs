@@ -57,3 +57,15 @@ test("medical claims remain qualified", async () => {
   assert.match(articleData, /responses vary|outcomes vary|individual experiences vary/i);
   assert.doesNotMatch(articleData, /guarantees faster healing/i);
 });
+
+test("conversion links avoid broken checkout and open direct booking times", async () => {
+  const [siteData, contact] = await Promise.all([
+    read("app/_data/site.ts"),
+    read("app/contact/page.tsx"),
+  ]);
+  assert.doesNotMatch(siteData, /zenoti/i);
+  assert.match(siteData, /service\/2\/count\/1\/addons\/no/);
+  assert.match(siteData, /info@lymphandwellnessco\.com\.au/);
+  assert.match(contact, /ContactForm/);
+  assert.match(contact, /bookingOptions/);
+});
