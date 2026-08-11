@@ -7,7 +7,7 @@ import { pageMetadata } from "../_data/metadata";
 export const metadata = pageMetadata({
   title: "Wellness Memberships Melbourne",
   description:
-    "Women-only wellness memberships in Truganina with infrared sauna, recovery boots, lymphatic body rollers and full-body red light therapy access.",
+    "Women-only wellness memberships in Altona with infrared sauna, recovery boots, lymphatic body rollers and full-body red light therapy access.",
   path: "/memberships",
   image: "/images/social-memberships.jpg",
   imageAlt: "Private sauna and recovery ritual at Lymph & Wellness",

@@ -5,7 +5,7 @@ import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { pageMetadata } from "../_data/metadata";
 
-export const metadata = pageMetadata({ title: "Women's Wellness Sanctuary Truganina", description: "Discover Lymph & Wellness, a private women-only wellness sanctuary for lymphatic care, restoration and body treatments in Truganina.", path: "/about", image: "/images/social-treatments.jpg", imageAlt: "Considered body care at Lymph & Wellness" });
+export const metadata = pageMetadata({ title: "Women's Wellness Sanctuary Altona", description: "Discover Lymph & Wellness, a private women-only wellness sanctuary for lymphatic care, restoration and body treatments in Altona.", path: "/about", image: "/images/social-treatments.jpg", imageAlt: "Considered body care at Lymph & Wellness" });
 
 export default function AboutPage() {
   return <main id="main">

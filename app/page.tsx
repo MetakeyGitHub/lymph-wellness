@@ -9,7 +9,7 @@ import { pageMetadata } from "./_data/metadata";
 
 export const metadata = pageMetadata({
   title: "Women's Wellness & Lymphatic Drainage Melbourne",
-  description: "A women-only wellness sanctuary in Truganina for lymphatic drainage, recovery, red light therapy, infrared sauna and considered body care.",
+  description: "A women-only wellness sanctuary in Altona for lymphatic drainage, recovery, red light therapy, infrared sauna and considered body care.",
   image: "/images/social-home.jpg",
   imageAlt: "Lymph & Wellness women-only wellness sanctuary in Melbourne",
 });
@@ -21,7 +21,7 @@ export default function Home() {
         <Image className="home-hero-image" src="/images/flow-editorial.webp" alt="Layered ivory fabric in soft natural light" fill loading="eager" fetchPriority="high" sizes="100vw" />
         <div className="home-hero-wash" />
         <div className="home-hero-copy">
-          <div className="hero-kicker"><span>Women’s only</span><span>Truganina / Melbourne west</span></div>
+          <div className="hero-kicker"><span>Women’s only</span><span>Altona / Melbourne west</span></div>
           <h1><span>Restore.</span><span>Sculpt.</span><span><em>Rebalance.</em></span></h1>
           <p className="hero-intro">Melbourne’s women-only wellness sanctuary for specialised lymphatic drainage, recovery, body care and considered wellness technology.</p>
           <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link><a className="hero-reviews" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" aria-label="5.0, 53 Google reviews. Read on Google"><span className="review-stars" aria-hidden="true">★★★★★</span><strong>5.0</strong><span>53 Google reviews</span></a></div>

@@ -33,8 +33,8 @@ export function Header() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}>
       <Link className="brand-link" href="/" aria-label="Lymph & Wellness home" onClick={() => setOpen(false)}>
-        <Image src="/images/mark.webp" alt="" width={72} height={72} priority />
-        <span>LYMPH &amp;<br />WELLNESS</span>
+        <Image className="header-logo header-logo-dark" src="/brand/logo-dark.svg" alt="" width={251} height={67} priority />
+        <Image className="header-logo header-logo-light" src="/brand/logo-light.svg" alt="" width={249} height={67} priority />
       </Link>
       <nav className="desktop-nav" aria-label="Primary navigation">
         {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
@@ -45,14 +45,14 @@ export function Header() {
       </button>
       <div className={`mobile-menu ${open ? "is-open" : ""}`} id="mobile-menu" aria-hidden={!open} inert={!open}>
         <div className="mobile-menu-inner">
-          <p className="eyebrow">Women’s only / Truganina</p>
+          <p className="eyebrow">Women’s only / Altona</p>
           <nav aria-label="Mobile navigation">
             {navigation.map((item, index) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}</Link>
             ))}
           </nav>
           <Link className="mobile-menu-book" href={BOOKING_URL} onClick={() => setOpen(false)}>Book a treatment <span aria-hidden="true">↗</span></Link>
-          <div className="mobile-menu-meta"><span>@LYMPH.WELLNESSCO</span><span>TRUGANINA, VIC</span></div>
+          <div className="mobile-menu-meta"><span>@LYMPH.WELLNESSCO</span><span>ALTONA, VIC</span></div>
         </div>
       </div>
     </header>

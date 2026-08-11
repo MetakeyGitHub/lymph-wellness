@@ -2,8 +2,11 @@ export const BOOKING_URL = "/contact#book";
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.wellnessco/";
 export const MEMBERSHIP_URL = "/contact#enquiry";
 export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
-export const PHONE_DISPLAY = "0420 273 015";
-export const PHONE_URL = "tel:+61420273015";
+export const PHONE_DISPLAY = "0452 599 300";
+export const PHONE_URL = "tel:+61452599300";
+export const ADDRESS_LINE_1 = "1/22 Pier Street";
+export const ADDRESS_LINE_2 = "Altona VIC 3018";
+export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=1%2F22+Pier+Street+Altona+VIC+3018";
 export const EMAIL_DISPLAY = "info@lymphandwellnessco.com.au";
 export const EMAIL_URL = `mailto:${EMAIL_DISPLAY}`;
 

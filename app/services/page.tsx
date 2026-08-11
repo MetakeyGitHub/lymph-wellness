@@ -7,7 +7,7 @@ import { SectionLabel } from "../_components/SectionLabel";
 import { services } from "../_data/site";
 import { pageMetadata } from "../_data/metadata";
 
-export const metadata = pageMetadata({ title: "Women's Wellness Treatments Melbourne", description: "Explore lymphatic drainage, facial sculpting, EMS body sculpting and post-operative care at a women-only wellness sanctuary in Truganina.", path: "/services", image: "/images/social-treatments.jpg", imageAlt: "Premium lymphatic and body-care treatments in Melbourne" });
+export const metadata = pageMetadata({ title: "Women's Wellness Treatments Melbourne", description: "Explore lymphatic drainage, facial sculpting, EMS body sculpting and post-operative care at a women-only wellness sanctuary in Altona.", path: "/services", image: "/images/social-treatments.jpg", imageAlt: "Premium lymphatic and body-care treatments in Melbourne" });
 
 export default function ServicesPage() {
   return <main id="main">
