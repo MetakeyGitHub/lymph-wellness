@@ -11,6 +11,20 @@ test("homepage contains the core brand and booking journey", async () => {
   assert.match(homepage, /Brazilian manual/i);
 });
 
+test("women-only sanctuary and studio equipment are visible", async () => {
+  const [homepage, siteData, memberships] = await Promise.all([
+    read("app/page.tsx"),
+    read("app/_data/site.ts"),
+    read("app/memberships/page.tsx"),
+  ]);
+  assert.match(homepage, /Women’s only/);
+  assert.match(homepage, /Women’s wellness sanctuary/);
+  for (const equipment of ["Lymphatic drainage body rollers", "Full-body red light therapy bed", "Full-spectrum infrared sauna", "Vacu Activ vacuum treadmill V3", "Vacu Activ Infrastep StairMill"]) {
+    assert.match(siteData, new RegExp(equipment, "i"));
+  }
+  assert.match(memberships, /Full-Spectrum Infrared Sauna/);
+});
+
 test("all core App Router pages exist", async () => {
   for (const route of ["services", "memberships", "about", "post-op", "faq", "contact"]) {
     const page = await read(`app/${route}/page.tsx`);

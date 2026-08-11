@@ -75,6 +75,39 @@ export const services = [
   },
 ];
 
+export const studioEquipment = [
+  {
+    number: "01",
+    title: "Lymphatic drainage body rollers",
+    detail: "Roller massage",
+    copy: "Self-guided roller sessions available as part of selected memberships and considered body-care routines.",
+  },
+  {
+    number: "02",
+    title: "Full-body red light therapy bed",
+    detail: "Whole-body light",
+    copy: "A quiet, non-invasive light-based wellness session offered within selected studio access.",
+  },
+  {
+    number: "03",
+    title: "Full-spectrum infrared sauna",
+    detail: "Private heat ritual",
+    copy: "A private sauna experience designed for warmth, rest and an unhurried wellness ritual.",
+  },
+  {
+    number: "04",
+    title: "Vacu Activ vacuum treadmill V3",
+    detail: "Guided movement",
+    copy: "A technology-led walking experience combining controlled movement with adjustable vacuum and infrared functions.",
+  },
+  {
+    number: "05",
+    title: "Vacu Activ Infrastep StairMill",
+    detail: "Stair climbing",
+    copy: "A guided stair-climbing machine with adjustable settings and integrated infrared and red-light functions.",
+  },
+] as const;
+
 export const faqs = [
   { q: "What is lymphatic drainage massage?", a: "It is a gentle, rhythmic manual treatment designed to support the movement of lymphatic fluid. Many clients seek it for relaxation, the feeling of heaviness, fluid retention or as part of a broader wellbeing routine. Experiences and outcomes vary." },
   { q: "What should I wear?", a: "Wear something comfortable and easy to change out of. Your privacy and comfort are prioritised throughout the appointment, and draping is used appropriately during treatment." },
