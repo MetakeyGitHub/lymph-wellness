@@ -9,7 +9,7 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, dark = false 
         <h1>{title}</h1>
         <p>{intro}</p>
       </div>
-      {image && <div className="page-hero-image"><Image src={image} alt={imageAlt ?? ""} fill priority sizes="(max-width: 780px) 100vw, 48vw" /></div>}
+      {image && <div className="page-hero-image"><Image src={image} alt={imageAlt ?? ""} fill priority loading="eager" sizes="(max-width: 780px) 100vw, 48vw" /></div>}
     </section>
   );
 }

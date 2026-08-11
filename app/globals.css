@@ -362,6 +362,8 @@ em { font-weight: 400; }
 .journal-intro h2 { margin: clamp(3rem,5vw,5rem) 0 0; font-size: clamp(3.8rem,6vw,6.5rem); }
 .journal-intro > div:last-child { padding-top: 5rem; }
 .journal-intro > div:last-child > p:not(.lead) { max-width: 34rem; color: var(--taupe); }
+.journal-page .page-hero { grid-template-columns: 58% 42%; }
+.journal-page .page-hero h1 { font-size: clamp(4rem,6vw,6.8rem); }
 .journal-grid { padding-top: 0; display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(4rem,7vw,7rem) 2rem; background: var(--off-white); }
 .journal-card { min-width: 0; }
 .journal-card-featured { grid-column: 1/-1; display: grid; grid-template-columns: 58% 1fr; gap: clamp(2rem,5vw,5rem); align-items: center; }
@@ -371,7 +373,7 @@ em { font-weight: 400; }
 .journal-card-image:hover img { transform: scale(1.035); }
 .journal-card-copy { padding-top: 2rem; }
 .journal-card-featured .journal-card-copy { padding-top: 0; }
-.journal-card-copy h2 { margin: 1.4rem 0 1.2rem; font-size: clamp(2.4rem,4.2vw,4.8rem); }
+.journal-card-copy h2 { margin: 1.4rem 0 1.2rem; font-size: clamp(2.4rem,3.7vw,4.2rem); }
 .journal-card:not(.journal-card-featured) .journal-card-copy h2 { font-size: clamp(2rem,3vw,3.2rem); }
 .journal-card-copy > p:not(.eyebrow) { max-width: 37rem; color: var(--taupe); }
 .journal-card-copy > div { margin-top: 2rem; display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
@@ -695,14 +697,21 @@ em { font-weight: 400; }
   .detail-columns { padding-top: 0; }
   .map-placeholder { min-height: 18rem; margin-top: 3rem; }
   .home-journal, .journal-intro, .treatment-landing-overview, .treatment-expectations, .treatment-local, .treatment-reading, .areas-intro, .areas-services, .areas-note { grid-template-columns: 1fr; }
-  .home-journal { gap: 4rem; }
-  .home-journal > div:last-child > a { min-height: 8rem; grid-template-columns: 2.5rem 1fr 1rem; gap: 1rem; }
+  .home-journal { gap: 3.5rem; }
+  .home-journal h2 { margin: 2.6rem 0 1.5rem; font-size: clamp(3.2rem,13vw,4.5rem); }
+  .home-journal > div:last-child > a { min-height: 7.25rem; padding: 1.25rem 0; grid-template-columns: 2.4rem minmax(0,1fr) 1rem; gap: .8rem; }
+  .home-journal > div:last-child strong { font-size: clamp(1.3rem,6vw,1.7rem); line-height: 1.15; overflow-wrap: anywhere; }
   .journal-intro > div:last-child { padding-top: 0; }
-  .journal-grid { grid-template-columns: 1fr; gap: 4.5rem; }
+  .journal-grid { grid-template-columns: 1fr; gap: 4.25rem; }
   .journal-card-featured { grid-column: auto; display: block; }
-  .journal-card-image, .journal-card:not(.journal-card-featured) .journal-card-image { min-height: 28rem; }
+  .journal-card-image, .journal-card:not(.journal-card-featured) .journal-card-image { min-height: clamp(21rem,112vw,28rem); }
   .journal-card-featured .journal-card-copy { padding-top: 2rem; }
+  .journal-card-copy h2, .journal-card:not(.journal-card-featured) .journal-card-copy h2 { font-size: clamp(2.15rem,10vw,3rem); line-height: 1.02; overflow-wrap: anywhere; }
   .journal-card-copy > div { align-items: flex-start; flex-direction: column; }
+  .journal-page .page-hero { padding-top: 4.7rem; grid-template-columns: 1fr; }
+  .journal-page .page-hero-copy { min-height: auto; padding: 4rem 6vw 3.5rem; }
+  .journal-page .page-hero h1 { margin: 3rem 0 2rem; font-size: clamp(3.25rem,13vw,4.8rem); line-height: .94; overflow-wrap: anywhere; }
+  .journal-page .page-hero-image { min-height: 26rem; }
   .article-hero { min-height: auto; padding-top: 4.7rem; grid-template-columns: 1fr; }
   .article-hero-copy { min-height: 42rem; padding: 3rem 6vw 3.5rem; }
   .article-breadcrumbs { margin-bottom: 4rem; }
