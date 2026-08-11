@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "../../_components/JsonLd";
 import { articles, getArticle } from "../../_data/articles";
 import { SITE_URL } from "../../_data/seo";
+import { pageMetadata } from "../../_data/metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -18,23 +19,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
-  const canonical = `${SITE_URL}/journal/${article.slug}`;
-  return {
+  return pageMetadata({
     title: article.seoTitle,
     description: article.description,
     keywords: article.keywords,
-    alternates: { canonical },
-    openGraph: {
-      type: "article",
-      title: article.seoTitle,
-      description: article.description,
-      url: canonical,
-      publishedTime: article.published,
-      modifiedTime: article.modified,
-      images: [{ url: article.image, alt: article.imageAlt }],
-    },
-    twitter: { card: "summary_large_image", title: article.seoTitle, description: article.description, images: [article.image] },
-  };
+    path: `/journal/${article.slug}`,
+    image: "/images/social-journal.jpg",
+    imageAlt: `${article.title}, written by Seda Yener for Lymph & Wellness`,
+    type: "article",
+    publishedTime: article.published,
+    modifiedTime: article.modified,
+  });
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -59,7 +54,7 @@ export default async function ArticlePage({ params }: Props) {
       datePublished: article.published,
       dateModified: article.modified,
       mainEntityOfPage: canonical,
-      author: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL },
+      author: { "@type": "Person", name: "Seda Yener", url: `${SITE_URL}/about#seda-yener` },
       publisher: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/images/mark.webp` } },
     },
     {
@@ -83,9 +78,9 @@ export default async function ArticlePage({ params }: Props) {
             <p className="eyebrow">{article.category}</p>
             <h1>{article.title}</h1>
             <p className="lead">{article.excerpt}</p>
-            <div className="article-meta"><span>Published {new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${article.published}T00:00:00+10:00`))}</span><span>{article.readingTime}</span><span>General wellness information</span></div>
+            <div className="article-meta"><span>By <Link href="/about#seda-yener">Seda Yener</Link></span><span>Published {new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${article.published}T00:00:00+10:00`))}</span><span>{article.readingTime}</span><span>General wellness information</span></div>
           </div>
-          <div className="article-hero-image"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 780px) 100vw, 48vw" /></div>
+          <div className="article-hero-image"><Image src={article.image} alt={article.imageAlt} fill loading="eager" fetchPriority="high" sizes="(max-width: 780px) 100vw, 48vw" /></div>
         </header>
 
         <div className="article-layout section-space">

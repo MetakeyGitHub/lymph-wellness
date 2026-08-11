@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import { ContactForm } from "../_components/ContactForm";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { EMAIL_DISPLAY, EMAIL_URL, INSTAGRAM_URL, PHONE_DISPLAY, PHONE_URL, bookingOptions, openingHours } from "../_data/site";
-import { SITE_URL } from "../_data/seo";
+import { pageMetadata } from "../_data/metadata";
 
-export const metadata: Metadata = { title: "Book Lymphatic Drainage Truganina", description: "Book lymphatic drainage, facial treatments, EMS body sculpting or post-operative care at 6 Bellevue Drive, Truganina VIC 3029.", alternates: { canonical: `${SITE_URL}/contact` }, openGraph: { url: `${SITE_URL}/contact` } };
+export const metadata = pageMetadata({ title: "Book Lymphatic Drainage Truganina", description: "Book lymphatic drainage, facial treatments, EMS body sculpting or post-operative care at 6 Bellevue Drive, Truganina VIC 3029.", path: "/contact", image: "/images/social-treatments.jpg", imageAlt: "Book a treatment at Lymph & Wellness in Truganina" });
 
 export default function ContactPage() {
   return <main id="main"><PageHero eyebrow="Contact / Book" title={<>Book your<br /><em>treatment.</em></>} intro="Choose a treatment through the booking portal or send a considered enquiry if you need help deciding." image="/images/soft-blur.jpg" imageAlt="Atmospheric neutral clinic interior" />

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Accordion } from "../_components/Accordion";
 import { BookingCTA } from "../_components/BookingCTA";
@@ -6,9 +5,9 @@ import { Button } from "../_components/Button";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { bookingOptions } from "../_data/site";
-import { SITE_URL } from "../_data/seo";
+import { pageMetadata } from "../_data/metadata";
 
-export const metadata: Metadata = { title: "Post-Op Lymphatic Drainage Melbourne", description: "Gentle post-operative lymphatic drainage at a women-only Truganina clinic, with surgeon-clearance guidance and realistic expectations.", alternates: { canonical: `${SITE_URL}/post-op` }, openGraph: { url: `${SITE_URL}/post-op` } };
+export const metadata = pageMetadata({ title: "Post-Op Lymphatic Drainage Melbourne", description: "Gentle post-operative lymphatic drainage at a women-only Truganina clinic, with surgeon-clearance guidance and realistic expectations.", path: "/post-op", image: "/images/social-postop.jpg", imageAlt: "Gentle, private post-operative lymphatic care" });
 
 const postFaqs = [
   { q: "When can I begin post-operative treatment?", a: "Timing depends on your procedure, recovery and your surgeon’s advice. Obtain clearance where required before booking." },

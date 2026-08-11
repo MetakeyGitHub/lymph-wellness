@@ -10,7 +10,7 @@ export const EMAIL_URL = `mailto:${EMAIL_DISPLAY}`;
 export const bookingOptions = [
   { label: "60-minute lymphatic drainage", price: "$180", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/" },
   { label: "90-minute lymphatic drainage", price: "$260", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/3/count/1/addons/no/" },
-  { label: "Facial sculpting", price: "From $110", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/" },
+  { label: "Facial cupping massage + 20-minute LED", price: "From $110", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/" },
   { label: "EMS body sculpting", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/" },
   { label: "60-minute post-operative care", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/4/count/1/addons/no/" },
   { label: "90-minute post-operative care", price: "$290", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/12/count/1/addons/no/" },
@@ -45,6 +45,7 @@ export const services = [
     duration: "60 or 90 minutes",
     price: "From $180",
     bookingUrl: bookingOptions[0].href,
+    bookingCta: "View lymphatic times",
     copy: "A rhythmic, hands-on treatment designed to support lymphatic flow, ease the feeling of heaviness and encourage a restored sense of balance.",
     suitable: "Often chosen by clients seeking considered support for fluid retention, circulation, relaxation or general wellbeing.",
     addOns: ["Whole Body LED Therapy", "Wood Therapy", "Dry Cupping"],
@@ -59,6 +60,7 @@ export const services = [
     duration: "Treatment dependent",
     price: "From $110",
     bookingUrl: bookingOptions[2].href,
+    bookingCta: "View cupping + LED times",
     copy: "Targeted facial treatments that combine touch, sculpting techniques and optional light therapy in support of fresh, rested-looking skin.",
     suitable: "For clients seeking a non-invasive facial ritual focused on puffiness, relaxation and skin wellbeing.",
     addOns: ["Facial Sculpting", "Facial Cupping", "LED Face Light Therapy"],
@@ -73,6 +75,7 @@ export const services = [
     duration: "Plan tailored to your goals",
     price: "From $200",
     bookingUrl: bookingOptions[3].href,
+    bookingCta: "View EMS times",
     copy: "A body-contouring wellness treatment using electrical muscle stimulation to engage targeted muscle groups.",
     suitable: "Treatment plans may include a series of sessions depending on individual goals and suitability.",
     addOns: [],
@@ -87,6 +90,7 @@ export const services = [
     duration: "Treatment plan tailored individually",
     price: "From $200",
     bookingUrl: bookingOptions[4].href,
+    bookingCta: "View post-op times",
     copy: "A gentle treatment designed to support comfort after surgery and help manage swelling, inflammation and fluid build-up as part of a considered recovery plan.",
     suitable: "For eligible clients who have received appropriate guidance or clearance from their surgeon or treating practitioner.",
     addOns: ["LED Whole Body", "Recovery Boots", "Dry Cupping"],
@@ -98,6 +102,8 @@ export const services = [
 export const studioEquipment = [
   {
     number: "01",
+    slug: "lymphatic-drainage-body-roller",
+    href: "/equipment/lymphatic-drainage-body-roller",
     title: "Lymphatic drainage body rollers",
     detail: "Roller massage",
     copy: "Self-guided roller sessions available as part of selected memberships and considered body-care routines.",
@@ -105,6 +111,8 @@ export const studioEquipment = [
   },
   {
     number: "02",
+    slug: "full-body-red-light-therapy-bed",
+    href: "/equipment/full-body-red-light-therapy-bed",
     title: "Full-body red light therapy bed",
     detail: "Whole-body light",
     copy: "A quiet, non-invasive light-based wellness session offered within selected studio access.",
@@ -112,6 +120,8 @@ export const studioEquipment = [
   },
   {
     number: "03",
+    slug: "full-spectrum-infrared-sauna",
+    href: "/equipment/full-spectrum-infrared-sauna",
     title: "Full-spectrum infrared sauna",
     detail: "Private heat ritual",
     copy: "A private sauna experience designed for warmth, rest and an unhurried wellness ritual.",
@@ -119,6 +129,8 @@ export const studioEquipment = [
   },
   {
     number: "04",
+    slug: "vacu-activ-treadmill-v3",
+    href: "/equipment/vacu-activ-treadmill-v3",
     title: "Vacu Activ vacuum treadmill V3",
     detail: "Guided movement",
     copy: "A technology-led walking experience combining controlled movement with adjustable vacuum and infrared functions.",
@@ -126,6 +138,8 @@ export const studioEquipment = [
   },
   {
     number: "05",
+    slug: "vacu-activ-infrastep-stairmill",
+    href: "/equipment/vacu-activ-infrastep-stairmill",
     title: "Vacu Activ Infrastep StairMill",
     detail: "Stair climbing",
     copy: "A guided stair-climbing machine with adjustable settings and integrated infrared and red-light functions.",

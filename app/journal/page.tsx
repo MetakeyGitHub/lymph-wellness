@@ -1,23 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BookingCTA } from "../_components/BookingCTA";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
 import { articles } from "../_data/articles";
-import { SITE_URL } from "../_data/seo";
+import { pageMetadata } from "../_data/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Lymphatic Wellness Journal",
   description: "Clear, evidence-aware guides to lymphatic drainage massage, post-operative care, facial treatments and choosing treatment in Melbourne.",
-  alternates: { canonical: `${SITE_URL}/journal` },
-  openGraph: {
-    title: "Lymphatic Wellness Journal | Lymph & Wellness",
-    description: "Practical lymphatic care guides written with realistic expectations and careful medical language.",
-    url: `${SITE_URL}/journal`,
-    images: ["/og.png"],
-  },
-};
+  path: "/journal",
+  image: "/images/social-journal.jpg",
+  imageAlt: "Evidence-aware lymphatic wellness guidance by Seda Yener",
+});
 
 export default function JournalPage() {
   return (
