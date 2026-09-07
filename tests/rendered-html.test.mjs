@@ -63,9 +63,22 @@ test("conversion links avoid broken checkout and open direct booking times", asy
     read("app/_data/site.ts"),
     read("app/contact/page.tsx"),
   ]);
-  assert.doesNotMatch(siteData, /zenoti/i);
+  assert.match(siteData, /lymphwell\.ap\.zenoti\.com/);
   assert.match(siteData, /service\/2\/count\/1\/addons\/no/);
   assert.match(siteData, /info@lymphandwellnessco\.com\.au/);
   assert.match(contact, /ContactForm/);
   assert.match(contact, /bookingOptions/);
+});
+
+test("GA4 tracks the conversion journey without form personal data", async () => {
+  const [layout, analytics] = await Promise.all([
+    read("app/layout.tsx"),
+    read("app/_components/GoogleAnalytics.tsx"),
+  ]);
+  assert.match(layout, /<GoogleAnalytics \/>/);
+  assert.match(analytics, /G-CVCY63HT5Q/);
+  for (const event of ["page_view", "booking_click", "membership_select", "generate_lead", "phone_click", "email_click", "directions_click", "reviews_click", "scroll_depth"]) {
+    assert.match(analytics, new RegExp(event));
+  }
+  assert.doesNotMatch(analytics, /form\.get\("(?:name|email|phone|message)"\)/);
 });

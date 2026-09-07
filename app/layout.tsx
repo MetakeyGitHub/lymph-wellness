@@ -4,6 +4,7 @@ import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { MotionEnhancer } from "./_components/MotionEnhancer";
 import { MobileStickyBook } from "./_components/MobileStickyBook";
+import { GoogleAnalytics } from "./_components/GoogleAnalytics";
 import { serviceAreas, SITE_URL } from "./_data/seo";
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F2F0E9" };
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <Footer />
         <MobileStickyBook />
+        <GoogleAnalytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       </body>
     </html>
