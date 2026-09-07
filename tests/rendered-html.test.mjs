@@ -39,16 +39,30 @@ test("journal contains ten distinct article entries", async () => {
   assert.equal(new Set(slugs).size, 10);
 });
 
-test("SEO growth routes and production canonical source exist", async () => {
-  const [seo, sitemap, navigation] = await Promise.all([
+test("SEO growth routes use the preferred custom-domain canonical source", async () => {
+  const [seo, sitemap, robots, navigation, config] = await Promise.all([
     read("app/_data/seo.ts"),
     read("app/sitemap.ts"),
+    read("app/robots.ts"),
     read("app/_data/site.ts"),
+    read("next.config.ts"),
   ]);
-  assert.match(seo, /https:\/\/lymph-wellness\.vercel\.app/);
+  assert.match(seo, /https:\/\/www\.lymphandwellness\.com\.au/);
+  assert.doesNotMatch(seo, /lymph-wellness\.vercel\.app/);
   assert.match(sitemap, /articles\.map/);
   assert.match(sitemap, /treatmentPages\.map/);
+  assert.match(robots, /SITE_URL/);
+  assert.match(config, /lymph-wellness\.vercel\.app/);
+  assert.match(config, /https:\/\/www\.lymphandwellness\.com\.au/);
   assert.match(navigation, /\/journal/);
+});
+
+test("Vercel Web Analytics and Speed Insights load once in the root layout", async () => {
+  const layout = await read("app/layout.tsx");
+  assert.match(layout, /@vercel\/analytics\/next/);
+  assert.match(layout, /@vercel\/speed-insights\/next/);
+  assert.equal((layout.match(/<Analytics \/>/g) ?? []).length, 1);
+  assert.equal((layout.match(/<SpeedInsights \/>/g) ?? []).length, 1);
 });
 
 test("medical claims remain qualified", async () => {

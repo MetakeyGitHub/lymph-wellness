@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
@@ -70,6 +72,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <MobileStickyBook />
         <GoogleAnalytics />
+        <Analytics />
+        <SpeedInsights />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       </body>
     </html>

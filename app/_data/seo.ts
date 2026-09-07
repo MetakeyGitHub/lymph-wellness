@@ -1,4 +1,4 @@
-export const SITE_URL = "https://lymph-wellness.vercel.app";
+export const SITE_URL = "https://www.lymphandwellness.com.au";
 
 export const serviceAreas = [
   "Altona",
