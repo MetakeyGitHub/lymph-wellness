@@ -1,6 +1,7 @@
-export const BOOKING_URL = "/contact#book";
+import { SERVICES_URL, formatPrice, serviceGroups } from "./offerings";
+export { MEMBERSHIP_URL, memberships } from "./offerings";
+export const BOOKING_URL = SERVICES_URL;
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.wellnessco/";
-export const MEMBERSHIP_URL = "https://lymphwell.ap.zenoti.com/webstoreNew/giftcards/ab0f43de-2383-47ca-b282-967daa002f72";
 export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
 export const PHONE_DISPLAY = "0452 599 300";
 export const PHONE_URL = "tel:+61452599300";
@@ -11,13 +12,9 @@ export const EMAIL_DISPLAY = "info@lymphandwellnessco.com.au";
 export const EMAIL_URL = `mailto:${EMAIL_DISPLAY}`;
 
 export const bookingOptions = [
-  { label: "60-minute lymphatic drainage", price: "$180", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/" },
-  { label: "90-minute lymphatic drainage", price: "$260", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/3/count/1/addons/no/" },
-  { label: "Facial cupping massage + 20-minute LED", price: "From $110", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/" },
-  { label: "EMS body sculpting", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/" },
-  { label: "60-minute post-operative care", price: "$200", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/4/count/1/addons/no/" },
-  { label: "90-minute post-operative care", price: "$290", href: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/12/count/1/addons/no/" },
-] as const;
+  serviceGroups[0].items[0], serviceGroups[0].items[4], serviceGroups[1].items[2],
+  serviceGroups[2].items[1], serviceGroups[0].items[2], serviceGroups[0].items[5],
+].map(([label, , price]) => ({ label, price: formatPrice(price), href: SERVICES_URL }));
 
 export const openingHours = [
   ["Monday", "10:30 AM to 5:00 PM"],
@@ -46,12 +43,12 @@ export const services = [
     title: "Brazilian Manual Lymphatic Drainage",
     shortTitle: "Lymphatic Drainage",
     duration: "60 or 90 minutes",
-    price: "From $180",
+    price: `From ${bookingOptions[0].price}`,
     bookingUrl: bookingOptions[0].href,
-    bookingCta: "View lymphatic times",
+    bookingCta: "Book lymphatic massage",
     copy: "A rhythmic, hands-on treatment designed to support lymphatic flow, ease the feeling of heaviness and encourage a restored sense of balance.",
     suitable: "Often chosen by clients seeking considered support for fluid retention, circulation, relaxation or general wellbeing.",
-    addOns: ["Whole Body LED Therapy", "Wood Therapy", "Dry Cupping"],
+    addOns: ["60-Min Lymphatic Drainage Massage + Abdominal EMS Session"],
     image: "/images/cream-texture.jpg",
     href: "/treatments/lymphatic-drainage-melbourne",
   },
@@ -60,13 +57,13 @@ export const services = [
     slug: "facial-treatments",
     title: "Facial Treatments",
     shortTitle: "Facial Treatments",
-    duration: "Treatment dependent",
-    price: "From $110",
+    duration: "20 to 45 minutes",
+    price: `From ${bookingOptions[2].price}`,
     bookingUrl: bookingOptions[2].href,
-    bookingCta: "View cupping + LED times",
+    bookingCta: "Book facial treatments",
     copy: "Targeted facial treatments that combine touch, sculpting techniques and optional light therapy in support of fresh, rested-looking skin.",
     suitable: "For clients seeking a non-invasive facial ritual focused on puffiness, relaxation and skin wellbeing.",
-    addOns: ["Facial Sculpting", "Facial Cupping", "LED Face Light Therapy"],
+    addOns: ["45-Min Ultra Sculpt Facial Massage", "DELUXE Ultra Sculpting - Facial Massage + Facial Cupping", "Facial Cupping Massage + 20-Min LED Red Light Therapy", "Signature Qi Eye Therapy", "Signature Qi Facial Therapy"],
     image: "/images/skin-closeup.jpg",
     href: "/treatments/facial-sculpting-melbourne",
   },
@@ -75,10 +72,10 @@ export const services = [
     slug: "body-sculpting",
     title: "EMS Body Sculpting",
     shortTitle: "Body Sculpting",
-    duration: "Plan tailored to your goals",
-    price: "From $200",
+    duration: "35 or 65 minutes",
+    price: `From ${bookingOptions[3].price}`,
     bookingUrl: bookingOptions[3].href,
-    bookingCta: "View EMS times",
+    bookingCta: "Book EMS",
     copy: "A body-contouring wellness treatment using electrical muscle stimulation to engage targeted muscle groups.",
     suitable: "Treatment plans may include a series of sessions depending on individual goals and suitability.",
     addOns: [],
@@ -90,13 +87,13 @@ export const services = [
     slug: "post-op-lymphatic-drainage",
     title: "Post-Operative Lymphatic Drainage",
     shortTitle: "Post-Op Lymphatic Drainage",
-    duration: "Treatment plan tailored individually",
-    price: "From $200",
+    duration: "60 or 90 minutes",
+    price: `From ${bookingOptions[4].price}`,
     bookingUrl: bookingOptions[4].href,
-    bookingCta: "View post-op times",
+    bookingCta: "Book post-op care",
     copy: "A gentle treatment designed to support comfort after surgery and help manage swelling, inflammation and fluid build-up as part of a considered recovery plan.",
     suitable: "For eligible clients who have received appropriate guidance or clearance from their surgeon or treating practitioner.",
-    addOns: ["LED Whole Body", "Recovery Boots", "Dry Cupping"],
+    addOns: ["60-Min Post-Op Lymphatic Massage + Whole Body LED/Infrared Light Therapy", "90-Min Post-Op Lymphatic Massage + Whole Body LED/Infrared Light Therapy"],
     image: "/images/layered-interior.jpg",
     href: "/post-op",
   },
@@ -107,46 +104,55 @@ export const studioEquipment = [
     number: "01",
     slug: "lymphatic-drainage-body-roller",
     href: "/equipment/lymphatic-drainage-body-roller",
-    title: "Lymphatic drainage body rollers",
+    title: "Lymphatic Body Roller Therapy",
     detail: "Roller massage",
-    copy: "Self-guided roller sessions available as part of selected memberships and considered body-care routines.",
-    access: "Selected memberships",
+    copy: "Self-guided roller sessions available to book individually or through premium credit packages.",
+    access: "Book online",
   },
   {
     number: "02",
     slug: "full-body-red-light-therapy-bed",
     href: "/equipment/full-body-red-light-therapy-bed",
-    title: "Full-body red light therapy bed",
+    title: "LED Red Light Therapy Bed",
     detail: "Whole-body light",
-    copy: "A quiet, non-invasive light-based wellness session offered within selected studio access.",
-    access: "Selected memberships",
+    copy: "A quiet, non-invasive light-based wellness session available to book through the services portal.",
+    access: "Book online",
   },
   {
     number: "03",
     slug: "full-spectrum-infrared-sauna",
     href: "/equipment/full-spectrum-infrared-sauna",
-    title: "Full-spectrum infrared sauna",
+    title: "Full Spectrum Infrared Sauna",
     detail: "Private heat ritual",
     copy: "A private sauna experience designed for warmth, rest and an unhurried wellness ritual.",
-    access: "Selected memberships",
+    access: "Book online",
   },
   {
     number: "04",
     slug: "vacu-activ-treadmill-v3",
     href: "/equipment/vacu-activ-treadmill-v3",
-    title: "Vacu Activ vacuum treadmill V3",
+    title: "Vacuactiv Bodyshape V3 Treadmill",
     detail: "Guided movement",
     copy: "A technology-led walking experience combining controlled movement with adjustable vacuum and infrared functions.",
-    access: "Enquire for availability",
+    access: "Book online",
   },
   {
     number: "05",
     slug: "vacu-activ-infrastep-stairmill",
     href: "/equipment/vacu-activ-infrastep-stairmill",
-    title: "Vacu Activ Infrastep StairMill",
+    title: "Vacuactiv Infrastep StairMaster",
     detail: "Stair climbing",
     copy: "A guided stair-climbing machine with adjustable settings and integrated infrared and red-light functions.",
-    access: "Enquire for availability",
+    access: "Book online",
+  },
+  {
+    number: "06",
+    slug: "recovery-boots",
+    href: "/equipment/recovery-boots",
+    title: "Recovery Boots",
+    detail: "Compression session",
+    copy: "15-minute recovery boot sessions available individually or through series packages.",
+    access: "Book online",
   },
 ] as const;
 
@@ -163,14 +169,6 @@ export const faqs = [
   { q: "What is EMS body sculpting?", a: "EMS uses controlled electrical impulses to stimulate targeted muscle contractions. It is positioned here as a body-contouring wellness treatment, not as a guaranteed fat-loss or weight-loss solution." },
   { q: "How do I choose the right treatment?", a: "Start with what you want support with, such as relaxation, lymphatic care, facial treatment, body contouring or post-operative comfort. If you are still unsure, contact the studio before booking." },
 ];
-
-export const memberships = [
-  { name: "VIP Reset", cadence: "Weekly members pass", inclusions: "Sauna + Boots", price: "$139" },
-  { name: "Beachside Essential", cadence: "Monthly members pass", inclusions: "Body Roller or LED Bed", price: "$196" },
-  { name: "Glow and Detox", cadence: "Bi-weekly members pass", inclusions: "Sauna + Boots", price: "$198" },
-  { name: "Lymph Ritual", cadence: "Monthly members pass", inclusions: "Roller + Boots", price: "$316" },
-  { name: "Glow and Detox", cadence: "Monthly members pass", inclusions: "Sauna + Boots", price: "$396" },
-] as const;
 
 export const testimonials = [
   {

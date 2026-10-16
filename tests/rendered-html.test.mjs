@@ -19,10 +19,10 @@ test("women-only sanctuary and studio equipment are visible", async () => {
   ]);
   assert.match(homepage, /Women’s only/);
   assert.match(homepage, /Women’s wellness sanctuary/);
-  for (const equipment of ["Lymphatic drainage body rollers", "Full-body red light therapy bed", "Full-spectrum infrared sauna", "Vacu Activ vacuum treadmill V3", "Vacu Activ Infrastep StairMill"]) {
+  for (const equipment of ["Lymphatic Body Roller Therapy", "LED Red Light Therapy Bed", "Full Spectrum Infrared Sauna", "Vacuactiv Bodyshape V3 Treadmill", "Vacuactiv Infrastep StairMaster", "Recovery Boots"]) {
     assert.match(siteData, new RegExp(equipment, "i"));
   }
-  assert.match(memberships, /Full-Spectrum Infrared Sauna/);
+  assert.match(memberships, /memberships.map/);
 });
 
 test("all core App Router pages exist", async () => {
@@ -72,14 +72,14 @@ test("medical claims remain qualified", async () => {
   assert.doesNotMatch(articleData, /guarantees faster healing/i);
 });
 
-test("conversion links avoid broken checkout and open direct booking times", async () => {
+test("conversion links use the current Zenoti services portal", async () => {
   const [siteData, contact] = await Promise.all([
-    read("app/_data/site.ts"),
+    read("app/_data/offerings.ts"),
     read("app/contact/page.tsx"),
   ]);
   assert.match(siteData, /lymphwell\.ap\.zenoti\.com/);
-  assert.match(siteData, /service\/2\/count\/1\/addons\/no/);
-  assert.match(siteData, /info@lymphandwellnessco\.com\.au/);
+  assert.match(siteData, /webstoreNew\/services\/ab0f43de-2383-47ca-b282-967daa002f72/);
+  assert.doesNotMatch(siteData, /simplybook/);
   assert.match(contact, /ContactForm/);
   assert.match(contact, /bookingOptions/);
 });
@@ -95,4 +95,16 @@ test("GA4 tracks the conversion journey without form personal data", async () =>
     assert.match(analytics, new RegExp(event));
   }
   assert.doesNotMatch(analytics, /form\.get\("(?:name|email|phone|message)"\)/);
+});
+
+test("all booking destinations are the four client-approved Zenoti URLs", async () => {
+  const source = await read("app/_data/offerings.ts");
+  const urls = [...source.matchAll(/export const \w+_URL = "([^"]+)"/g)].map(m => m[1]);
+  const root = "https://lymphwell.ap.zenoti.com/webstoreNew/";
+  const center = "ab0f43de-2383-47ca-b282-967daa002f72";
+  assert.deepEqual(urls, ["services/", "sales/membership/", "giftcards/", "sales/seriespackage/"].map(path => `${root}${path}${center}`));
+  const site = await read("app/_data/site.ts");
+  const seo = await read("app/_data/seo.ts");
+  assert.doesNotMatch(site + seo, /simplybook\.me/);
+  assert.match(site, /BOOKING_URL = SERVICES_URL/);
 });

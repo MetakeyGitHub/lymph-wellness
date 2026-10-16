@@ -4,8 +4,8 @@ import { SITE_URL, treatmentPages } from "./_data/seo";
 import { equipmentPages, locationPages } from "./_data/growth";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUpdated = new Date("2026-09-07T00:00:00+10:00");
-  const core = ["", "/services", "/memberships", "/about", "/post-op", "/faq", "/contact", "/journal", "/areas-we-serve"].map((path) => ({
+  const siteUpdated = new Date("2026-10-17T00:00:00+11:00");
+  const core = ["", "/services", "/memberships", "/packages", "/gift-cards", "/about", "/post-op", "/faq", "/contact", "/journal", "/areas-we-serve"].map((path) => ({
     url: `${SITE_URL}${path || "/"}`,
     lastModified: siteUpdated,
     changeFrequency: (path === "" || path === "/journal" ? "weekly" : "monthly") as "weekly" | "monthly",

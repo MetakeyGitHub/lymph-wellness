@@ -951,3 +951,54 @@ em { font-weight: 400; }
   *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* Current Zenoti catalogue */
+.offering-links { display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; margin: 2rem 0; }
+.offering-links a { min-height: 44px; display: inline-flex; align-items: center; border-bottom: 1px solid currentColor; font-size: .78rem; font-weight: 700; }
+.catalogue { background: var(--off-white); }
+.catalogue h2 { margin: 1.2rem 0 1.6rem; font-size: clamp(2.8rem, 5vw, 5rem); }
+.catalogue-intro { max-width: 48rem; }
+.catalogue-group { border-top: 1px solid var(--line); }
+.catalogue-group:last-of-type { border-bottom: 1px solid var(--line); }
+.catalogue-group summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; cursor: pointer; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 650; }
+.catalogue-group summary span { font-size: .75rem; white-space: nowrap; }
+.catalogue-group summary span::after { content: " +"; font-size: 1.2rem; }
+.catalogue-group[open] summary span::after { content: " −"; }
+.catalogue-table-wrap { overflow-x: auto; margin-bottom: 1.5rem; }
+.catalogue-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .88rem; }
+.catalogue-table th, .catalogue-table td { padding: 1rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.catalogue-table thead th { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
+.catalogue-table tbody th { font-weight: 600; min-width: 14rem; }
+.catalogue-table td { min-width: 6rem; }
+.catalogue-table td:nth-last-child(2), .catalogue-table td:last-child { white-space: nowrap; }
+.catalogue-table a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; text-underline-offset: 4px; }
+.catalogue-note { font-size: .8rem; margin: 1.5rem 0; max-width: 65rem; }
+.gift-card-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 3rem 0; }
+.gift-card-options a { padding: 2rem 1.3rem; border: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; font-size: 1.25rem; }
+.gift-card-options a:hover { background: var(--stone-light); }
+.site-footer > .offering-links { margin: 2rem max(4vw, calc((100vw - 1440px)/2)); }
+.membership-table td .text-link { font-size: .6rem; letter-spacing: .05em; }
+@media (max-width: 780px) {
+  .gift-card-options { grid-template-columns: repeat(2, 1fr); }
+  .catalogue-table { font-size: .8rem; }
+  .catalogue-table th, .catalogue-table td { padding: .75rem .6rem; }
+  .catalogue-table tbody th { min-width: 12rem; }
+  .membership-mobile-top { flex-wrap: wrap; }
+  .membership-mobile-top h3 { overflow-wrap: anywhere; }
+}
+.membership-table thead th:first-child { width: 36%; }
+.membership-table thead th:nth-child(2) { width: 18%; }
+.membership-table thead th:nth-child(3) { width: 22%; }
+#service-prices { scroll-margin-top: 5rem; }
+@media (max-width: 780px) {
+  .catalogue-table-wrap { overflow: visible; }
+  .catalogue-table, .catalogue-table tbody { display: block; }
+  .catalogue-table thead { display: none; }
+  .catalogue-table tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
+  .catalogue-table tbody th { grid-column: 1 / -1; min-width: 0; font-size: 1rem; }
+  .catalogue-table th, .catalogue-table td { display: block; min-width: 0; padding: 0; border: 0; }
+  .catalogue-table td::before { display: block; content: attr(data-label); font-size: .63rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .3rem; }
+  .catalogue-table td:last-child { grid-column: 1 / -1; }
+  .catalogue-table td:nth-last-child(2) { white-space: normal; }
+  .catalogue-table a { min-height: 44px; }
+}

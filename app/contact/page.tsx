@@ -1,3 +1,4 @@
+import { OfferingLinks } from "../_components/OfferingLinks";
 import { ContactForm } from "../_components/ContactForm";
 import { PageHero } from "../_components/PageHero";
 import { SectionLabel } from "../_components/SectionLabel";
@@ -9,8 +10,9 @@ export const metadata = pageMetadata({ title: "Book Lymphatic Drainage Altona", 
 export default function ContactPage() {
   return <main id="main"><PageHero eyebrow="Contact / Book" title={<>Book your<br /><em>treatment.</em></>} intro="Choose a treatment through the booking portal or send a considered enquiry if you need help deciding." image="/images/architectural-curve.jpg" imageAlt="Warm, sculptural archway in a calm wellness interior" />
     <section className="booking-chooser section-space" id="book" data-reveal data-booking-cta>
-      <div className="booking-chooser-intro"><SectionLabel number="01">Choose your appointment</SectionLabel><h2>Direct to the<br /><em>right treatment.</em></h2><p>Selecting an appointment below opens its live times directly. Prices shown are the current public booking prices and may change.</p></div>
-      <div className="booking-option-list">{bookingOptions.map((option, index) => <a href={option.href} target="_blank" rel="noreferrer" key={option.href}><span>0{index + 1}</span><strong>{option.label}</strong><small>{option.price}</small><i aria-hidden="true">↗</i></a>)}</div>
+      <div className="booking-chooser-intro"><SectionLabel number="01">Choose your appointment</SectionLabel><h2>Direct to the<br /><em>right treatment.</em></h2><p>These popular appointments open the Zenoti services portal. Select the matching service there to see live availability. All prices are in AUD.</p></div>
+      <div className="booking-option-list">{bookingOptions.map((option, index) => <a href={option.href} target="_blank" rel="noreferrer" key={option.label}><span>0{index + 1}</span><strong>{option.label}</strong><small>{option.price}</small><i aria-hidden="true">↗</i></a>)}</div>
+      <OfferingLinks />
     </section>
     <section className="contact-layout section-space" id="enquiry" data-reveal>
       <div className="contact-book"><SectionLabel number="02">Private enquiry</SectionLabel><h2>Need help<br /><em>choosing?</em></h2><p>Tell us what you would like support with. Your enquiry is prepared as a private email so you can review it before sending.</p><div className="contact-direct"><a href={PHONE_URL}>{PHONE_DISPLAY}</a><a href={EMAIL_URL}>{EMAIL_DISPLAY}</a><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram ↗</a></div><p className="form-note">For recent surgery or a medical concern, seek guidance from your surgeon or treating practitioner before booking.</p></div>

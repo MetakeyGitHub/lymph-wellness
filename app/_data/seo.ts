@@ -1,3 +1,6 @@
+import { SERVICES_URL } from "./offerings";
+import { services } from "./site";
+
 export const SITE_URL = "https://www.lymphandwellness.com.au";
 
 export const serviceAreas = [
@@ -25,14 +28,14 @@ export const treatmentPages = [
     eyebrow: "Lymphatic drainage / Melbourne",
     title: "Manual lymphatic drainage in Melbourne",
     seoTitle: "Lymphatic Drainage Melbourne",
-    description: "Brazilian manual lymphatic drainage in Altona, Melbourne. Choose a 60 or 90 minute women-only treatment with optional LED, wood therapy or dry cupping.",
+    description: "Brazilian manual lymphatic drainage in Altona, Melbourne. Choose a 60 or 90 minute women-only treatment with current service options and pricing in our booking portal.",
     intro: "A rhythmic full-body treatment designed to support lymphatic movement, ease the feeling of heaviness and create space for deep relaxation.",
     image: "/images/cream-texture.jpg",
     imageAlt: "Sculptural cream texture suggesting gentle lymphatic movement",
     duration: "60 or 90 minutes",
-    price: "From $180",
-    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/2/count/1/addons/no/",
-    bookingLabel: "View lymphatic times",
+    price: services[0].price,
+    bookingUrl: SERVICES_URL,
+    bookingLabel: "Book lymphatic massage",
     suitable: "Often chosen by clients seeking a gentle wellness treatment for puffiness, the feeling of heaviness, relaxation or regular body care.",
     expectations: [
       "A private consultation about your goals and relevant health history.",
@@ -40,7 +43,7 @@ export const treatmentPages = [
       "Appropriate draping in a private women-only treatment room.",
       "Realistic guidance without detox, weight-loss or guaranteed-result claims.",
     ],
-    additions: ["Whole Body LED Therapy", "Wood Therapy", "Dry Cupping"],
+    additions: ["60-Min Lymphatic Drainage Massage + Abdominal EMS Session"],
     keywords: ["lymphatic drainage Melbourne", "lymphatic massage Melbourne", "manual lymphatic drainage Melbourne", "lymphatic drainage Altona"],
     articleSlugs: ["what-is-lymphatic-drainage-massage", "brazilian-vs-manual-lymphatic-drainage", "how-to-prepare-for-lymphatic-drainage"],
   },
@@ -53,10 +56,10 @@ export const treatmentPages = [
     intro: "Gentle touch, considered sculpting techniques and optional light therapy for clients seeking a rested, refreshed facial ritual.",
     image: "/images/skin-closeup.jpg",
     imageAlt: "Natural skin close-up in diffused light",
-    duration: "Treatment dependent",
-    price: "From $110",
-    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/8/count/1/addons/no/",
-    bookingLabel: "View cupping + LED times",
+    duration: "20 to 45 minutes",
+    price: services[1].price,
+    bookingUrl: SERVICES_URL,
+    bookingLabel: "Book facial treatments",
     suitable: "For clients seeking non-invasive facial care focused on relaxation, the feeling of puffiness and fresh-looking skin.",
     expectations: [
       "A conversation about skin sensitivity and recent procedures.",
@@ -64,7 +67,7 @@ export const treatmentPages = [
       "Optional facial cupping or LED where suitable.",
       "No promise of permanent facial reshaping or medical treatment outcomes.",
     ],
-    additions: ["Facial Sculpting", "Facial Cupping", "LED Face Light Therapy"],
+    additions: ["45-Min Ultra Sculpt Facial Massage", "Signature Qi Eye Therapy", "Signature Qi Facial Therapy"],
     keywords: ["facial sculpting Melbourne", "facial lymphatic drainage Melbourne", "facial cupping Melbourne", "facial treatment Altona"],
     articleSlugs: ["facial-lymphatic-drainage-and-puffiness", "choosing-a-lymphatic-drainage-clinic-melbourne", "when-not-to-book-lymphatic-drainage"],
   },
@@ -77,10 +80,10 @@ export const treatmentPages = [
     intro: "Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.",
     image: "/images/architectural-curve.jpg",
     imageAlt: "Sculptural architectural curve representing considered body contouring",
-    duration: "Plan tailored individually",
-    price: "From $200",
-    bookingUrl: "https://lymphandwellnessco.simplybook.me/v2/#book/location/2/service/17/count/1/addons/no/",
-    bookingLabel: "View EMS times",
+    duration: "35 or 65 minutes",
+    price: services[2].price,
+    bookingUrl: SERVICES_URL,
+    bookingLabel: "Book EMS",
     suitable: "For suitable clients exploring a non-invasive body-contouring wellness treatment with realistic expectations.",
     expectations: [
       "A suitability conversation before treatment begins.",

@@ -92,10 +92,13 @@ function AnalyticsEvents() {
       const href = link.href;
       const details = common(link);
 
-      if (href.includes("lymphwell.ap.zenoti.com")) {
-        sendEvent("membership_select", { ...details, destination: "zenoti" });
-      } else if (href.includes("simplybook.me") || rawHref.includes("/contact#book") || link.closest("[data-booking-cta]")) {
-        sendEvent("booking_click", { ...details, destination: href.includes("simplybook.me") ? "simplybook" : "booking_page" });
+      if (link.hostname === "lymphwell.ap.zenoti.com") {
+        const event = link.pathname.includes("/sales/membership/") ? "membership_select"
+          : link.pathname.includes("/giftcards/") ? "gift_card_select"
+          : link.pathname.includes("/sales/seriespackage/") ? "package_select" : "booking_click";
+        sendEvent(event, { ...details, destination: "zenoti" });
+      } else if (rawHref.includes("/contact#book") || link.closest("[data-booking-cta]")) {
+        sendEvent("booking_click", { ...details, destination: "booking_page" });
       } else if (rawHref.startsWith("tel:")) {
         sendEvent("phone_click", details);
       } else if (rawHref.startsWith("mailto:")) {

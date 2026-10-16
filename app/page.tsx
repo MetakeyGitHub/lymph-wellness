@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       <section className="sanctuary-equipment section-space" id="equipment" data-reveal>
-        <div className="sanctuary-equipment-intro"><SectionLabel number="04">Women’s wellness sanctuary</SectionLabel><h2>Technology,<br /><em>chosen with intention.</em></h2><p>Five specialised studio experiences bring together touch, light, warmth and guided movement in one private women-only environment.</p><p className="equipment-note">The body roller, red light bed and sauna appear in selected memberships. Treadmill and StairMill availability is confirmed by enquiry.</p><Button href="/contact#enquiry" variant="line">Ask about equipment</Button></div>
+        <div className="sanctuary-equipment-intro"><SectionLabel number="04">Women’s wellness sanctuary</SectionLabel><h2>Technology,<br /><em>chosen with intention.</em></h2><p>Six specialised studio experiences bring together touch, light, warmth and guided movement in one private women-only environment.</p><p className="equipment-note">Book individual machine sessions through Zenoti, or explore series packages for repeated visits.</p><Button href={BOOKING_URL} variant="line" external>Book studio sessions</Button></div>
         <div className="sanctuary-equipment-list">{studioEquipment.map((item) => <article key={item.title}><span>{item.number}</span><div><p>{item.detail}</p><h3><Link href={item.href}>{item.title}</Link></h3><small>{item.copy}</small><b>{item.access}</b></div></article>)}</div>
       </section>
 

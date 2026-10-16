@@ -6,6 +6,7 @@ import { JsonLd } from "../../_components/JsonLd";
 import { SectionLabel } from "../../_components/SectionLabel";
 import { equipmentPages } from "../../_data/growth";
 import { pageMetadata } from "../../_data/metadata";
+import { SERVICES_URL } from "../../_data/offerings";
 import { SITE_URL } from "../../_data/seo";
 
 export function generateStaticParams() {
@@ -56,7 +57,7 @@ export default async function EquipmentPage({ params }: { params: Promise<{ slug
   return <main id="main">
     <JsonLd data={jsonLd} />
     <section className="equipment-hero">
-      <div className="equipment-hero-copy"><p className="eyebrow">{item.eyebrow} / Women’s only</p><h1>{item.name}<em>.</em></h1><p>{item.intro}</p><Button href="/contact#enquiry">Enquire about access</Button></div>
+      <div className="equipment-hero-copy"><p className="eyebrow">{item.eyebrow} / Women’s only</p><h1>{item.name}<em>.</em></h1><p>{item.intro}</p><Button href={SERVICES_URL} external>Book a session</Button></div>
       <div className="equipment-hero-image"><Image src={item.image} alt={`Atmospheric studio detail for ${item.name}`} fill loading="eager" fetchPriority="high" sizes="(max-width: 780px) 100vw, 50vw" /></div>
     </section>
     <section className="equipment-explainer section-space" data-reveal>

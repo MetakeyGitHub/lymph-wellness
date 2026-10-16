@@ -1,0 +1,22 @@
+{
+  "verifiedDate": "2026-10-17",
+  "timezone": "Australia/Melbourne",
+  "sources": {
+    "services": "https://lymphwell.ap.zenoti.com/webstoreNew/services/ab0f43de-2383-47ca-b282-967daa002f72",
+    "memberships": "https://lymphwell.ap.zenoti.com/webstoreNew/sales/membership/ab0f43de-2383-47ca-b282-967daa002f72",
+    "giftCards": "https://lymphwell.ap.zenoti.com/webstoreNew/giftcards/ab0f43de-2383-47ca-b282-967daa002f72",
+    "seriesPackages": "https://lymphwell.ap.zenoti.com/webstoreNew/sales/seriespackage/ab0f43de-2383-47ca-b282-967daa002f72"
+  },
+  "method": "Read rendered public Zenoti listings in browser, inspect every service and package category, compare membership names and billing periods, inspect gift card amounts. Verify website rendering and all outbound booking destinations with scripts/audit-offerings.mjs.",
+  "counts": { "serviceCategories": 10, "serviceAndDayPackageListings": 43, "memberships": 4, "seriesPackageCategories": 7, "seriesPackages": 19, "presetGiftAmounts": 3 },
+  "sourceDiscrepancies": [
+    { "item": "60-Min Post-Op Lymphatic Massage + Whole Body LED/Infrared Light Therapy", "lymphaticMassagePriceAUD": 240, "dayPackagePriceAUD": 248, "handling": "Retain both category-specific prices and explicitly explain the distinction." },
+    { "item": "VacuActive 10-Pack Bonus Launh offer", "handling": "Preserve the exact spelling in Zenoti so customers can find the matching listing." },
+    { "item": "Zenoti services sidebar contact information", "portalAddress": "6 Bellevue Drive, Truganina VIC 3029", "portalPhone": "+61 420 273 015", "websiteAddress": "1/22 Pier Street, Altona VIC 3018", "websitePhone": "0452 599 300", "handling": "Flag conflicting contact information; retain established website contact details because this update concerns offerings, pricing and booking destinations, and the portal sidebar may be legacy content." }
+  ],
+  "verificationLimits": [
+    "Public membership listings display names, prices and billing periods but no service allowances. Continue to checkout opens a login prompt. Removed unsupported inclusion matrix and direct customers to confirm benefits and terms before purchase.",
+    "No appointment, membership, package or gift card purchase was submitted. Audit verifies public catalogue, website links and portal handoff, not paid checkout completion.",
+    "Prices and launch offer availability are a dated public catalogue snapshot; Zenoti confirms final availability and terms."
+  ]
+}
