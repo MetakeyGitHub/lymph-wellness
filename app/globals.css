@@ -250,9 +250,10 @@ em { font-weight: 400; }
 .page-hero.dark .section-label { color: var(--stone-light); }
 
 /* Services */
-.service-overview { display: grid; grid-template-columns: 28% 68%; gap: 4%; }
-.service-overview-list { border-top: 1px solid var(--line); }
-.service-overview-list a { min-height: 7.5rem; display: grid; grid-template-columns: 4rem 1fr 13rem 2rem; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); }
+.service-overview { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem; align-items: center; }
+.service-overview > p { margin: 0; justify-self: end; }
+.service-overview-list { grid-column: 1 / -1; min-width: 0; border-top: 1px solid var(--line); }
+.service-overview-list a { min-height: 7.5rem; display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(13rem, 20rem) 2rem; align-items: center; gap: 1rem; border-bottom: 1px solid var(--line); }
 .service-mobile-cards { display: none; }
 .service-overview-list span { font-family: var(--font-playfair); }
 .service-overview-list strong { font-family: var(--font-playfair); font-size: clamp(1.5rem,2.5vw,2.8rem); font-weight: 400; }
@@ -347,6 +348,7 @@ em { font-weight: 400; }
 
 /* Contact */
 .booking-chooser { display: grid; grid-template-columns: 35% 59%; gap: 6%; background: var(--off-white); scroll-margin-top: 5rem; }
+.booking-chooser > .offering-links { grid-column: 1 / -1; }
 .booking-chooser-intro h2 { margin: 3rem 0 2rem; font-size: clamp(3.5rem, 6vw, 6.4rem); }
 .booking-chooser-intro > p { max-width: 30rem; color: var(--taupe); }
 .booking-option-list { border-top: 1px solid var(--line); }
@@ -976,7 +978,7 @@ em { font-weight: 400; }
 .gift-card-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 3rem 0; }
 .gift-card-options a { padding: 2rem 1.3rem; border: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; font-size: 1.25rem; }
 .gift-card-options a:hover { background: var(--stone-light); }
-.site-footer > .offering-links { margin: 2rem max(4vw, calc((100vw - 1440px)/2)); }
+.site-footer > .offering-links { margin: 2rem 0; }
 .membership-table td .text-link { font-size: .6rem; letter-spacing: .05em; }
 @media (max-width: 780px) {
   .gift-card-options { grid-template-columns: repeat(2, 1fr); }
@@ -1001,4 +1003,28 @@ em { font-weight: 400; }
   .catalogue-table td:last-child { grid-column: 1 / -1; }
   .catalogue-table td:nth-last-child(2) { white-space: normal; }
   .catalogue-table a { min-height: 44px; }
+}
+
+/* Responsive launch audit: contain grid items without clipping their content. */
+:where(main section, main article, .service-overview-list a, .field-grid, .footer-grid, .gift-card-options) > * { min-width: 0; }
+h1, h2, h3 { overflow-wrap: break-word; }
+.section-label { min-width: 0; }
+.section-label p { white-space: normal; line-height: 1.6; }
+.gift-card-options { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 780px) {
+  .gift-card-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gift-card-options a { padding: 1.4rem 1rem; flex-wrap: wrap; font-size: 1.1rem; }
+  .mobile-sticky-book { bottom: max(.75rem, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 430px) {
+  .page-hero h1, .treatment-landing-copy h1 { font-size: clamp(2.7rem, 13.5vw, 3.6rem); }
+  .treatment-expectations h2, .areas-note h2 { font-size: clamp(2.7rem, 12vw, 3.7rem); }
+  .testimonial-controls { grid-template-columns: minmax(0, 1fr); gap: .25rem; padding: .6rem; }
+  .testimonial-arrows { justify-self: center; }
+}
+.detail-columns { min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.detail-columns > div { min-width: 0; }
+.detail-columns a { overflow-wrap: anywhere; }
+@media (max-width: 430px) {
+  .detail-columns { grid-template-columns: minmax(0, 1fr); }
 }

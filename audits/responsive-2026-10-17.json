@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-17",
+  "timezone": "Australia/Melbourne",
+  "scope": "All 38 public website pages, including legal pages, treatment guides, six equipment pages, six location pages, journal index and ten articles.",
+  "browsers": ["Chromium", "WebKit"],
+  "profiles": ["Desktop 1440x1000", "Laptop 1024x768", "iPad Mini", "iPhone SE", "iPhone 13", "Android 360x800", "Pixel 7", "iPhone 13 landscape"],
+  "localPageChecks": 304,
+  "localInteractionChecks": 76,
+  "layoutRuntimeImageAnchorIssues": 0,
+  "interactionFailures": 0,
+  "fixes": [
+    "Service overview list spans the complete content width, with aligned columns and full-width row separators.",
+    "Constrain grid children and wrap long headings and section labels to prevent narrow-screen overflow.",
+    "Gift card options use shrinkable grid tracks and wrap on small phones.",
+    "Review controls stack on narrow phones instead of overflowing the viewport.",
+    "Contact detail columns shrink and long email addresses wrap at laptop sizes.",
+    "Contact booking portal links span the section; shared footer portal links align with the footer content.",
+    "Mobile sticky booking button respects the device bottom safe-area inset."
+  ],
+  "interactionCoverage": ["Header alignment", "Mobile menu open, close, Escape, scrolling and route changes", "Service overview width and row alignment", "Every service category accordion", "Approved service booking URLs", "Every FAQ accordion", "Enquiry form validation and minimum input font size", "Review next, previous and dot controls", "Normal-motion reveal behaviour"],
+  "visualReview": "Reviewed desktop and narrow-iPhone screenshot sheets for every public page; full-page screenshots retained in ignored outputs directory.",
+  "harnessNotes": [
+    "The local HTTP WebKit test removes only the CSP upgrade-insecure-requests directive from test documents so assets do not upgrade to nonexistent HTTPS localhost. Production HTTPS is tested unchanged.",
+    "Local production builds do not serve Vercel hosting analytics endpoints. Their two 404 responses per page are hosting-only exclusions; final audit scripts block analytics requests to prevent synthetic telemetry.",
+    "Screenshots use reduced-motion preferences; separate interaction checks exercise normal-motion behaviour."
+  ],
+  "limits": ["Playwright device emulation is not a physical iPhone or Android device test.", "No paid booking, purchase or email send is submitted."]
+}
