@@ -21,7 +21,7 @@ import {
 } from "./_data/site";
 
 export const metadata = pageMetadata({
-  title: "Women’s Wellness & Lymphatic Massage in Altona",
+  title: "Lymph & Wellness | Women’s Wellness & Lymphatic Massage, Altona",
   description:
     "Find lymphatic massage, facial care, post-operative support, sauna and wellness experiences at Lymph & Wellness in Altona. View prices and book your visit.",
   path: "/",

@@ -1,3 +1,4 @@
+import { FOUNDER } from "../_data/site";
 import { ArrowIcon } from "../_components/ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,8 +63,13 @@ export default function About() {
           <p className="lw-overline">Meet your care team</p>
           <h2>
             Personal care.
-            <br />A human connection.
+            <br />
+            <em>A human connection.</em>
           </h2>
+          <p className="lw-founder">
+            <strong>{FOUNDER.name}</strong>
+            <span>{FOUNDER.role}</span>
+          </p>
           <p>
             Seda Yener and the clinic team welcome you to Lymph & Wellness. Ask
             us about your appointment, practitioner availability, or the

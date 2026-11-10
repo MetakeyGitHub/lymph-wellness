@@ -1,6 +1,12 @@
 import { SERVICES_URL, formatPrice, findOffer } from "./offerings";
 export { MEMBERSHIP_URL, memberships } from "./offerings";
 export const BOOKING_URL = SERVICES_URL;
+/** Named clinic lead. Add qualifications here only once verified by the clinic. */
+export const FOUNDER = {
+  name: "Seda Yener",
+  role: "Founder & Director",
+  path: "/about#seda-yener",
+} as const;
 export const INSTAGRAM_URL = "https://www.instagram.com/lymph.andwellness/";
 export const GOOGLE_REVIEWS_URL = "https://share.google/PfSn7CcBq24fN0Uwy";
 export const PHONE_DISPLAY = "0452 599 300";

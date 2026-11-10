@@ -8,6 +8,11 @@ Updated 10 November 2026. Google account work is explicitly deferred at the owne
 - [ ] Verify Zenoti-side completed-booking and revenue attribution. Website booking clicks are not confirmed sales.
 - [ ] Replace the email-draft enquiry form with a hosted backend when requested, including spam protection, delivery monitoring and a genuine success state.
 - [ ] Review overlapping suburb pages using Search Console performance before merging or redirecting them.
+- [ ] Reconcile opening hours: Google Business Profile shows Wednesday opening at 10:30 am; the website (and its live open/closed status) says 9:00 am. Correct whichever is wrong.
+- [ ] Reconcile the address format: Google shows "Level 1/22 Pier St"; the website says "1/22 Pier Street".
+- [ ] In Search Console: verify both `www.lymphandwellness.com.au` and `lymph-wellness.vercel.app`, then use Removals / Change of Address signals so the old vercel.app results drop out faster. The vercel.app host already 308-redirects to the branded domain.
+- [ ] Google still credits an old Instagram handle (`lymph.wellnessco`) in results; confirm the current handle and update the old profile's bio/link if it still exists.
+- [ ] Add Seda Yener's verified qualifications to `FOUNDER` in `app/_data/site.ts` and the clinic page.
 - [ ] Confirm the display typeface and clay accent against the brand guidelines; both are single tokens in `app/design.css`.
 - [ ] Decide whether to show a founder portrait on the clinic page (existing portraits are low resolution).
 - [ ] Add public-holiday and closure dates if the live open/closed status should reflect them.
