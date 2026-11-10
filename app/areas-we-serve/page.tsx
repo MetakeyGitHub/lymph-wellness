@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
   description: "Women-only lymphatic drainage in Altona, serving Williamstown, Newport, Altona North, Yarraville, Point Cook and Melbourne's inner west.",
   keywords: ["lymphatic drainage Melbourne west", "lymphatic drainage Altona", "lymphatic massage Williamstown", "lymphatic massage Newport", "lymphatic massage Point Cook"],
   path: "/areas-we-serve",
-  image: "/images/social-treatments.jpg",
+  image: "/share-image",
   imageAlt: "Women-only lymphatic drainage in Melbourne's west",
 });
 
@@ -41,7 +41,7 @@ export default function AreasWeServePage() {
   return (
     <main id="main">
       <JsonLd data={jsonLd} />
-      <PageHero eyebrow="Altona / Hobsons Bay / Melbourne west" title={<>Lymphatic care,<br /><em>close to home.</em></>} intro="Private women-only lymphatic drainage, facial treatments, body sculpting and post-operative care in Altona." image="/images/studio.webp" imageAlt="Warm neutral Lymph and Wellness studio in Altona" />
+      <PageHero eyebrow="Altona / Hobsons Bay / Melbourne west" title={<>Lymphatic care,<br /><em>close to home.</em></>} intro="Private women-only lymphatic drainage, facial treatments, body sculpting and post-operative care in Altona." image="/images/clinic/lounge.jpg" imageAlt="Lymph & Wellness clinic lounge in Altona" />
 
       <section className="areas-intro section-space" data-reveal>
         <div><SectionLabel number="01">Our location</SectionLabel><h2>1/22 Pier Street,<br /><em>Altona.</em></h2></div>

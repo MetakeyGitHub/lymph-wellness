@@ -3,6 +3,9 @@ import { PageHero } from "../_components/PageHero";
 import { EMAIL_URL, EMAIL_DISPLAY } from "../_data/site";
 export const metadata: Metadata = {
   title: "Privacy",
+  description:
+    "How Lymph & Wellness handles website enquiries, optional analytics choices and booking information, with contact details for privacy questions.",
+  alternates: { canonical: "https://www.lymphandwellness.com.au/privacy" },
   robots: { index: false, follow: true },
 };
 export default function Privacy() {
@@ -26,10 +29,33 @@ export default function Privacy() {
         <h2>Your privacy matters.</h2>
         <h3>Browsing this website</h3>
         <p>
-          This version of the website does not load advertising pixels, session
-          replay or third-party visitor analytics. Our hosting provider may
-          process routine technical request information to deliver and protect
-          the website.
+          This website does not use advertising pixels or session replay. Where
+          optional Google Analytics is enabled, it loads only after you choose
+          “Allow analytics”. You can keep it off or change your choice using
+          Cookie settings in the footer. Our hosting provider may process
+          routine technical request information to deliver and protect the
+          website.
+        </p>
+        <h3>Optional analytics</h3>
+        <p>
+          When enabled and allowed, Google Analytics measures visits and general
+          actions such as opening booking, phone, email or directions links. We
+          use a general website address and broad page sections in reports,
+          rather than treatment-specific URLs. We do not include treatment names
+          or IDs, finder answers, search terms, or enquiry content in our
+          analytics events. A booking-link click is not recorded as a completed
+          appointment or purchase.
+        </p>
+        <p>
+          Your cookie preference is saved in your browser. If you allow
+          analytics, Google may use analytics cookies and process technical
+          information such as device and browser details. You can withdraw your
+          choice in Cookie settings; future analytics collection is then
+          disabled and this site’s Google Analytics cookies are cleared. See{" "}
+          <a href="https://policies.google.com/privacy">
+            Google’s privacy policy
+          </a>{" "}
+          for information about its processing.
         </p>
         <h3>Contacting the clinic</h3>
         <p>

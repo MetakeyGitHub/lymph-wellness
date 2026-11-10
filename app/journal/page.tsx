@@ -10,8 +10,8 @@ export const metadata = pageMetadata({
   title: "Lymphatic Wellness Journal",
   description: "Clear, evidence-aware guides to lymphatic drainage massage, post-operative care, facial treatments and choosing treatment in Melbourne.",
   path: "/journal",
-  image: "/images/social-journal.jpg",
-  imageAlt: "Evidence-aware lymphatic wellness guidance by Seda Yener",
+  image: "/share-image",
+  imageAlt: "Lymph & Wellness — women’s wellness in Altona",
 });
 
 export default function JournalPage() {

@@ -59,7 +59,7 @@ export const treatmentPages = [
     duration: "20 to 45 minutes",
     price: services[1].price,
     bookingUrl: findOffer("LWC008").url,
-    bookingLabel: "Book facial treatments",
+    bookingLabel: "Book Ultra Sculpt facial massage",
     suitable: "For clients seeking non-invasive facial care focused on relaxation, the feeling of puffiness and fresh-looking skin.",
     expectations: [
       "A conversation about skin sensitivity and recent procedures.",
@@ -79,7 +79,7 @@ export const treatmentPages = [
     description: "Explore EMS body sculpting at Lymph & Wellness in Altona, Melbourne. A conservative body-contouring wellness treatment tailored to individual goals.",
     intro: "Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.",
     image: "/images/clinic/lounge.jpg",
-    imageAlt: "Sculptural architectural curve representing considered body contouring",
+    imageAlt: "The light-filled Lymph & Wellness clinic lounge",
     duration: "35 or 65 minutes",
     price: services[2].price,
     bookingUrl: findOffer("LWC011").url,

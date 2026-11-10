@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsButton } from "./GoogleAnalytics";
 import {
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
@@ -48,6 +49,7 @@ export function Footer() {
           <Link href="/post-op">Post-operative care</Link>
           <Link href="/journal">Journal</Link>
           <Link href="/faq">Questions</Link>
+          <Link href="/search">Search the site</Link>
         </div>
         <div>
           <h2>Come say hello</h2>
@@ -73,6 +75,7 @@ export function Footer() {
         <span>© {new Date().getFullYear()} Lymph & Wellness</span>
         <Link href="/privacy">Privacy</Link>
         <Link href="/terms">Terms</Link>
+        <CookieSettingsButton />
         <span>Wellness care does not replace medical care.</span>
       </div>
     </footer>

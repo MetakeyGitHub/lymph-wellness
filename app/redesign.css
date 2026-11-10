@@ -1939,3 +1939,229 @@ img {
     font-size: 22px;
   }
 }
+
+.lw-faq-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 30px 5.5%;
+  border-bottom: 1px solid var(--line);
+}
+.lw-faq-nav a {
+  font-size: 12px;
+  padding: 10px 0;
+}
+.lw-faq-group {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 65px;
+  padding: 40px 0 70px;
+  scroll-margin-top: 12px;
+}
+.lw-faq-group h2 {
+  font-size: clamp(30px, 3vw, 46px);
+}
+.lw-faq-group + .lw-faq-group {
+  border-top: 1px solid var(--line);
+  padding-top: 65px;
+}
+.lw-faq-group .accordion {
+  width: 100%;
+  min-width: 0;
+}
+.lw-faq-group .accordion-answer p {
+  font-size: 14px;
+}
+.lw-suitability .lw-small a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .lw-faq-group {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 45px;
+  }
+  .lw-faq-group + .lw-faq-group {
+    padding-top: 45px;
+  }
+  .lw-faq-nav {
+    gap: 4px 20px;
+  }
+}
+.lw-site-search {
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 55px;
+}
+.lw-search-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.lw-site-search > input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--taupe);
+  padding: 20px;
+  font: inherit;
+  color: var(--espresso);
+  margin-bottom: 25px;
+}
+.lw-search-suggestions {
+  margin-top: 45px;
+}
+.lw-search-suggestions button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 10px 30px 10px 0;
+  cursor: pointer;
+}
+.lw-search-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.lw-search-result {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: var(--off-white);
+}
+.lw-search-result:hover {
+  background: var(--stone-light);
+}
+.lw-search-result .lw-overline {
+  margin-bottom: 15px;
+}
+.lw-search-result h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.lw-search-result p {
+  font-size: 13px;
+}
+.lw-search-result > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: auto;
+  font-size: 13px;
+}
+@media (max-width: 760px) {
+  .lw-search-results {
+    grid-template-columns: 1fr;
+  }
+  .lw-site-search > input {
+    font-size: 15px;
+    padding: 17px 14px;
+  }
+  .lw-search-result {
+    padding: 23px;
+  }
+}
+.lw-guide-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 45px;
+}
+.lw-guide-columns h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.lw-guide-columns p {
+  font-size: 14px;
+  max-width: 550px;
+}
+@media (max-width: 760px) {
+  .lw-guide-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+.lw-cookie-settings {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.lw-cookie-settings:hover {
+  text-decoration: underline;
+}
+.lw-cookie-panel {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 200;
+  max-width: 1100px;
+  margin: auto;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  color: var(--espresso);
+  background: var(--ivory);
+  border: 1px solid var(--taupe);
+  box-shadow: 0 5px 35px #44373025;
+}
+.lw-cookie-panel .lw-overline {
+  margin-bottom: 8px;
+}
+.lw-cookie-panel h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.lw-cookie-panel p:not(.lw-overline) {
+  font-size: 12px;
+  margin: 0;
+  max-width: 680px;
+}
+.lw-cookie-panel a {
+  text-decoration: underline;
+}
+.lw-cookie-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 170px;
+}
+.lw-cookie-actions button {
+  border: 1px solid var(--espresso);
+  padding: 14px 18px;
+  background: transparent;
+  color: var(--espresso);
+  cursor: pointer;
+  font-size: 12px;
+}
+.lw-cookie-actions button:hover {
+  background: var(--off-white);
+}
+@media (max-width: 760px) {
+  .lw-cookie-panel {
+    display: block;
+    padding: 22px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .lw-cookie-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .lw-cookie-actions button {
+    flex: 1;
+  }
+}

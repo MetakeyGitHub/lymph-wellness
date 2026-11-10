@@ -17,21 +17,27 @@ export function pageMetadata({
   title,
   description,
   path = "",
-  image = "/images/clinic/lounge.jpg",
-  imageAlt = "Lymph & Wellness women-only wellness sanctuary in Altona",
+  image = "/share-image",
+  imageAlt = "Lymph & Wellness — women’s wellness in Altona, Melbourne",
   keywords,
   type = "website",
   publishedTime,
   modifiedTime,
 }: PageMetadataOptions): Metadata {
   const canonical = `${SITE_URL}${path}`;
-  const socialImage = { url: image, ...(image.includes("/clinic/") ? {width:1050,height:1400} : {width:1200,height:630}), alt: imageAlt };
+  const socialImage = {
+    url: image,
+    ...(image.includes("/clinic/")
+      ? { width: 1050, height: 1400 }
+      : { width: 1200, height: 630 }),
+    alt: imageAlt,
+  };
 
   return {
     title,
     description,
     keywords: keywords ? [...keywords] : undefined,
-    authors: [{ name: "Seda Yener", url: `${SITE_URL}/about#seda-yener` }],
+    authors: [{ name: "Lymph & Wellness", url: `${SITE_URL}/about` }],
     alternates: { canonical },
     openGraph: {
       type,
@@ -41,7 +47,9 @@ export function pageMetadata({
       description,
       url: canonical,
       images: [socialImage],
-      ...(type === "article" ? { publishedTime, modifiedTime, authors: ["Seda Yener"] } : {}),
+      ...(type === "article"
+        ? { publishedTime, modifiedTime, authors: ["Lymph & Wellness"] }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

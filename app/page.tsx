@@ -5,6 +5,8 @@ import { INSTAGRAM_URL, MAPS_URL } from "./_data/site";
 import { TreatmentFinder } from "./_components/TreatmentFinder";
 import { FeaturedOffers } from "./_components/FeaturedOffers";
 import { ServiceCatalogue } from "./_components/ServiceCatalogue";
+import { pageMetadata } from "./_data/metadata";
+export const metadata = pageMetadata({title: "Women’s Wellness & Lymphatic Massage in Altona", description: "Find lymphatic massage, facial care, post-operative support, sauna and wellness experiences at Lymph & Wellness in Altona. View prices and book your visit.", path: "/"});
 const rituals = [
   {
     code: "LWC019",

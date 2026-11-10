@@ -39,6 +39,7 @@ export const navigation = [
   { href: "/memberships", label: "Memberships" },
   { href: "/gift-cards", label: "Gifting" },
   { href: "/about", label: "The clinic" },
+  { href: "/search", label: "Search" },
 ];
 
 export const services = [

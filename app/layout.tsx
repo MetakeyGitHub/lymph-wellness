@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./redesign.css";
 import { Header } from "./_components/Header";
+import { GoogleAnalytics } from "./_components/GoogleAnalytics";
 import { Footer } from "./_components/Footer";
 
 import { MobileStickyBook } from "./_components/MobileStickyBook";
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
   applicationName: "Lymph & Wellness",
   creator: "Lymph & Wellness",
   publisher: "Lymph & Wellness",
-  authors: [{ name: "Seda Yener", url: `${SITE_URL}/about#seda-yener` }],
+  authors: [{ name: "Lymph & Wellness", url: `${SITE_URL}/about` }],
   category: "Health and beauty",
   keywords: ["women's wellness sanctuary Melbourne", "women only wellness clinic Melbourne", "lymphatic drainage Melbourne", "lymphatic massage Melbourne", "manual lymphatic drainage Melbourne", "post op lymphatic drainage Melbourne", "lymphatic drainage Altona", "facial sculpting Melbourne", "body sculpting Melbourne", "infrared sauna Altona", "red light therapy Melbourne west"],
   manifest: "/manifest.webmanifest",
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/app-icon-192.png", sizes: "192x192", type: "image/png" }], shortcut: "/favicon.svg", apple: "/apple-touch-icon.png" },
-  openGraph: { siteName: "Lymph & Wellness", title: "Lymph & Wellness", description, type: "website", locale: "en_AU", url: SITE_URL, images: [{ url: "/images/clinic/lounge.jpg", width: 1050, height: 1400, alt: "The Lymph & Wellness clinic in Altona" }] },
-  twitter: { card: "summary_large_image", title: "Lymph & Wellness", description, images: ["/images/clinic/lounge.jpg"] },
+  openGraph: { siteName: "Lymph & Wellness", title: "Lymph & Wellness", description, type: "website", locale: "en_AU", url: SITE_URL, images: [{ url: "/share-image", width: 1200, height: 630, alt: "The Lymph & Wellness clinic in Altona" }] },
+  twitter: { card: "summary_large_image", title: "Lymph & Wellness", description, images: ["/share-image"] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <Footer />
         <MobileStickyBook />
+        <GoogleAnalytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       </body>
     </html>
