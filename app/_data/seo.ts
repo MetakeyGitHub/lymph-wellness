@@ -1,4 +1,4 @@
-import { SERVICES_URL } from "./offerings";
+import { findOffer } from "./offerings";
 import { services } from "./site";
 
 export const SITE_URL = "https://www.lymphandwellness.com.au";
@@ -34,7 +34,7 @@ export const treatmentPages = [
     imageAlt: "Sculptural cream texture suggesting gentle lymphatic movement",
     duration: "60 or 90 minutes",
     price: services[0].price,
-    bookingUrl: SERVICES_URL,
+    bookingUrl: findOffer("LWC001").url,
     bookingLabel: "Book lymphatic massage",
     suitable: "Often chosen by clients seeking a gentle wellness treatment for puffiness, the feeling of heaviness, relaxation or regular body care.",
     expectations: [
@@ -58,7 +58,7 @@ export const treatmentPages = [
     imageAlt: "Natural skin close-up in diffused light",
     duration: "20 to 45 minutes",
     price: services[1].price,
-    bookingUrl: SERVICES_URL,
+    bookingUrl: findOffer("LWC008").url,
     bookingLabel: "Book facial treatments",
     suitable: "For clients seeking non-invasive facial care focused on relaxation, the feeling of puffiness and fresh-looking skin.",
     expectations: [
@@ -78,11 +78,11 @@ export const treatmentPages = [
     seoTitle: "EMS Body Sculpting Melbourne | Altona",
     description: "Explore EMS body sculpting at Lymph & Wellness in Altona, Melbourne. A conservative body-contouring wellness treatment tailored to individual goals.",
     intro: "Controlled electrical muscle stimulation designed to engage targeted muscle groups as part of a considered body-contouring wellness plan.",
-    image: "/images/architectural-curve.jpg",
+    image: "/images/clinic/lounge.jpg",
     imageAlt: "Sculptural architectural curve representing considered body contouring",
     duration: "35 or 65 minutes",
     price: services[2].price,
-    bookingUrl: SERVICES_URL,
+    bookingUrl: findOffer("LWC011").url,
     bookingLabel: "Book EMS",
     suitable: "For suitable clients exploring a non-invasive body-contouring wellness treatment with realistic expectations.",
     expectations: [

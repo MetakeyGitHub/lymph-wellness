@@ -1,6 +1,67 @@
 import type { Metadata } from "next";
 import { PageHero } from "../_components/PageHero";
-import { SITE_URL } from "../_data/seo";
-
-export const metadata: Metadata = { title: "Privacy Policy", alternates: { canonical: `${SITE_URL}/privacy` }, robots: { index: false, follow: true } };
-export default function PrivacyPage() { return <main id="main"><PageHero eyebrow="Legal" title={<>Privacy<br /><em>policy.</em></>} intro="How Lymph & Wellness handles information shared through this website and connected booking services." /><article className="legal-page section-space"><p className="eyebrow">Last updated 10 August 2026</p><h2>Your privacy matters.</h2><h3>Information we receive</h3><p>This website does not collect enquiry forms directly. If you book through our external booking provider, contact the clinic by phone or communicate through Instagram, those services may collect your contact details, appointment information and other details you choose to provide.</p><h3>How information is used</h3><p>Information is used to manage appointments, respond to enquiries, provide suitable treatment care, meet legal obligations and improve the client experience. Health-related information should only be shared where relevant to treatment suitability and care.</p><h3>Third-party services</h3><p>Booking, membership, Google, Instagram and map links are operated by third parties under their own privacy policies. Review those policies before submitting personal information.</p><h3>Access and questions</h3><p>To ask about information held by the clinic, request a correction or raise a privacy concern, contact Lymph & Wellness by phone or through the official Instagram account listed on the Contact page.</p></article></main>; }
+import { EMAIL_URL, EMAIL_DISPLAY } from "../_data/site";
+export const metadata: Metadata = {
+  title: "Privacy",
+  robots: { index: false, follow: true },
+};
+export default function Privacy() {
+  return (
+    <main id="main">
+      <PageHero
+        eyebrow="Your information"
+        title={
+          <>
+            Privacy,
+            <br />
+            with care.
+          </>
+        }
+        intro="How information is handled when you use this website, contact the clinic or book an appointment."
+      />
+      <article className="lw-section lw-privacy-note">
+        <p className="lw-overline">
+          Website information · Updated 10 November 2026
+        </p>
+        <h2>Your privacy matters.</h2>
+        <h3>Browsing this website</h3>
+        <p>
+          This version of the website does not load advertising pixels, session
+          replay or third-party visitor analytics. Our hosting provider may
+          process routine technical request information to deliver and protect
+          the website.
+        </p>
+        <h3>Contacting the clinic</h3>
+        <p>
+          The enquiry form prepares an email in your own email application. It
+          does not submit your message to a website database. You can review the
+          email before sending it. Please avoid including medical records or
+          detailed health information in a general enquiry; contact the clinic
+          to arrange an appropriate way to share it.
+        </p>
+        <h3>Booking and purchases</h3>
+        <p>
+          Appointment bookings, memberships, packages and gift cards are handled
+          through our Zenoti booking portal. Details entered there are processed
+          by the clinic and booking provider under the policies displayed in
+          that service. Review those policies before entering personal or health
+          information.
+        </p>
+        <h3>External links</h3>
+        <p>
+          Instagram, Google Maps and other external services have their own
+          privacy practices. Opening a link takes you to that service.
+        </p>
+        <h3>Questions and access requests</h3>
+        <p>
+          For questions about information held by the clinic, access or
+          correction requests, or a privacy concern, email{" "}
+          <a className="lw-text-link" href={EMAIL_URL}>
+            {EMAIL_DISPLAY}
+          </a>
+          .
+        </p>
+      </article>
+    </main>
+  );
+}

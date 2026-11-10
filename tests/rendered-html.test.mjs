@@ -1,110 +1,167 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
-
-const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
-
-test("homepage contains the core brand and booking journey", async () => {
-  const homepage = await read("app/page.tsx");
-  assert.match(homepage, /Restore\./);
-  assert.match(homepage, /Book a treatment/i);
-  assert.match(homepage, /Brazilian manual/i);
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root = new URL("../", import.meta.url);
+const read = (p) => readFile(new URL(p, root), "utf8");
+const catalogue = JSON.parse(await read("app/_data/catalogue.json"));
+const byCode = (code) => catalogue.find((o) => o.code === code);
+const centre = "ab0f43de-2383-47ca-b282-967daa002f72";
+const allowed = new Set(catalogue.filter((o) => o.available).map((o) => o.url));
+allowed.add(
+  `https://booking.lymphandwellness.com.au/webstoreNew/giftcards/${centre}`,
+);
+async function htmlFiles(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const paths = await Promise.all(
+    entries.map((e) =>
+      e.isDirectory()
+        ? htmlFiles(path.join(dir, e.name))
+        : e.name.endsWith(".html")
+          ? [path.join(dir, e.name)]
+          : [],
+    ),
+  );
+  return paths.flat();
+}
+test("public catalogue contains only approved service, experience, pack and membership records", () => {
+  const counts = Object.fromEntries(
+    ["service", "day_package", "series_package", "membership"].map((kind) => [
+      kind,
+      catalogue.filter((o) => o.kind === kind).length,
+    ]),
+  );
+  assert.deepEqual(counts, {
+    service: 34,
+    day_package: 13,
+    series_package: 18,
+    membership: 4,
+  });
+  assert.equal(new Set(catalogue.map((o) => o.code)).size, catalogue.length);
+  for (const code of [
+    "EMSINTRO6",
+    "PRINTRO",
+    "PSSINTRO",
+    "VAIntro",
+    "GOM1",
+    "LMEM006",
+  ])
+    assert.equal(
+      byCode(code),
+      undefined,
+      `Retired ${code} must not be promoted`,
+    );
 });
-
-test("women-only sanctuary and studio equipment are visible", async () => {
-  const [homepage, siteData, memberships] = await Promise.all([
-    read("app/page.tsx"),
-    read("app/_data/site.ts"),
-    read("app/memberships/page.tsx"),
-  ]);
-  assert.match(homepage, /Women’s only/);
-  assert.match(homepage, /Women’s wellness sanctuary/);
-  for (const equipment of ["Lymphatic Body Roller Therapy", "LED Red Light Therapy Bed", "Full Spectrum Infrared Sauna", "Vacuactiv Bodyshape V3 Treadmill", "Vacuactiv Infrastep StairMaster", "Recovery Boots"]) {
-    assert.match(siteData, new RegExp(equipment, "i"));
+test("every deep link selects the correct item type, centre and identifier", () => {
+  for (const item of catalogue) {
+    const url = new URL(item.url);
+    assert.equal(url.hostname, "booking.lymphandwellness.com.au");
+    assert.ok(url.pathname.endsWith(centre));
+    const param = {
+      service: "serviceid",
+      day_package: "daypackageid",
+      series_package: "seriespackageid",
+      membership: "membershipid",
+    }[item.kind];
+    assert.equal(url.searchParams.size, 1);
+    assert.equal(
+      url.searchParams.get(param),
+      ["service", "day_package"].includes(item.kind) ? item.id : item.versionId,
+    );
+    assert.ok(item.price > 0);
   }
-  assert.match(memberships, /memberships.map/);
 });
-
-test("all core App Router pages exist", async () => {
-  for (const route of ["services", "memberships", "about", "post-op", "faq", "contact"]) {
-    const page = await read(`app/${route}/page.tsx`);
-    assert.match(page, /export default function/);
+test("corrected prices and treatment lengths are retained", () => {
+  for (const [code, price] of Object.entries({
+    LWC001: 210,
+    LWC003: 310,
+    LWC004: 220,
+    LWMET01: 125,
+    LWMET03: 90,
+    LWNP01: 195,
+    EMS4P: 599,
+    PR: 129,
+    "3PR": 382,
+    MEM005: 236,
+  }))
+    assert.equal(byCode(code).price, price, code);
+  assert.equal(byCode("LWC017").minutes, 30);
+  assert.equal(byCode("LWC020").minutes, 15);
+  assert.equal(byCode("PrivateSauna5").expiry, "1 Year from purchase");
+});
+test("all rendered booking links are exact approved destinations", async () => {
+  const files = await htmlFiles(
+    fileURLToPath(new URL(".next/server/app/", root)),
+  );
+  assert.ok(files.length >= 35, "Run npm run build before tests");
+  let bookingLinks = 0;
+  for (const file of files) {
+    const html = await readFile(file, "utf8");
+    for (const [, raw] of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+      const href = raw.replaceAll("&amp;", "&");
+      assert.ok(
+        !href.includes("lymphwell.ap.zenoti.com"),
+        `Old host in ${file}`,
+      );
+      if (href.includes("/webstoreNew/")) {
+        bookingLinks++;
+        assert.ok(
+          allowed.has(href),
+          `Unmatched booking link ${href} in ${file}`,
+        );
+      }
+    }
   }
+  assert.ok(
+    bookingLinks >= 70,
+    "Rendered pages should expose selected-offer links",
+  );
 });
-
-test("journal contains ten distinct article entries", async () => {
-  const articleData = await read("app/_data/articles.ts");
-  const slugs = [...articleData.matchAll(/^\s{4}slug: "([^"]+)",$/gm)].map((match) => match[1]);
-  assert.equal(slugs.length, 10);
-  assert.equal(new Set(slugs).size, 10);
-});
-
-test("SEO growth routes use the preferred custom-domain canonical source", async () => {
-  const [seo, sitemap, robots, navigation, config] = await Promise.all([
-    read("app/_data/seo.ts"),
-    read("app/sitemap.ts"),
-    read("app/robots.ts"),
-    read("app/_data/site.ts"),
-    read("next.config.ts"),
-  ]);
-  assert.match(seo, /https:\/\/www\.lymphandwellness\.com\.au/);
-  assert.doesNotMatch(seo, /lymph-wellness\.vercel\.app/);
-  assert.match(sitemap, /articles\.map/);
-  assert.match(sitemap, /treatmentPages\.map/);
-  assert.match(robots, /SITE_URL/);
-  assert.match(config, /lymph-wellness\.vercel\.app/);
-  assert.match(config, /https:\/\/www\.lymphandwellness\.com\.au/);
-  assert.match(navigation, /\/journal/);
-});
-
-test("Vercel Web Analytics and Speed Insights load once in the root layout", async () => {
-  const layout = await read("app/layout.tsx");
-  assert.match(layout, /@vercel\/analytics\/next/);
-  assert.match(layout, /@vercel\/speed-insights\/next/);
-  assert.equal((layout.match(/<Analytics \/>/g) ?? []).length, 1);
-  assert.equal((layout.match(/<SpeedInsights \/>/g) ?? []).length, 1);
-});
-
-test("medical claims remain qualified", async () => {
-  const articleData = await read("app/_data/articles.ts");
-  assert.match(articleData, /does not replace medical care|replace medical care/i);
-  assert.match(articleData, /responses vary|outcomes vary|individual experiences vary/i);
-  assert.doesNotMatch(articleData, /guarantees faster healing/i);
-});
-
-test("conversion links use the current Zenoti services portal", async () => {
-  const [siteData, contact] = await Promise.all([
-    read("app/_data/offerings.ts"),
-    read("app/contact/page.tsx"),
-  ]);
-  assert.match(siteData, /lymphwell\.ap\.zenoti\.com/);
-  assert.match(siteData, /webstoreNew\/services\/ab0f43de-2383-47ca-b282-967daa002f72/);
-  assert.doesNotMatch(siteData, /simplybook/);
-  assert.match(contact, /ContactForm/);
-  assert.match(contact, /bookingOptions/);
-});
-
-test("GA4 tracks the conversion journey without form personal data", async () => {
-  const [layout, analytics] = await Promise.all([
-    read("app/layout.tsx"),
-    read("app/_components/GoogleAnalytics.tsx"),
-  ]);
-  assert.match(layout, /<GoogleAnalytics \/>/);
-  assert.match(analytics, /G-CVCY63HT5Q/);
-  for (const event of ["page_view", "booking_click", "membership_select", "generate_lead", "phone_click", "email_click", "directions_click", "reviews_click", "scroll_depth"]) {
-    assert.match(analytics, new RegExp(event));
+test("all internal rendered links resolve to retained pages or real anchors", async () => {
+  const dir = fileURLToPath(new URL(".next/server/app/", root));
+  const files = await htmlFiles(dir);
+  const pages = new Map(
+    await Promise.all(
+      files.map(async (f) => [
+        ("/" + path.relative(dir, f).replace(/\.html$/, "")).replace(
+          "/index",
+          "/",
+        ),
+        await readFile(f, "utf8"),
+      ]),
+    ),
+  );
+  let checked = 0;
+  for (const [route, html] of pages) {
+    for (const [, raw] of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+      if (
+        !raw.startsWith("/") ||
+        raw.startsWith("//") ||
+        raw.includes("/webstoreNew/")
+      )
+        continue;
+      const [pathname, anchor] = raw.split("#");
+      const target = pages.get(pathname === "/" ? "/" : pathname);
+      assert.ok(target, `Missing internal route ${raw} on ${route}`);
+      if (anchor)
+        assert.ok(
+          target.includes(`id="${anchor}"`),
+          `Missing anchor ${raw} on ${route}`,
+        );
+      checked++;
+    }
   }
-  assert.doesNotMatch(analytics, /form\.get\("(?:name|email|phone|message)"\)/);
+  assert.ok(checked > 100);
 });
-
-test("all booking destinations are the four client-approved Zenoti URLs", async () => {
-  const source = await read("app/_data/offerings.ts");
-  const urls = [...source.matchAll(/export const \w+_URL = "([^"]+)"/g)].map(m => m[1]);
-  const root = "https://lymphwell.ap.zenoti.com/webstoreNew/";
-  const center = "ab0f43de-2383-47ca-b282-967daa002f72";
-  assert.deepEqual(urls, ["services/", "sales/membership/", "giftcards/", "sales/seriespackage/"].map(path => `${root}${path}${center}`));
-  const site = await read("app/_data/site.ts");
-  const seo = await read("app/_data/seo.ts");
-  assert.doesNotMatch(site + seo, /simplybook\.me/);
-  assert.match(site, /BOOKING_URL = SERVICES_URL/);
+test("privacy, brand identity and hours remain consistent in rendered output", async () => {
+  const home = await read(".next/server/app/index.html");
+  assert.match(home, /lymph\.andwellness/);
+  assert.doesNotMatch(
+    home,
+    /lymph\.wellnessco|googletagmanager|google-analytics|va\.vercel|speed-insights/i,
+  );
+  assert.match(home, /19:30/);
+  assert.match(home, /21:00/);
+  assert.doesNotMatch(home, /53 reviews|5\.0 rating/);
 });

@@ -17,7 +17,7 @@ export function pageMetadata({
   title,
   description,
   path = "",
-  image = "/images/social-home.jpg",
+  image = "/images/clinic/lounge.jpg",
   imageAlt = "Lymph & Wellness women-only wellness sanctuary in Altona",
   keywords,
   type = "website",
@@ -25,7 +25,7 @@ export function pageMetadata({
   modifiedTime,
 }: PageMetadataOptions): Metadata {
   const canonical = `${SITE_URL}${path}`;
-  const socialImage = { url: image, width: 1200, height: 630, alt: imageAlt };
+  const socialImage = { url: image, ...(image.includes("/clinic/") ? {width:1050,height:1400} : {width:1200,height:630}), alt: imageAlt };
 
   return {
     title,

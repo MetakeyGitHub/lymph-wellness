@@ -1,60 +1,77 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { BOOKING_URL, navigation } from "../_data/site";
-
+import { useEffect, useRef, useState } from "react";
+import { navigation } from "../_data/site";
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.classList.toggle("menu-open", open);
-    return () => document.body.classList.remove("menu-open");
-  }, [open]);
-
+  const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (!open) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+    const close = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
     };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
   }, [open]);
-
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}>
-      <Link className="brand-link" href="/" aria-label="Lymph & Wellness home" onClick={() => setOpen(false)}>
-        <Image className="header-logo header-logo-dark" src="/brand/logo-dark.svg" alt="" width={251} height={67} priority />
-        <Image className="header-logo header-logo-light" src="/brand/logo-light.svg" alt="" width={249} height={67} priority />
+    <header className="lw-header">
+      <Link
+        href="/"
+        className="lw-logo"
+        aria-label="Lymph & Wellness home"
+        onClick={() => setOpen(false)}
+      >
+        <Image
+          src="/brand/logo-dark.svg"
+          alt=""
+          width={251}
+          height={67}
+          priority
+        />
       </Link>
-      <nav className="desktop-nav" aria-label="Primary navigation">
-        {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+      <nav className="lw-nav" aria-label="Primary">
+        {navigation.map((n) => (
+          <Link key={n.href} href={n.href}>
+            {n.label}
+          </Link>
+        ))}
       </nav>
-      <Link className="header-book" href={BOOKING_URL}>Book a treatment</Link>
-      <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
-        <span /><span />
+      <Link href="/services" className="lw-book">
+        Book a visit <span aria-hidden="true">↗</span>
+      </Link>
+      <button
+        ref={toggle}
+        className="lw-menu-toggle"
+        aria-expanded={open}
+        aria-controls="lw-menu"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? "Close" : "Menu"}{" "}
+        <span aria-hidden="true">{open ? "−" : "+"}</span>
       </button>
-      <div className={`mobile-menu ${open ? "is-open" : ""}`} id="mobile-menu" aria-hidden={!open} inert={!open}>
-        <div className="mobile-menu-inner">
-          <p className="eyebrow">Women’s only / Altona</p>
-          <nav aria-label="Mobile navigation">
-            {navigation.map((item, index) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}</Link>
-            ))}
-          </nav>
-          <Link className="mobile-menu-book" href={BOOKING_URL} onClick={() => setOpen(false)}>Book a treatment <span aria-hidden="true">↗</span></Link>
-          <div className="mobile-menu-meta"><span>@LYMPH.WELLNESSCO</span><span>ALTONA, VIC</span></div>
-        </div>
-      </div>
+      <nav
+        id="lw-menu"
+        className="lw-mobile-nav"
+        aria-label="Mobile"
+        hidden={!open}
+      >
+        {navigation.map((n) => (
+          <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>
+            {n.label}
+            <span aria-hidden="true">↗</span>
+          </Link>
+        ))}
+        <Link href="/contact" onClick={() => setOpen(false)}>
+          Visit & contact ↗
+        </Link>
+        <Link href="/services" onClick={() => setOpen(false)}>
+          Book a visit ↗
+        </Link>
+      </nav>
     </header>
   );
 }

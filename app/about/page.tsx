@@ -1,18 +1,118 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BookingCTA } from "../_components/BookingCTA";
 import { PageHero } from "../_components/PageHero";
-import { SectionLabel } from "../_components/SectionLabel";
+import { INSTAGRAM_URL } from "../_data/site";
 import { pageMetadata } from "../_data/metadata";
-
-export const metadata = pageMetadata({ title: "Women's Wellness Sanctuary Altona", description: "Discover Lymph & Wellness, a private women-only wellness sanctuary for lymphatic care, restoration and body treatments in Altona.", path: "/about", image: "/images/social-treatments.jpg", imageAlt: "Considered body care at Lymph & Wellness" });
-
-export default function AboutPage() {
-  return <main id="main">
-    <PageHero eyebrow="Women’s only / The sanctuary" title={<>Wellness,<br /><em>with intention.</em></>} intro="A private women’s wellness sanctuary where specialised care, body awareness and quiet precision come together." image="/images/arched-studio.jpg" imageAlt="Calm arched wellness interior" />
-    <section className="about-philosophy section-space" data-reveal><div><SectionLabel number="01">Our philosophy</SectionLabel><h2>Care that listens<br /><em>before it begins.</em></h2></div><div className="about-copy"><p className="lead">Lymph &amp; Wellness was created as a women’s wellness sanctuary where body care feels considered, private and entirely personal.</p><p>Our women-only Melbourne clinic offers a calm, supportive setting for lymphatic care, body restoration and considered self-care.</p><p>Every appointment begins with where you are today. Your goals, comfort and relevant history inform a treatment experience delivered with precision and without rush.</p><p>The studio brings together specialised lymphatic wellness, restoration and body awareness in an environment designed to feel warm, calm and discreet.</p></div></section>
-    <section className="values-editorial" data-reveal><div className="values-image"><Image src="/images/layered-interior.jpg" alt="Layered interior and soft shadow" fill sizes="(max-width: 760px) 100vw, 44vw" /></div><div className="values-list"><SectionLabel number="02">What guides us</SectionLabel>{[["Personalised","Care shaped around your body, comfort and goals."],["Precise","Thoughtful technique delivered with quiet attention."],["Restorative","An unhurried space for recovery, rest and reconnection."],["Private","A discreet environment where you can feel at ease."]].map(([t,c],i)=><article key={t}><span>0{i+1}</span><h3>{t}</h3><p>{c}</p></article>)}</div></section>
-    <section className="practitioner section-space" id="seda-yener" data-reveal><div className="practitioner-intro"><SectionLabel number="03">Your practitioner</SectionLabel><h2>Considered care.<br /><em>A human approach.</em></h2><p>Seda Yener is known by clients for her calm presence, attentive technique and commitment to making every treatment feel comfortable, personal and unhurried.</p></div><div className="practitioner-image"><Image src="/images/seda-practitioner.jpg" alt="Seda Yener, practitioner at Lymph and Wellness" fill sizes="(max-width: 760px) 100vw, 35vw" /></div><div className="practitioner-details"><p className="eyebrow">Your practitioner</p><h3>Seda Yener</h3><dl><div><dt>Approach</dt><dd>Attentive, calm and tailored to the individual.</dd></div><div><dt>Environment</dt><dd>A private women-only clinic designed around comfort and confidentiality.</dd></div><div><dt>Professional information</dt><dd>For current training and certification details, <Link href="/contact#enquiry">contact the clinic before booking</Link>.</dd></div></dl></div></section>
-    <BookingCTA compact />
-  </main>;
+export const metadata = pageMetadata({
+  title: "Our Women’s Wellness Clinic in Altona",
+  description:
+    "Step inside Lymph & Wellness: a calm, women-only clinic on Pier Street, Altona, for lymphatic care, recovery and wellness rituals.",
+  path: "/about",
+});
+export default function About() {
+  return (
+    <main id="main">
+      <PageHero
+        eyebrow="The clinic / Altona"
+        title={
+          <>
+            A space to feel
+            <br />
+            like yourself.
+          </>
+        }
+        intro="Warm surroundings. Personal attention. Time that belongs to you. Welcome to our women’s wellness clinic on Pier Street."
+        image="/images/clinic/lounge.jpg"
+        imageAlt="The real Lymph & Wellness clinic lounge"
+      />
+      <section className="lw-section lw-intro">
+        <p className="lw-overline">Our approach</p>
+        <h2>
+          Care begins
+          <br />
+          with listening.
+        </h2>
+        <div>
+          <p>
+            Every visit starts with you: what brings you in, how you feel, and
+            what would make you comfortable.
+          </p>
+          <p>
+            We bring together lymphatic massage, body and facial treatments,
+            complementary care and wellness machines in one calm, women-only
+            space.
+          </p>
+          <p>
+            Whether you are here for recovery support or a regular moment of
+            rest, we’ll help you understand the options and what to expect.
+          </p>
+        </div>
+      </section>
+      <section className="lw-membership-story" id="seda-yener">
+        <div className="lw-story-image">
+          <Image
+            src="/images/clinic/recovery-lounge.jpg"
+            alt="The clinic’s soft seating and private recovery spaces"
+            fill
+            sizes="(max-width:760px) 100vw, 50vw"
+          />
+        </div>
+        <div className="lw-story-copy">
+          <p className="lw-overline">Meet your care team</p>
+          <h2>
+            Personal care.
+            <br />A human connection.
+          </h2>
+          <p>
+            Seda Yener and the clinic team welcome you to Lymph & Wellness. Ask
+            us about your appointment, practitioner availability, or the
+            training relevant to your treatment.
+          </p>
+          <a
+            className="lw-text-link"
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Meet us on Instagram ↗
+          </a>
+          <Link className="lw-button" href="/contact">
+            Get in touch ↗
+          </Link>
+        </div>
+      </section>
+      <section className="lw-section lw-first-visit">
+        <p className="lw-overline">Considered from the beginning</p>
+        <h2>Your comfort comes first.</h2>
+        <div className="lw-steps">
+          {[
+            [
+              "01",
+              "A women-only space",
+              "A private setting designed to help you feel at ease.",
+            ],
+            [
+              "02",
+              "Clear choices",
+              "Understand your treatment, price and appointment length before booking.",
+            ],
+            [
+              "03",
+              "Individual guidance",
+              "Suitability and comfort guide the experience. Outcomes vary from person to person.",
+            ],
+          ].map(([n, t, p]) => (
+            <div key={n}>
+              <span>{n}</span>
+              <h3>{t}</h3>
+              <p>{p}</p>
+            </div>
+          ))}
+        </div>
+        <Link className="lw-button" href="/services">
+          Explore your next visit ↗
+        </Link>
+      </section>
+    </main>
+  );
 }

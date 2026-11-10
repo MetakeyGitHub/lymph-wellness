@@ -1,86 +1,298 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BookingCTA } from "./_components/BookingCTA";
-import { Button } from "./_components/Button";
-import { SectionLabel } from "./_components/SectionLabel";
-import { TestimonialCarousel } from "./_components/TestimonialCarousel";
-import { BOOKING_URL, GOOGLE_REVIEWS_URL, services, studioEquipment, testimonials } from "./_data/site";
-import { pageMetadata } from "./_data/metadata";
-
-export const metadata = pageMetadata({
-  title: "Women's Wellness & Lymphatic Drainage Melbourne",
-  description: "A women-only wellness sanctuary in Altona for lymphatic drainage, recovery, red light therapy, infrared sauna and considered body care.",
-  image: "/images/social-home.jpg",
-  imageAlt: "Lymph & Wellness women-only wellness sanctuary in Melbourne",
-});
-
+import { findOffer, formatPrice } from "./_data/offerings";
+import { INSTAGRAM_URL, MAPS_URL } from "./_data/site";
+const rituals = [
+  {
+    code: "LWC019",
+    title: "A softer pace.",
+    sub: "Private infrared sauna",
+    image: "infrared-sauna.jpg",
+  },
+  {
+    code: "LWC018",
+    title: "Time to unwind.",
+    sub: "Lymphatic body roller",
+    image: "body-rollers.jpg",
+  },
+  {
+    code: "LWC017",
+    title: "Your quiet moment.",
+    sub: "Whole-body red light therapy",
+    image: "led-bed.jpg",
+  },
+];
 export default function Home() {
   return (
-    <main id="main">
-      <section className="home-hero">
-        <Image className="home-hero-image" src="/images/flow-editorial.webp" alt="Layered ivory fabric in soft natural light" fill loading="eager" fetchPriority="high" sizes="100vw" />
-        <div className="home-hero-wash" />
-        <div className="home-hero-copy">
-          <div className="hero-kicker"><span>Women’s only</span><span>Altona / Melbourne west</span></div>
-          <h1><span>Restore.</span><span>Sculpt.</span><span><em>Rebalance.</em></span></h1>
-          <p className="hero-intro">Melbourne’s women-only wellness sanctuary for specialised lymphatic drainage, recovery, body care and considered wellness technology.</p>
-          <div className="hero-actions"><Button href={BOOKING_URL} variant="light">Book a treatment</Button><Link className="text-link light" href="/services">Explore services <span aria-hidden="true">↘</span></Link><a className="hero-reviews" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer" aria-label="5.0, 53 Google reviews. Read on Google"><span className="review-stars" aria-hidden="true">★★★★★</span><strong>5.0</strong><span>53 Google reviews</span></a></div>
+    <main id="main" className="lw-home">
+      <section className="lw-hero">
+        <div className="lw-hero-copy">
+          <p className="lw-overline">Women’s wellness · Altona, Melbourne</p>
+          <h1>
+            Come back
+            <br />
+            to <span>yourself.</span>
+          </h1>
+          <p className="lw-hero-intro">
+            Thoughtful body care. A slower moment.
+            <br />A space that feels like it’s yours.
+          </p>
+          <div className="lw-actions">
+            <Link className="lw-button" href="/services">
+              Find your treatment <span aria-hidden="true">↗</span>
+            </Link>
+            <Link className="lw-text-link" href="/about">
+              Step inside the clinic ↗
+            </Link>
+          </div>
+          <div className="lw-hero-bottom">
+            <span>
+              Lymphatic care &nbsp; / &nbsp; Recovery &nbsp; / &nbsp; Rest
+            </span>
+            <span aria-hidden="true">↓</span>
+          </div>
         </div>
-        <div className="hero-side-note"><span>01</span><span>Lymphatic care<br />from within</span></div>
-        <div className="hero-scroll">Scroll to explore <span aria-hidden="true">↓</span></div>
+        <div className="lw-hero-image">
+          <Image
+            src="/images/clinic/lounge.jpg"
+            alt="Sunlight falling through the skylight into the Lymph & Wellness lounge in Altona"
+            fill
+            priority
+            sizes="(max-width: 760px) 100vw, 51vw"
+          />
+          <span className="lw-image-caption">Your pause, on Pier Street.</span>
+        </div>
       </section>
-
-      <section className="service-index section-space" data-reveal>
-        <div className="index-heading"><SectionLabel number="01">Treatments</SectionLabel><h2>Care, considered<br />from every angle.</h2><p>Four treatment pathways in a private women-only setting, shaped around how your body feels today.</p></div>
-        <div className="index-list">
-          {services.map(service => (
-            <Link className="index-row" href={service.href} key={service.slug}>
-              <span className="index-number">{service.number}</span><span className="index-title">{service.shortTitle}</span><span className="index-arrow" aria-hidden="true">↗</span>
-              <span className="index-preview"><Image src={service.image} alt="" fill sizes="240px" /></span>
+      <div className="lw-marquee" aria-label="Our approach">
+        <span>A space for women</span>
+        <span aria-hidden="true">✳</span>
+        <span>Care that feels personal</span>
+        <span aria-hidden="true">✳</span>
+        <span>Time to reconnect</span>
+        <span aria-hidden="true">✳</span>
+        <span>Here in Altona</span>
+      </div>
+      <section className="lw-section lw-intro">
+        <p className="lw-overline">Welcome to Lymph & Wellness</p>
+        <h2>
+          Feel cared for.
+          <br />
+          <span>In every sense.</span>
+        </h2>
+        <div>
+          <p>
+            From hands-on lymphatic massage to restorative machine sessions, our
+            women’s wellness clinic brings considered care into a beautifully
+            calm space.
+          </p>
+          <p>
+            Come for a single moment of rest, support through recovery, or a
+            ritual you return to. We’ll help you find your place.
+          </p>
+          <Link className="lw-text-link" href="/about">
+            Get to know us ↗
+          </Link>
+        </div>
+      </section>
+      <section className="lw-section lw-pathways">
+        <div className="lw-section-heading">
+          <div>
+            <p className="lw-overline">Care, your way</p>
+            <h2>What brings you in?</h2>
+          </div>
+          <Link className="lw-text-link" href="/services">
+            See the full treatment menu ↗
+          </Link>
+        </div>
+        <div className="lw-pathway-grid">
+          {[
+            {
+              n: "01",
+              title: "Lymphatic & body care",
+              copy: "Hands-on massage, facial sculpting and tailored body treatments.",
+              href: "/services#service-prices",
+              label: "Explore treatments",
+            },
+            {
+              n: "02",
+              title: "Rest & reset",
+              copy: "Sauna, red light, rollers and recovery. A little breathing space in your week.",
+              href: "/packages",
+              label: "Explore experiences",
+            },
+            {
+              n: "03",
+              title: "Post-operative support",
+              copy: "Individual care after surgery, guided by your recovery and treating team.",
+              href: "/post-op",
+              label: "Understand your care",
+            },
+          ].map((p) => (
+            <Link className="lw-pathway" href={p.href} key={p.n}>
+              <span>{p.n} /</span>
+              <h3>{p.title}</h3>
+              <p>{p.copy}</p>
+              <span className="lw-text-link">{p.label} ↗</span>
             </Link>
           ))}
         </div>
       </section>
-
-      <section className="testimonials testimonials-early section-space" data-reveal>
-        <div className="testimonial-heading"><div><SectionLabel number="02">Google reviews</SectionLabel><h2>What care<br /><em>feels like.</em></h2></div><div className="google-score"><strong>5.0</strong><span className="review-stars" aria-hidden="true">★★★★★</span><p>Based on 53 Google reviews</p></div></div>
-        <TestimonialCarousel testimonials={testimonials} />
-        <div className="testimonial-footer"><p>Verified Google review excerpts. Individual experiences and treatment outcomes vary.</p><a className="text-link" href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">Read all Google reviews <span aria-hidden="true">↗</span></a></div>
-      </section>
-
-      <section className="featured-service section-space" data-reveal>
-        <div className="featured-image"><Image src="/images/cream-texture.jpg" alt="Sculptural cream texture" fill sizes="(max-width: 760px) 100vw, 48vw" /><span>Body / Rhythm / Flow</span></div>
-        <div className="featured-copy">
-          <SectionLabel number="03">Featured treatment</SectionLabel>
-          <h2>Brazilian manual<br /><em>lymphatic drainage.</em></h2>
-          <p>A rhythmic, full-body treatment with a refined, focused approach to lymphatic wellbeing.</p>
-          <div className="duration-grid"><div><span>Duration</span><strong>60</strong><small>Minutes</small></div><div><span>Duration</span><strong>90</strong><small>Minutes</small></div></div>
-          <div className="add-ons"><p className="eyebrow">Optional additions</p><span>Whole Body LED Therapy</span><span>Wood Therapy</span><span>Dry Cupping</span></div>
-          <Button href={services[0].bookingUrl} external>Book this treatment</Button>
+      <section className="lw-section lw-rituals" id="equipment">
+        <div className="lw-section-heading">
+          <div>
+            <p className="lw-overline">Make room for a ritual</p>
+            <h2>
+              Small moments.
+              <br />A little more you.
+            </h2>
+          </div>
+          <p>
+            Discover the wellness spaces inside our clinic. Book a single
+            session, or find a pack that fits your routine.
+          </p>
+        </div>
+        <div className="lw-ritual-grid">
+          {rituals.map((r) => {
+            const item = findOffer(r.code);
+            return (
+              <article className="lw-ritual" key={r.code}>
+                <a
+                  className="lw-ritual-image"
+                  href={item.url}
+                  aria-label={`Book ${r.sub}`}
+                >
+                  <Image
+                    src={`/images/clinic/${r.image}`}
+                    alt={`${r.sub} at Lymph & Wellness`}
+                    fill
+                    sizes="(max-width:760px) 100vw, 32vw"
+                  />
+                </a>
+                <p className="lw-overline">{r.sub}</p>
+                <h3>{r.title}</h3>
+                <div>
+                  <span>
+                    {item.minutes} min · {formatPrice(item.price)}
+                  </span>
+                  <a
+                    className="lw-text-link"
+                    data-booking-cta="true"
+                    href={item.url}
+                  >
+                    Book this session ↗
+                    <span className="sr-only"> — {r.sub}</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
-
-      <section className="sanctuary-equipment section-space" id="equipment" data-reveal>
-        <div className="sanctuary-equipment-intro"><SectionLabel number="04">Women’s wellness sanctuary</SectionLabel><h2>Technology,<br /><em>chosen with intention.</em></h2><p>Six specialised studio experiences bring together touch, light, warmth and guided movement in one private women-only environment.</p><p className="equipment-note">Book individual machine sessions through Zenoti, or explore series packages for repeated visits.</p><Button href={BOOKING_URL} variant="line" external>Book studio sessions</Button></div>
-        <div className="sanctuary-equipment-list">{studioEquipment.map((item) => <article key={item.title}><span>{item.number}</span><div><p>{item.detail}</p><h3><Link href={item.href}>{item.title}</Link></h3><small>{item.copy}</small><b>{item.access}</b></div></article>)}</div>
+      <section className="lw-membership-story">
+        <div className="lw-story-image">
+          <Image
+            src="/images/clinic/recovery-lounge.jpg"
+            alt="Soft seating and private recovery spaces at the Altona clinic"
+            fill
+            sizes="(max-width:760px) 100vw, 50vw"
+          />
+        </div>
+        <div className="lw-story-copy">
+          <p className="lw-overline">A rhythm to return to</p>
+          <h2>
+            Wellness,
+            <br />
+            woven into
+            <br />
+            <span>your month.</span>
+          </h2>
+          <p>
+            Make time for yourself with monthly machine sessions, from Beachside
+            Essential to VIP Reset.
+          </p>
+          <p className="lw-membership-price">
+            From $236 <span>/ month</span>
+          </p>
+          <Link className="lw-button" href="/memberships">
+            Find your membership ↗
+          </Link>
+          <Link className="lw-text-link" href="/packages#packs">
+            Prefer a session pack? ↗
+          </Link>
+        </div>
       </section>
-
-      <section className="postop-feature section-space" data-reveal>
-        <div className="postop-copy"><SectionLabel number="05">Recovery care</SectionLabel><h2>Post-operative<br /><em>lymphatic drainage.</em></h2><p className="lead">A gentle treatment designed to support healing after surgery, helping manage swelling, inflammation and fluid build-up while supporting a smoother recovery experience.</p><div className="inline-list"><span>LED Whole Body</span><span>Recovery Boots</span><span>Dry Cupping</span></div><Button href="/post-op">Explore post-op care</Button><small>Treatment suitability varies. Please seek guidance from your surgeon or medical practitioner where appropriate.</small></div>
-        <div className="postop-visual"><Image src="/images/layered-interior.jpg" alt="Layered architectural interior with soft shadows" fill sizes="(max-width: 760px) 100vw, 42vw" /><div className="postop-note"><span>Gentle</span><span>Considered</span><span>Individual</span></div></div>
+      <section className="lw-section lw-first-visit">
+        <p className="lw-overline">Your first visit</p>
+        <h2>
+          Easy to choose.
+          <br />
+          <span>Lovely to come back to.</span>
+        </h2>
+        <div className="lw-steps">
+          {[
+            [
+              "01",
+              "Find your moment",
+              "Explore treatments with clear prices and appointment lengths.",
+            ],
+            [
+              "02",
+              "Choose your time",
+              "Your selected treatment opens in our secure booking portal.",
+            ],
+            [
+              "03",
+              "Arrive as you are",
+              "Come to our women’s clinic on Pier Street. We’ll guide you from there.",
+            ],
+          ].map(([n, t, p]) => (
+            <div key={n}>
+              <span>{n}</span>
+              <h3>{t}</h3>
+              <p>{p}</p>
+            </div>
+          ))}
+        </div>
+        <Link className="lw-text-link" href="/faq">
+          A few things you might be wondering ↗
+        </Link>
       </section>
-
-      <BookingCTA />
-
-      <section className="home-journal section-space" data-reveal>
-        <div><SectionLabel number="07">The journal</SectionLabel><h2>Know more.<br /><em>Choose clearly.</em></h2><p>Evidence-aware guidance about lymphatic drainage, post-operative care and treatment suitability.</p><Link className="text-link" href="/journal">Explore all guides <span aria-hidden="true">↗</span></Link></div>
-        <div>{[
-          ["What is lymphatic drainage massage?", "/journal/what-is-lymphatic-drainage-massage"],
-          ["A careful guide to post-operative lymphatic drainage", "/journal/post-operative-lymphatic-drainage-guide"],
-          ["How to choose a lymphatic drainage clinic in Melbourne", "/journal/choosing-a-lymphatic-drainage-clinic-melbourne"],
-        ].map(([title, href], index) => <Link href={href} key={href}><span>0{index + 1}</span><strong>{title}</strong><i aria-hidden="true">↗</i></Link>)}</div>
+      <section className="lw-visit">
+        <div>
+          <p className="lw-overline">Find us by the bay</p>
+          <h2>
+            A little sanctuary.
+            <br />
+            Right here in Altona.
+          </h2>
+          <p>1/22 Pier Street, Altona VIC 3018</p>
+          <a className="lw-button light" href={MAPS_URL}>
+            Plan your visit ↗
+          </a>
+          <Link href="/contact" className="lw-text-link">
+            Hours & contact ↗
+          </Link>
+        </div>
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="lw-instagram"
+        >
+          <span className="lw-overline">Life inside the clinic</span>
+          <span>@lymph.andwellness ↗</span>
+          <p>
+            Meet the team, see our spaces, and discover what’s happening this
+            week.
+          </p>
+        </a>
       </section>
-
+      <section className="lw-gift-strip">
+        <p>For someone who gives so much.</p>
+        <Link className="lw-text-link" href="/gift-cards">
+          Give a moment of wellness ↗
+        </Link>
+      </section>
     </main>
   );
 }

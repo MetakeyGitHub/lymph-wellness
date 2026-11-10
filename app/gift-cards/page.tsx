@@ -1,15 +1,59 @@
 import { PageHero } from "../_components/PageHero";
-import { Button } from "../_components/Button";
-import { OfferingLinks } from "../_components/OfferingLinks";
-import { CATALOGUE_VERIFIED, GIFT_CARDS_URL, formatPrice, giftCardAmounts } from "../_data/offerings";
+import {
+  GIFT_CARDS_URL,
+  giftCardAmounts,
+  formatPrice,
+} from "../_data/offerings";
 import { pageMetadata } from "../_data/metadata";
-
-export const metadata = pageMetadata({ title: "Wellness Gift Cards", description: "Gift Lymph & Wellness care with $20, $50, $100 or a custom amount through our secure Zenoti gift card portal.", path: "/gift-cards" });
-export default function GiftCardsPage() {
-  return <main id="main"><PageHero eyebrow="A gift of care" title={<>Give a moment<br /><em>of wellbeing.</em></>} intro="Choose a gift card amount in Zenoti and follow the portal to personalise your gift. All amounts are in AUD." image="/images/flow-editorial.webp" imageAlt="Soft ivory fabric folds" />
-    <section className="catalogue section-space"><p className="eyebrow">Gift card options</p><h2>A thoughtful<br /><em>gesture.</em></h2><div className="gift-card-options">{giftCardAmounts.map(amount => <a href={GIFT_CARDS_URL} target="_blank" rel="noreferrer" key={amount} aria-label={`Choose a ${formatPrice(amount)} AUD gift card in Zenoti`}>{formatPrice(amount)} <span aria-hidden="true">↗</span></a>)}<a href={GIFT_CARDS_URL} target="_blank" rel="noreferrer">Custom amount <span aria-hidden="true">↗</span></a></div>
-      <p>Each option opens the gift card portal. Select your amount there to continue. You can also check an existing card’s balance or resend a gift card through the same portal.</p>
-      <p className="catalogue-note">Checked against Zenoti: {CATALOGUE_VERIFIED}. Review current gift card conditions in the portal before purchasing.</p><Button href={GIFT_CARDS_URL} external>Buy a gift card</Button><OfferingLinks />
-    </section>
-  </main>;
+export const metadata = pageMetadata({
+  title: "Wellness Gift Cards",
+  description:
+    "Give a moment of wellness at our Altona clinic. Choose $20, $50, $100 or a custom gift card amount.",
+  path: "/gift-cards",
+});
+export default function GiftCards() {
+  return (
+    <main id="main">
+      <PageHero
+        action={{ href: "#gift-options", label: "Choose your gift" }}
+        eyebrow="Give a little care"
+        title={
+          <>
+            For someone
+            <br />
+            who gives so much.
+          </>
+        }
+        intro="A thoughtful invitation to slow down. Let them choose the wellness experience that feels right for them."
+        image="/images/clinic/recovery-lounge.jpg"
+        imageAlt="Calm recovery lounge at Lymph & Wellness"
+      />
+      <section className="lw-section" id="gift-options">
+        <div className="lw-gift-panel">
+          <p className="lw-overline">A moment, beautifully given</p>
+          <h2>The gift of time.</h2>
+          <p>
+            Choose an amount, personalise your message and enter your
+            recipient’s details in our secure gift card portal.
+          </p>
+          <div
+            className="lw-gift-amounts"
+            aria-label="Available gift card amounts"
+          >
+            {giftCardAmounts.map((a) => (
+              <span key={a}>{formatPrice(a)}</span>
+            ))}
+            <span>Your amount</span>
+          </div>
+          <a className="lw-button" href={GIFT_CARDS_URL}>
+            Create your gift card ↗
+          </a>
+          <p className="lw-small">
+            Select your amount in the next step. Review delivery, expiry and
+            redemption conditions before purchase. All amounts are in AUD.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
 }

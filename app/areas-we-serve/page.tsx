@@ -45,7 +45,7 @@ export default function AreasWeServePage() {
 
       <section className="areas-intro section-space" data-reveal>
         <div><SectionLabel number="01">Our location</SectionLabel><h2>1/22 Pier Street,<br /><em>Altona.</em></h2></div>
-        <div><p className="lead">A calm treatment space for clients across Hobsons Bay and Melbourne’s western suburbs.</p><p>The studio is open Monday to Saturday from 10:30 am to 5:00 pm. Live appointment availability is shown in the booking portal.</p><div><Button href={BOOKING_URL}>Book a treatment</Button><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a></div></div>
+        <div><p className="lead">A calm treatment space for clients across Hobsons Bay and Melbourne’s western suburbs.</p><p>The clinic is open Monday to Saturday. Check the Contact page for daily hours and the booking portal for live appointment times.</p><div><Button href={BOOKING_URL}>Book a treatment</Button><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a></div></div>
       </section>
 
       <section className="areas-list section-space" data-reveal>
