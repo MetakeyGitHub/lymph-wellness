@@ -100,7 +100,7 @@ export function TreatmentFinder() {
           <h2>
             A little guidance.
             <br />
-            <span>A moment for you.</span>
+            <em>A moment for you.</em>
           </h2>
           <p>
             Two simple choices.

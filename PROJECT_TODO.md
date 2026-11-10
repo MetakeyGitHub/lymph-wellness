@@ -8,6 +8,9 @@ Updated 10 November 2026. Google account work is explicitly deferred at the owne
 - [ ] Verify Zenoti-side completed-booking and revenue attribution. Website booking clicks are not confirmed sales.
 - [ ] Replace the email-draft enquiry form with a hosted backend when requested, including spam protection, delivery monitoring and a genuine success state.
 - [ ] Review overlapping suburb pages using Search Console performance before merging or redirecting them.
+- [ ] Confirm the display typeface and clay accent against the brand guidelines; both are single tokens in `app/design.css`.
+- [ ] Decide whether to show a founder portrait on the clinic page (existing portraits are low resolution).
+- [ ] Add public-holiday and closure dates if the live open/closed status should reflect them.
 - [ ] Commission original practitioner/treatment photography and short editorial film for a more distinctive visual identity; retain the verified clinic images meanwhile.
 
 Completed: branded domain and redirects, redesigned production site, verified offer deep links, SEO metadata and sitemap, site search, expanded FAQ content, dependency security updates.

@@ -1,7 +1,8 @@
-import { ArrowIcon } from "./ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowIcon } from "./ArrowIcon";
 import { CookieSettingsButton } from "./GoogleAnalytics";
+import { HoursList, OpenStatus } from "./OpenStatus";
 import {
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
@@ -11,8 +12,8 @@ import {
   EMAIL_URL,
   INSTAGRAM_URL,
   MAPS_URL,
-  openingHours,
 } from "../_data/site";
+
 export function Footer() {
   return (
     <footer className="lw-footer">
@@ -20,14 +21,19 @@ export function Footer() {
         <p>
           A little time.
           <br />
-          Entirely for you.
+          <em>Entirely for you.</em>
         </p>
-        <Link className="lw-button light" href="/services">
-          Find your next visit <span aria-hidden="true"><ArrowIcon /></span>
-        </Link>
+        <div>
+          <Link className="lw-button light" href="/services">
+            Find your next visit <span aria-hidden="true"><ArrowIcon /></span>
+          </Link>
+          <Link className="lw-text-link" href="/#treatment-finder">
+            Not sure? Let us guide you <ArrowIcon />
+          </Link>
+        </div>
       </div>
       <div className="lw-footer-grid">
-        <div>
+        <div className="lw-footer-brand">
           <Image
             src="/brand/logo-light.svg"
             alt="Lymph & Wellness"
@@ -42,16 +48,21 @@ export function Footer() {
           </a>
         </div>
         <div>
-          <h2>Explore</h2>
+          <h2>Care</h2>
           <Link href="/services">Treatments</Link>
           <Link href="/compare-treatments">Compare appointments</Link>
-          <Link href="/your-first-visit">Your first visit</Link>
           <Link href="/packages">Experiences & packs</Link>
           <Link href="/memberships">Memberships</Link>
           <Link href="/gift-cards">Gift cards</Link>
           <Link href="/post-op">Post-operative care</Link>
+        </div>
+        <div>
+          <h2>Clinic</h2>
+          <Link href="/about">About the clinic</Link>
+          <Link href="/your-first-visit">Your first visit</Link>
           <Link href="/journal">Journal</Link>
           <Link href="/faq">Questions</Link>
+          <Link href="/contact">Visit & contact</Link>
           <Link href="/search">Search the site</Link>
         </div>
         <div>
@@ -61,16 +72,11 @@ export function Footer() {
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
             @lymph.andwellness <ArrowIcon />
           </a>
-          <Link href="/contact">Visit & contact</Link>
         </div>
-        <div>
+        <div className="lw-footer-hours">
           <h2>Clinic hours</h2>
-          {openingHours.map(([day, time]) => (
-            <p className="lw-hours" key={day}>
-              <span>{day.slice(0, 3)}</span>
-              <span>{time}</span>
-            </p>
-          ))}
+          <OpenStatus />
+          <HoursList short />
           <small>Appointment times vary by treatment.</small>
         </div>
       </div>
