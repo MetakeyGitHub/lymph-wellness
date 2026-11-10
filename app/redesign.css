@@ -562,6 +562,7 @@ img {
   color: #665a50;
 }
 .lw-offer {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 40px;
@@ -569,6 +570,11 @@ img {
   padding: 27px 0;
   align-items: center;
   scroll-margin-top: 110px;
+  transition: background 0.2s;
+}
+.lw-offer:hover,
+.lw-offer:focus-within {
+  background: var(--off-white);
 }
 .lw-offer:last-child {
   border-bottom: 1px solid var(--line);
@@ -607,6 +613,20 @@ img {
 .lw-offer-action a {
   margin-top: 4px;
   border-bottom: 1px solid var(--line);
+}
+/* Extend the existing native link across the row without adding tab stops. */
+.lw-offer-action a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+.lw-offer-action a:focus-visible {
+  outline: none;
+}
+.lw-offer-action a:focus-visible::after {
+  outline: 2px solid var(--espresso);
+  outline-offset: 4px;
 }
 .lw-note {
   display: flex;
