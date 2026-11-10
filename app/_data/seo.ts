@@ -28,7 +28,7 @@ export const treatmentPages = [
     eyebrow: "Lymphatic drainage / Melbourne",
     title: "Manual lymphatic drainage in Melbourne",
     seoTitle: "Lymphatic Drainage Melbourne",
-    description: "Brazilian manual lymphatic drainage in Altona, Melbourne. Choose a 60 or 90 minute women-only treatment with current service options and pricing in our booking portal.",
+    description: "Brazilian manual lymphatic drainage in Altona, Melbourne. Choose a 60 or 90 minute women-only appointment and see current prices before you book.",
     intro: "A rhythmic full-body treatment designed to support lymphatic movement, ease the feeling of heaviness and create space for deep relaxation.",
     image: "/images/cream-texture.jpg",
     imageAlt: "Sculptural cream texture suggesting gentle lymphatic movement",

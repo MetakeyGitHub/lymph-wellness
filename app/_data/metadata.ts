@@ -11,6 +11,7 @@ type PageMetadataOptions = {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
+  author?: { name: string; url: string };
 };
 
 export function pageMetadata({
@@ -23,6 +24,7 @@ export function pageMetadata({
   type = "website",
   publishedTime,
   modifiedTime,
+  author,
 }: PageMetadataOptions): Metadata {
   const canonical = `${SITE_URL}${path}`;
   const socialImage = {
@@ -37,7 +39,7 @@ export function pageMetadata({
     title,
     description,
     keywords: keywords ? [...keywords] : undefined,
-    authors: [{ name: "Lymph & Wellness", url: `${SITE_URL}/about` }],
+    authors: [author ?? { name: "Lymph & Wellness", url: `${SITE_URL}/about` }],
     alternates: { canonical },
     openGraph: {
       type,
@@ -48,7 +50,7 @@ export function pageMetadata({
       url: canonical,
       images: [socialImage],
       ...(type === "article"
-        ? { publishedTime, modifiedTime, authors: ["Lymph & Wellness"] }
+        ? { publishedTime, modifiedTime, authors: [author?.name ?? "Lymph & Wellness"] }
         : {}),
     },
     twitter: {

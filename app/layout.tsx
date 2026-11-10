@@ -48,7 +48,7 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Lymph & Wellness",
-    alternateName: "Lymph and Wellness",
+    alternateName: ["Lymph and Wellness", "Lymph & Wellness Altona"],
     url: SITE_URL,
   },
   {
@@ -68,6 +68,7 @@ const structuredData = [
       ["Thursday","10:00","21:00"], ["Friday","10:00","21:00"], ["Saturday","11:00","17:00"],
     ].map(([day,opens,closes])=>({"@type":"OpeningHoursSpecification",dayOfWeek:day,opens,closes})),
     priceRange: "$$",
+    founder: { "@type": "Person", name: "Seda Yener", jobTitle: "Founder & Director", url: `${SITE_URL}/about#seda-yener` },
     sameAs: ["https://www.instagram.com/lymph.andwellness/", "https://share.google/PfSn7CcBq24fN0Uwy"],
     hasOfferCatalog: {
       "@type": "OfferCatalog", name: "Treatments", itemListElement: [
