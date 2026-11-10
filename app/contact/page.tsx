@@ -6,7 +6,7 @@ import { SectionLabel } from "../_components/SectionLabel";
 import { ADDRESS_LINE_1, ADDRESS_LINE_2, EMAIL_DISPLAY, EMAIL_URL, INSTAGRAM_URL, MAPS_URL, PHONE_DISPLAY, PHONE_URL, bookingOptions, openingHours } from "../_data/site";
 import { pageMetadata } from "../_data/metadata";
 
-export const metadata = pageMetadata({ title: "Book Lymphatic Drainage Altona", description: "Book lymphatic drainage, facial treatments, EMS body sculpting or post-operative care at 1/22 Pier Street, Altona VIC 3018.", path: "/contact", image: "/share-image", imageAlt: "Book a treatment at Lymph & Wellness in Altona" });
+export const metadata = pageMetadata({ title: "Book Lymphatic Drainage Altona", description: "Book lymphatic drainage, facial treatments, EMS body sculpting or post-operative care at Level 1/22 Pier Street, Altona VIC 3018.", path: "/contact", image: "/share-image", imageAlt: "Book a treatment at Lymph & Wellness in Altona" });
 
 export default function ContactPage() {
   return <main id="main"><PageHero eyebrow="Contact / Book" title={<>Book your<br /><em>treatment.</em></>} intro="Choose a treatment through the booking portal or send a considered enquiry if you need help deciding." image="/images/clinic/lounge.jpg" imageAlt="Warm, sculptural archway in a calm wellness interior" />

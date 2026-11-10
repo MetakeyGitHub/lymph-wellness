@@ -62,7 +62,7 @@ const structuredData = [
     areaServed: serviceAreas.map((area) => ({ "@type": "Place", name: `${area}, Victoria` })),
     telephone: "+61452599300",
     email: "info@lymphandwellnessco.com.au",
-    address: { "@type": "PostalAddress", streetAddress: "1/22 Pier Street", addressLocality: "Altona", postalCode: "3018", addressRegion: "VIC", addressCountry: "AU" },
+    address: { "@type": "PostalAddress", streetAddress: "Level 1/22 Pier Street", addressLocality: "Altona", postalCode: "3018", addressRegion: "VIC", addressCountry: "AU" },
     openingHoursSpecification: [
       ["Monday","10:30","19:30"], ["Tuesday","09:30","19:30"], ["Wednesday","09:00","19:30"],
       ["Thursday","10:00","21:00"], ["Friday","10:00","21:00"], ["Saturday","11:00","17:00"],
