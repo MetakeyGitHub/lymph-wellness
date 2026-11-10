@@ -11,13 +11,11 @@ export function SignatureCare() {
     >
       <div className="lw-signature-heading">
         <div>
-          <p className="lw-overline">
-            <span>01 /</span> At the heart of our clinic
-          </p>
+          <p className="lw-overline">At the heart of our clinic</p>
           <h2 id="signature-heading">
             A considered touch.
             <br />
-            <span>A little more care.</span>
+            <em>A little more care.</em>
           </h2>
         </div>
         <p>
@@ -106,11 +104,11 @@ export function CarePrinciples() {
       aria-labelledby="principles-heading"
     >
       <div>
-        <p className="lw-overline">02 / The way we care</p>
+        <p className="lw-overline">The way we care</p>
         <h2 id="principles-heading">
           Thoughtful,
           <br />
-          <span>from the beginning.</span>
+          <em>from the beginning.</em>
         </h2>
         <Link className="lw-text-link" href="/about">
           Get to know the clinic <ArrowIcon />
@@ -167,7 +165,7 @@ export function FirstVisitPreview() {
         <h2 id="first-visit-heading">
           A familiar feeling.
           <br />
-          <span>Even the first time.</span>
+          <em>Even the first time.</em>
         </h2>
         <p>
           Know where to go, what to ask and what comes next. Walk through your

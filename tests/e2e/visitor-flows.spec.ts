@@ -287,6 +287,16 @@ test("mobile navigation opens, closes on Escape and follows a destination", asyn
   await expect(
     page.getByRole("navigation", { name: "Mobile", exact: true }),
   ).toBeVisible();
+  // The open menu is a full-height panel, not a strip under the header.
+  const panel = await page
+    .getByRole("navigation", { name: "Mobile", exact: true })
+    .boundingBox();
+  expect(panel!.height).toBeGreaterThan(page.viewportSize()!.height * 0.75);
+  await expect(
+    page
+      .getByRole("navigation", { name: "Mobile", exact: true })
+      .getByRole("link", { name: "Memberships", exact: true }),
+  ).toBeInViewport();
   await page.keyboard.press("Escape");
   await expect(menu).toBeFocused();
   await menu.click();
