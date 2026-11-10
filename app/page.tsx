@@ -5,7 +5,7 @@ import { findOffer, formatPrice } from "./_data/offerings";
 import { INSTAGRAM_URL, MAPS_URL } from "./_data/site";
 import { TreatmentFinder } from "./_components/TreatmentFinder";
 import { FeaturedOffers } from "./_components/FeaturedOffers";
-import { ServiceCatalogue } from "./_components/ServiceCatalogue";
+import { SignatureCare, CarePrinciples, FirstVisitPreview } from "./_components/SignatureCare";
 import { pageMetadata } from "./_data/metadata";
 export const metadata = pageMetadata({title: "Women’s Wellness & Lymphatic Massage in Altona", description: "Find lymphatic massage, facial care, post-operative support, sauna and wellness experiences at Lymph & Wellness in Altona. View prices and book your visit.", path: "/"});
 const rituals = [
@@ -40,8 +40,8 @@ export default function Home() {
             to <span>yourself.</span>
           </h1>
           <p className="lw-hero-intro">
-            Thoughtful body care. A slower moment.
-            <br />A space that feels like it’s yours.
+            Lymphatic massage, facial care and considered recovery support
+            in our women-only Altona clinic.
           </p>
           <div className="lw-actions">
             <Link className="lw-button" href="#treatment-finder">
@@ -79,28 +79,8 @@ export default function Home() {
         <span>Here in Altona</span>
       </div>
       <TreatmentFinder />
-      <section className="lw-section lw-intro">
-        <p className="lw-overline">Welcome to Lymph & Wellness</p>
-        <h2>
-          Feel cared for.
-          <br />
-          <span>In every sense.</span>
-        </h2>
-        <div>
-          <p>
-            From hands-on lymphatic massage to restorative machine sessions, our
-            women’s wellness clinic brings considered care into a beautifully
-            calm space.
-          </p>
-          <p>
-            Come for a single moment of rest, support through recovery, or a
-            ritual you return to. We’ll help you find your place.
-          </p>
-          <Link className="lw-text-link" href="/about">
-            Get to know us <ArrowIcon />
-          </Link>
-        </div>
-      </section>
+      <SignatureCare />
+      <CarePrinciples />
       <FeaturedOffers />
       <section className="lw-section lw-rituals" id="equipment">
         <div className="lw-section-heading">
@@ -153,25 +133,7 @@ export default function Home() {
           })}
         </div>
       </section>
-      <ServiceCatalogue compact />
-      <section className="lw-postop-band">
-        <p className="lw-overline">A little extra care</p>
-        <h2>
-          Your recovery.
-          <br />
-          <span>Your own pace.</span>
-        </h2>
-        <div>
-          <p>
-            Thoughtful post-operative care starts with understanding where you
-            are in your recovery. We’ll help you plan your next step alongside
-            your treating team’s advice.
-          </p>
-          <Link className="lw-text-link" href="/post-op">
-            Explore post-operative care <ArrowIcon />
-          </Link>
-        </div>
-      </section>
+      <FirstVisitPreview />
       <section className="lw-membership-story">
         <div className="lw-story-image">
           <Image
@@ -204,42 +166,6 @@ export default function Home() {
             Prefer a session pack? <ArrowIcon />
           </Link>
         </div>
-      </section>
-      <section className="lw-section lw-first-visit">
-        <p className="lw-overline">Your first visit</p>
-        <h2>
-          Easy to choose.
-          <br />
-          <span>Lovely to come back to.</span>
-        </h2>
-        <div className="lw-steps">
-          {[
-            [
-              "01",
-              "Find your moment",
-              "Explore treatments with clear prices and appointment lengths.",
-            ],
-            [
-              "02",
-              "Choose your time",
-              "Your selected treatment opens in our secure booking portal.",
-            ],
-            [
-              "03",
-              "Arrive as you are",
-              "Come to our women’s clinic on Pier Street. We’ll guide you from there.",
-            ],
-          ].map(([n, t, p]) => (
-            <div key={n}>
-              <span>{n}</span>
-              <h3>{t}</h3>
-              <p>{p}</p>
-            </div>
-          ))}
-        </div>
-        <Link className="lw-text-link" href="/faq">
-          A few things you might be wondering <ArrowIcon />
-        </Link>
       </section>
       <section className="lw-visit">
         <div>

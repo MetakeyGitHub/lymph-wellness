@@ -16,6 +16,8 @@ export const metadata = {
 };
 export default function SearchPage() {
   const entries: SearchEntry[] = [
+    { title: "Your first visit", description: "Preparation, arrival, directions, clothing, accessibility, consultation, privacy and what to expect at our Altona clinic.", href: "/your-first-visit", category: "Guides", action: "Plan your visit" },
+    { title: "Compare treatment appointments", description: "Compare 60 and 90 minute lymphatic massage, facial massage, cupping, Qi and EMS prices, lengths and named inclusions.", href: "/compare-treatments", category: "Guides", action: "Compare options" },
     ...offerings
       .filter((o) => o.available)
       .map((o) => ({

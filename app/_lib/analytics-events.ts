@@ -59,6 +59,8 @@ export function safePageSection(pathname: string) {
     memberships: "memberships",
     "gift-cards": "gifting",
     faq: "help",
+    "your-first-visit": "help",
+    "compare-treatments": "menu",
     journal: "guides",
     search: "search",
     equipment: "menu",

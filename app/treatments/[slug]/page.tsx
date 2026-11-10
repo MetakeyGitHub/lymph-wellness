@@ -12,8 +12,8 @@ import { getTreatmentPage, SITE_URL, treatmentPages } from "../../_data/seo";
 import { pageMetadata } from "../../_data/metadata";
 
 import { treatmentGuides } from "../../_data/treatment-guides";
-import { findOffer } from "../../_data/offerings";
-import { OfferCard } from "../../_components/OfferCard";
+import { comparisonGroups } from "../../_data/comparisons";
+import { TreatmentComparison } from "../../_components/TreatmentComparison";
 import { Accordion } from "../../_components/Accordion";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -43,6 +43,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
   const treatment = getTreatmentPage(slug);
   if (!treatment) notFound();
   const guide = treatmentGuides[slug];
+  const comparison = comparisonGroups.find(group => group.slug === slug)!;
   const related = treatment.articleSlugs
     .map((articleSlug) =>
       articles.find((article) => article.slug === articleSlug),
@@ -187,11 +188,8 @@ export default async function TreatmentLandingPage({ params }: Props) {
             </div>
           ))}
         </div>
-        <div>
-          {guide.codes.map((code) => (
-            <OfferCard key={code} item={findOffer(code)} />
-          ))}
-        </div>
+        <TreatmentComparison group={comparison} showGuide={false} />
+        <Link className="lw-text-link" href="/your-first-visit">Plan your first visit <ArrowIcon /></Link>
       </section>
       <section className="lw-section lw-tinted">
         <div className="lw-section-heading">

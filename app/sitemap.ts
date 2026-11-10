@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core = [
     "",
     "/services",
+    "/compare-treatments",
+    "/your-first-visit",
     "/memberships",
     "/packages",
     "/gift-cards",

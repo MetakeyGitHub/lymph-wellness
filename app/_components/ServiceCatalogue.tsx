@@ -45,6 +45,7 @@ export function ServiceCatalogue({ compact = false }: { compact?: boolean }) {
           you can choose an available time and complete checkout.
         </p>
       </div>
+      <div className="lw-menu-resources"><Link className="lw-text-link" href="/compare-treatments">Compare appointment options <ArrowIcon /></Link><Link className="lw-text-link" href="/your-first-visit">Your first visit <ArrowIcon /></Link></div>
       <div className="lw-filters lw-menu-search">
         <label>
           Find a treatment

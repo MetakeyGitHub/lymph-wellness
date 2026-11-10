@@ -67,6 +67,7 @@ export function Header() {
             <span aria-hidden="true"><ArrowIcon /></span>
           </Link>
         ))}
+        <Link href="/your-first-visit" onClick={() => setOpen(false)}>Your first visit <ArrowIcon /></Link>
         <Link href="/contact" onClick={() => setOpen(false)}>
           Visit & contact <ArrowIcon />
         </Link>

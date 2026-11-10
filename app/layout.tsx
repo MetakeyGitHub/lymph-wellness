@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import "./redesign.css";
+import "./editorial.css";
 import { Header } from "./_components/Header";
 import { GoogleAnalytics } from "./_components/GoogleAnalytics";
 import { Footer } from "./_components/Footer";

@@ -44,6 +44,8 @@ export function Footer() {
         <div>
           <h2>Explore</h2>
           <Link href="/services">Treatments</Link>
+          <Link href="/compare-treatments">Compare appointments</Link>
+          <Link href="/your-first-visit">Your first visit</Link>
           <Link href="/packages">Experiences & packs</Link>
           <Link href="/memberships">Memberships</Link>
           <Link href="/gift-cards">Gift cards</Link>

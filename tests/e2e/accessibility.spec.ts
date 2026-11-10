@@ -8,6 +8,11 @@ for (const path of [
   "/search",
   "/faq",
   "/contact",
+  "/compare-treatments",
+  "/your-first-visit",
+  "/treatments/lymphatic-drainage-melbourne",
+  "/treatments/facial-sculpting-melbourne",
+  "/treatments/ems-body-sculpting-melbourne",
 ]) {
   test(`accessibility checks for ${path}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
