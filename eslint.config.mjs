@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     "vendor/**",
     "app.js",
     "tmp/**",
+    "playwright-report/**",
+    "test-results/**",
     "next-env.d.ts",
   ]),
   eslint.configs.recommended,

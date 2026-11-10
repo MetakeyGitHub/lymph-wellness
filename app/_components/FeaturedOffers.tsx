@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { findOffer, formatPrice } from "../_data/offerings";
@@ -43,7 +44,7 @@ export function FeaturedOffers() {
             ways to make time for yourself.
           </p>
           <Link className="lw-text-link" href="/packages">
-            All experiences & session packs ↗
+            All experiences & session packs <ArrowIcon />
           </Link>
         </div>
       </div>
@@ -91,7 +92,7 @@ export function FeaturedOffers() {
                   href={offer.url}
                 >
                   {pack ? "Choose this pack" : "Choose a time"}
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true"><ArrowIcon /></span>
                   <span className="sr-only"> — {offer.name}</span>
                 </a>
               </div>

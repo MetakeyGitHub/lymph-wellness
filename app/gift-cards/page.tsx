@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import { PageHero } from "../_components/PageHero";
 import {
   GIFT_CARDS_URL,
@@ -46,7 +47,7 @@ export default function GiftCards() {
             <span>Your amount</span>
           </div>
           <a className="lw-button" href={GIFT_CARDS_URL}>
-            Create your gift card ↗
+            Create your gift card <ArrowIcon />
           </a>
           <p className="lw-small">
             Select your amount in the next step. Review delivery, expiry and

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../../_components/ArrowIcon";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -100,7 +101,7 @@ export default async function ArticlePage({ params }: Props) {
             ))}
 
             <aside className="article-next-step">
-              <p className="eyebrow">Considering treatment?</p><h2>Choose with<br /><em>clarity.</em></h2><p>Review the treatment pathway, suitability guidance and appointment details before booking.</p><div><Link className="text-link" href={treatmentPath.href}>{treatmentPath.label} <span aria-hidden="true">↗</span></Link><Link className="text-link" href="/contact">Contact the clinic <span aria-hidden="true">↗</span></Link></div>
+              <p className="eyebrow">Considering treatment?</p><h2>Choose with<br /><em>clarity.</em></h2><p>Review the treatment pathway, suitability guidance and appointment details before booking.</p><div><Link className="text-link" href={treatmentPath.href}>{treatmentPath.label} <span aria-hidden="true"><ArrowIcon /></span></Link><Link className="text-link" href="/contact">Contact the clinic <span aria-hidden="true"><ArrowIcon /></span></Link></div>
             </aside>
 
             <section className="article-faq" aria-labelledby="article-faq-heading">
@@ -111,7 +112,7 @@ export default async function ArticlePage({ params }: Props) {
             <section className="article-sources" aria-labelledby="article-sources-heading">
               <p className="eyebrow">Sources and further reading</p><h2 id="article-sources-heading">Trusted health guidance.</h2>
               <p>Sources are provided for general education. They do not establish individual treatment suitability.</p>
-              <ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true">↗</span></a></li>)}</ul>
+              <ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden="true"><ArrowIcon /></span></a></li>)}</ul>
             </section>
           </div>
         </div>
@@ -119,7 +120,7 @@ export default async function ArticlePage({ params }: Props) {
 
       <section className="related-articles section-space">
         <p className="eyebrow">Continue reading</p><h2>More considered<br /><em>guidance.</em></h2>
-        <div>{related.map((item) => <article key={item.slug}><p>{item.category}</p><h3><Link href={`/journal/${item.slug}`}>{item.title}</Link></h3><Link className="text-link" href={`/journal/${item.slug}`}>Read article <span aria-hidden="true">↗</span></Link></article>)}</div>
+        <div>{related.map((item) => <article key={item.slug}><p>{item.category}</p><h3><Link href={`/journal/${item.slug}`}>{item.title}</Link></h3><Link className="text-link" href={`/journal/${item.slug}`}>Read article <span aria-hidden="true"><ArrowIcon /></span></Link></article>)}</div>
       </section>
     </main>
   );

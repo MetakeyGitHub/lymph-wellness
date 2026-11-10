@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import Link from "next/link";
 import { Accordion } from "../_components/Accordion";
 import { BookingCTA } from "../_components/BookingCTA";
@@ -45,7 +46,7 @@ export default function FaqPage() {
       <nav className="lw-faq-nav" aria-label="Question topics">
         {faqGroups.map((group) => (
           <a key={group.id} href={`#${group.id}`}>
-            {group.title} ↓
+            {group.title} <ArrowIcon direction="down" />
           </a>
         ))}
       </nav>
@@ -69,7 +70,7 @@ export default function FaqPage() {
           practitioner.
         </p>
         <Link className="lw-button" href="/contact">
-          Ask the clinic ↗
+          Ask the clinic <ArrowIcon />
         </Link>
         <p className="lw-small">
           Health information:{" "}

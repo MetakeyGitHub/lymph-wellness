@@ -46,3 +46,11 @@ Production uses the Vercel `lymph-wellness` project in the `meta-key` team. Stag
 `minimatch` is overridden only under `@typescript-eslint/typescript-estree` to 11.0.5 to address the npm-reported glob amplification advisory. Re-evaluate this override when upgrading typescript-eslint; lint and production builds are checked with it.
 
 The legacy minimatch 3 branch also pins brace-expansion 1.1.21 through an override to address its published denial-of-service advisories. Neither override affects the visitor runtime.
+
+## Browser regression tests
+
+Run `npx playwright install chromium webkit` once, then `npm run build && npm run test:e2e`. The suite covers new and returning visitors, every finder combination, post-operative guidance, whole-row offer clicks, packs, memberships, gifting, search, navigation, keyboard controls, reduced motion, form validation and automated accessibility scans. It runs desktop Chromium, desktop WebKit and an iPhone 13 WebKit profile. These are simulated visitor scenarios, not independent human participants or a physical iPhone test.
+
+Booking tests intercept the outbound request and assert the exact verified catalogue URL without creating an appointment or payment. They verify the website handoff, not Zenoti checkout completion. Run against production with `PLAYWRIGHT_BASE_URL=https://www.lymphandwellness.com.au npm run test:e2e`. Live tests preserve all security headers. The local HTTP fixture removes only CSP upgrade-insecure-requests so WebKit can load localhost assets; production CSP is unchanged. Safari keyboard tests use Option-Tab, its default all-controls navigation shortcut.
+
+The HTML report is `playwright-report/index.html`; machine-readable results are `test-results/results.json`. Neither generated directory is committed or linted. Automated axe checks supplement visual and keyboard review; passing them does not certify full WCAG conformance.

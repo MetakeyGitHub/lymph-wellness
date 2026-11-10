@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 import { useState } from "react";
 import Link from "next/link";
 import { offerings } from "../_data/offerings";
@@ -56,7 +58,7 @@ export function ServiceCatalogue({ compact = false }: { compact?: boolean }) {
         <div className="lw-menu-assist">
           <span>Need a little guidance?</span>
           <Link className="lw-text-link" href="/#treatment-finder">
-            Find your treatment ↗
+            Find your treatment <ArrowIcon />
           </Link>
         </div>
       </div>
@@ -127,7 +129,7 @@ export function ServiceCatalogue({ compact = false }: { compact?: boolean }) {
         <div className="lw-note">
           <p>Looking for a combined visit or a series of sessions?</p>
           <Link className="lw-text-link" href="/packages">
-            Explore experiences & packs ↗
+            Explore experiences & packs <ArrowIcon />
           </Link>
         </div>
       )}

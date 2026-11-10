@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import { formatPrice, type Offering } from "../_data/offerings";
 export function OfferCard({ item }: { item: Offering }) {
   const purchase = item.kind === "series_package";
@@ -25,12 +26,12 @@ export function OfferCard({ item }: { item: Offering }) {
         {item.available ? (
           <a className="lw-text-link" data-booking-cta="true" href={item.url}>
             {purchase ? "Select pack" : "Choose a time"}{" "}
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true"><ArrowIcon /></span>
             <span className="sr-only"> — {item.name}</span>
           </a>
         ) : (
           <a className="lw-text-link" href="/contact">
-            Contact us to book ↗<span className="sr-only"> — {item.name}</span>
+            Contact us to book <ArrowIcon /><span className="sr-only"> — {item.name}</span>
           </a>
         )}
       </div>

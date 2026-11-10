@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 
 import { FormEvent, useState } from "react";
 import { EMAIL_DISPLAY } from "../_data/site";
@@ -65,7 +67,7 @@ export function ContactForm() {
       </div>
       <button className="button button-dark" type="submit">
         <span>Prepare enquiry</span>
-        <span aria-hidden="true">↗</span>
+        <span aria-hidden="true"><ArrowIcon /></span>
       </button>
       <p className="form-status" role="status">
         {status ||

@@ -1,4 +1,5 @@
 "use client";
+import { ArrowIcon, ResetIcon, ClockIcon } from "./ArrowIcon";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -129,7 +130,7 @@ export function TreatmentFinder() {
           {step === "goal" && (
             <>
               <p className="lw-finder-hint">
-                Start with what you’re drawn to. We’ll help you explore.
+                Select one option below to find a visit that fits you.
               </p>
               <div className="lw-finder-choices">
                 {visitGoals.map((option) => (
@@ -146,7 +147,9 @@ export function TreatmentFinder() {
                       <strong>{option.label}</strong>
                       <small>{option.detail}</small>
                     </span>
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">
+                      <ArrowIcon />
+                    </span>
                   </button>
                 ))}
               </div>
@@ -158,20 +161,20 @@ export function TreatmentFinder() {
                 {selectedGoal?.label}. Choose the appointment length that fits.
               </p>
               <div className="lw-finder-choices time-choices">
-                {timeOptions.map((option, index) => (
+                {timeOptions.map((option) => (
                   <button
                     className="lw-finder-choice"
                     key={option.minutes}
                     onClick={() => setTime(option.minutes)}
                   >
-                    <span className="lw-time-mark" aria-hidden="true">
-                      {["◔", "◑", "○"][index]}
-                    </span>
+                    <ClockIcon />
                     <span>
                       <strong>{option.label}</strong>
                       <small>{option.detail}</small>
                     </span>
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">
+                      <ArrowIcon />
+                    </span>
                   </button>
                 ))}
               </div>
@@ -186,10 +189,10 @@ export function TreatmentFinder() {
               </p>
               <div className="lw-actions">
                 <Link href="/contact" className="lw-button">
-                  Talk to our team ↗
+                  Talk to our team <ArrowIcon />
                 </Link>
                 <Link href="/post-op" className="lw-text-link">
-                  Explore post-operative care ↗
+                  Explore post-operative care <ArrowIcon />
                 </Link>
               </div>
             </div>
@@ -215,7 +218,10 @@ export function TreatmentFinder() {
                     href={primary.url}
                     data-booking-cta="true"
                   >
-                    Choose a time <span aria-hidden="true">↗</span>
+                    Choose a time{" "}
+                    <span aria-hidden="true">
+                      <ArrowIcon />
+                    </span>
                     <span className="sr-only"> for {primary.name}</span>
                   </a>
                   <p className="lw-finder-booking-note">
@@ -226,7 +232,7 @@ export function TreatmentFinder() {
                 {alternatives.length > 0 && (
                   <>
                     <button
-                      className="lw-text-link lw-finder-more"
+                      className="lw-finder-secondary lw-finder-more"
                       aria-expanded={showAlternatives}
                       aria-controls="finder-alternatives"
                       onClick={() => setShowAlternatives(!showAlternatives)}
@@ -256,7 +262,9 @@ export function TreatmentFinder() {
                               {offer.minutes} min · {formatPrice(offer.price)}
                             </small>
                           </span>
-                          <span aria-hidden="true">↗</span>
+                          <span aria-hidden="true">
+                            <ArrowIcon />
+                          </span>
                         </a>
                       ))}
                     </div>
@@ -271,18 +279,22 @@ export function TreatmentFinder() {
                   -minute window.
                 </p>
                 <button className="lw-button" onClick={() => setTime(null)}>
-                  Choose more time ↗
+                  Choose more time <ArrowIcon />
                 </button>
                 <Link href="/services#service-prices" className="lw-text-link">
-                  Explore the full menu ↗
+                  Explore the full menu <ArrowIcon />
                 </Link>
               </div>
             ))}
         </div>
-        <div className="lw-finder-footer">
+        <nav
+          className="lw-finder-footer"
+          aria-label="Treatment finder controls"
+        >
           {step !== "goal" && (
             <button
-              className="lw-text-link"
+              className="lw-finder-secondary"
+              type="button"
               onClick={() => {
                 if (step === "result") {
                   setTime(null);
@@ -290,18 +302,25 @@ export function TreatmentFinder() {
                 } else startAgain();
               }}
             >
-              ← Back
+              <ArrowIcon direction="left" /> Back
             </button>
           )}
           {step !== "goal" && (
-            <button className="lw-text-link" onClick={startAgain}>
-              Start again
+            <button
+              className="lw-finder-secondary"
+              type="button"
+              onClick={startAgain}
+            >
+              <ResetIcon /> Start again
             </button>
           )}
-          <Link className="lw-text-link" href="/services#service-prices">
-            Browse all treatments ↗
+          <Link
+            className="lw-finder-secondary lw-finder-browse"
+            href="/services#service-prices"
+          >
+            Browse all treatments <ArrowIcon />
           </Link>
-        </div>
+        </nav>
         <p className="lw-finder-disclaimer">
           A guide to exploring our menu. Your practitioner will confirm
           suitability.

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import { ServiceCatalogue } from "../_components/ServiceCatalogue";
 import { PageHero } from "../_components/PageHero";
 import { pageMetadata } from "../_data/metadata";
@@ -34,7 +35,7 @@ export default function Services() {
           discuss suitability before booking.
         </p>
         <a className="lw-button" href="/contact">
-          Talk to the clinic ↗
+          Talk to the clinic <ArrowIcon />
         </a>
       </section>
     </main>

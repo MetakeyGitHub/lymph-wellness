@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../../_components/ArrowIcon";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookingCTA } from "../../_components/BookingCTA";
@@ -45,8 +46,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     <JsonLd data={jsonLd} />
     <PageHero eyebrow={`${location.name} / Melbourne west`} title={<>{location.title.split(" ").slice(0, 2).join(" ")}<br /><em>{location.name}.</em></>} intro={location.intro} image="/images/clinic/lounge.jpg" imageAlt="Lymph & Wellness clinic lounge in Altona" />
     <section className="location-intro section-space" data-reveal><div><SectionLabel number="01">Your local studio</SectionLabel><h2>Care worth<br /><em>travelling for.</em></h2></div><div><p className="lead">{location.localCopy}</p><p>Our treatment approach is calm, private and centred on women. Compare appointment lengths and prices, then choose the service that suits your visit. Contact our team first if you need help deciding.</p><Button href="/contact#book">View appointment options</Button></div></section>
-    <section className="location-services section-space" data-reveal><div><SectionLabel number="02" light>Treatments</SectionLabel><h2>Four considered<br /><em>pathways.</em></h2></div><div>{services.map((service) => <Link href={service.href} key={service.slug}><span>{service.number}</span><h3>{service.shortTitle}</h3><p>{service.copy}</p><small>Explore treatment ↗</small></Link>)}</div></section>
-    <section className="location-address section-space"><p className="eyebrow">All appointments</p><h2>1/22 Pier Street,<br /><em>Altona VIC 3018.</em></h2><p>Travel time varies with route and traffic. Check your journey before booking and arrive with enough time to settle in.</p><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a></section>
+    <section className="location-services section-space" data-reveal><div><SectionLabel number="02" light>Treatments</SectionLabel><h2>Four considered<br /><em>pathways.</em></h2></div><div>{services.map((service) => <Link href={service.href} key={service.slug}><span>{service.number}</span><h3>{service.shortTitle}</h3><p>{service.copy}</p><small>Explore treatment <ArrowIcon /></small></Link>)}</div></section>
+    <section className="location-address section-space"><p className="eyebrow">All appointments</p><h2>1/22 Pier Street,<br /><em>Altona VIC 3018.</em></h2><p>Travel time varies with route and traffic. Check your journey before booking and arrive with enough time to settle in.</p><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true"><ArrowIcon /></span></a></section>
     <BookingCTA compact />
   </main>;
 }

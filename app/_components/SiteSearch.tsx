@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 import { useState } from "react";
 import { searchEntries, type SearchEntry } from "../_data/search";
 export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
@@ -56,7 +58,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
                 {entry.description && <p>{entry.description}</p>}
                 <div>
                   <span>{entry.detail}</span>
-                  <span className="lw-text-link">{entry.action} ↗</span>
+                  <span className="lw-text-link">{entry.action} <ArrowIcon /></span>
                 </div>
               </a>
             ))}
@@ -88,7 +90,7 @@ export function SiteSearch({ entries }: { entries: SearchEntry[] }) {
               className="lw-text-link"
               onClick={() => setQuery(term)}
             >
-              {term} ↗
+              {term} <ArrowIcon />
             </button>
           ))}
         </div>

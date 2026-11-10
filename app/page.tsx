@@ -1,3 +1,4 @@
+import { ArrowIcon, SparkIcon } from "./_components/ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { findOffer, formatPrice } from "./_data/offerings";
@@ -44,17 +45,17 @@ export default function Home() {
           </p>
           <div className="lw-actions">
             <Link className="lw-button" href="#treatment-finder">
-              Find your treatment <span aria-hidden="true">↗</span>
+              Find your treatment <span aria-hidden="true"><ArrowIcon /></span>
             </Link>
             <Link className="lw-text-link" href="/services#service-prices">
-              Browse treatments & prices ↗
+              Browse treatments & prices <ArrowIcon />
             </Link>
           </div>
           <div className="lw-hero-bottom">
             <span>
               Lymphatic care &nbsp; / &nbsp; Recovery &nbsp; / &nbsp; Rest
             </span>
-            <span aria-hidden="true">↓</span>
+            <span aria-hidden="true"><ArrowIcon direction="down" /></span>
           </div>
         </div>
         <div className="lw-hero-image">
@@ -70,11 +71,11 @@ export default function Home() {
       </section>
       <div className="lw-marquee" aria-label="Our approach">
         <span>A space for women</span>
-        <span aria-hidden="true">✳</span>
+        <span aria-hidden="true"><SparkIcon /></span>
         <span>Care that feels personal</span>
-        <span aria-hidden="true">✳</span>
+        <span aria-hidden="true"><SparkIcon /></span>
         <span>Time to reconnect</span>
-        <span aria-hidden="true">✳</span>
+        <span aria-hidden="true"><SparkIcon /></span>
         <span>Here in Altona</span>
       </div>
       <TreatmentFinder />
@@ -96,7 +97,7 @@ export default function Home() {
             ritual you return to. We’ll help you find your place.
           </p>
           <Link className="lw-text-link" href="/about">
-            Get to know us ↗
+            Get to know us <ArrowIcon />
           </Link>
         </div>
       </section>
@@ -143,7 +144,7 @@ export default function Home() {
                     data-booking-cta="true"
                     href={item.url}
                   >
-                    Book this session ↗
+                    Book this session <ArrowIcon />
                     <span className="sr-only"> — {r.sub}</span>
                   </a>
                 </div>
@@ -167,7 +168,7 @@ export default function Home() {
             your treating team’s advice.
           </p>
           <Link className="lw-text-link" href="/post-op">
-            Explore post-operative care ↗
+            Explore post-operative care <ArrowIcon />
           </Link>
         </div>
       </section>
@@ -197,10 +198,10 @@ export default function Home() {
             From $236 <span>/ month</span>
           </p>
           <Link className="lw-button" href="/memberships">
-            Find your membership ↗
+            Find your membership <ArrowIcon />
           </Link>
           <Link className="lw-text-link" href="/packages#packs">
-            Prefer a session pack? ↗
+            Prefer a session pack? <ArrowIcon />
           </Link>
         </div>
       </section>
@@ -237,7 +238,7 @@ export default function Home() {
           ))}
         </div>
         <Link className="lw-text-link" href="/faq">
-          A few things you might be wondering ↗
+          A few things you might be wondering <ArrowIcon />
         </Link>
       </section>
       <section className="lw-visit">
@@ -250,10 +251,10 @@ export default function Home() {
           </h2>
           <p>1/22 Pier Street, Altona VIC 3018</p>
           <a className="lw-button light" href={MAPS_URL}>
-            Plan your visit ↗
+            Plan your visit <ArrowIcon />
           </a>
           <Link href="/contact" className="lw-text-link">
-            Hours & contact ↗
+            Hours & contact <ArrowIcon />
           </Link>
         </div>
         <a
@@ -263,7 +264,7 @@ export default function Home() {
           className="lw-instagram"
         >
           <span className="lw-overline">Life inside the clinic</span>
-          <span>@lymph.andwellness ↗</span>
+          <span>@lymph.andwellness <ArrowIcon /></span>
           <p>
             Meet the team, see our spaces, and discover what’s happening this
             week.
@@ -273,7 +274,7 @@ export default function Home() {
       <section className="lw-gift-strip">
         <p>For someone who gives so much.</p>
         <Link className="lw-text-link" href="/gift-cards">
-          Give a moment of wellness ↗
+          Give a moment of wellness <ArrowIcon />
         </Link>
       </section>
     </main>

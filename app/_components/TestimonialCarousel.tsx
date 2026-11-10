@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 
 import { useEffect, useState } from "react";
 
@@ -67,8 +69,8 @@ export function TestimonialCarousel({ testimonials }: { testimonials: readonly T
           ))}
         </div>
         <div className="testimonial-arrows">
-          <button type="button" onClick={showPrevious} aria-label="Show previous review">←</button>
-          <button type="button" onClick={showNext} aria-label="Show next review">→</button>
+          <button type="button" onClick={showPrevious} aria-label="Show previous review"><ArrowIcon direction="left" /></button>
+          <button type="button" onClick={showNext} aria-label="Show next review"><ArrowIcon direction="right" /></button>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../../_components/ArrowIcon";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,7 +96,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
               {treatment.bookingLabel}
             </Button>
             <Link className="text-link" href="/services">
-              All treatments <span aria-hidden="true">↗</span>
+              All treatments <span aria-hidden="true"><ArrowIcon /></span>
             </Link>
           </div>
         </div>
@@ -199,7 +200,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
             <h2>A few useful answers.</h2>
           </div>
           <Link className="lw-text-link" href="/faq">
-            All questions & answers ↗
+            All questions & answers <ArrowIcon />
           </Link>
         </div>
         <Accordion items={guide.faqs} />
@@ -223,7 +224,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
             availability varies by treatment; choose a time in booking.
           </p>
           <Link className="text-link" href="/areas-we-serve">
-            View areas we serve <span aria-hidden="true">↗</span>
+            View areas we serve <span aria-hidden="true"><ArrowIcon /></span>
           </Link>
         </div>
       </section>
@@ -249,7 +250,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
                     </Link>
                   </h3>
                   <Link className="text-link" href={`/journal/${article.slug}`}>
-                    Read guide <span aria-hidden="true">↗</span>
+                    Read guide <span aria-hidden="true"><ArrowIcon /></span>
                   </Link>
                 </article>
               ),

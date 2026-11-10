@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { CookieSettingsButton } from "./GoogleAnalytics";
@@ -22,7 +23,7 @@ export function Footer() {
           Entirely for you.
         </p>
         <Link className="lw-button light" href="/services">
-          Find your next visit <span aria-hidden="true">↗</span>
+          Find your next visit <span aria-hidden="true"><ArrowIcon /></span>
         </Link>
       </div>
       <div className="lw-footer-grid">
@@ -37,7 +38,7 @@ export function Footer() {
           <a href={MAPS_URL}>
             {ADDRESS_LINE_1}
             <br />
-            {ADDRESS_LINE_2} ↗
+            {ADDRESS_LINE_2} <ArrowIcon />
           </a>
         </div>
         <div>
@@ -56,7 +57,7 @@ export function Footer() {
           <a href={PHONE_URL}>{PHONE_DISPLAY}</a>
           <a href={EMAIL_URL}>{EMAIL_DISPLAY}</a>
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-            @lymph.andwellness ↗
+            @lymph.andwellness <ArrowIcon />
           </a>
           <Link href="/contact">Visit & contact</Link>
         </div>

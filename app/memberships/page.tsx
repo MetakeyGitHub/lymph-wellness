@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import { PageHero } from "../_components/PageHero";
 import { memberships, formatPrice } from "../_data/offerings";
 import { pageMetadata } from "../_data/metadata";
@@ -51,7 +52,7 @@ export default function Memberships() {
                 ))}
               </ul>
               <a className="lw-button" data-booking-cta="true" href={m.url}>
-                Select this membership ↗
+                Select this membership <ArrowIcon />
                 <span className="sr-only"> — {m.name}</span>
               </a>
             </article>
@@ -67,13 +68,13 @@ export default function Memberships() {
             </p>
           </div>
           <a className="lw-text-link" href="/contact">
-            Ask about memberships ↗
+            Ask about memberships <ArrowIcon />
           </a>
         </div>
         <p>
           Prefer to visit at your own pace?{" "}
           <a className="lw-text-link" href="/packages#packs">
-            Explore session packs ↗
+            Explore session packs <ArrowIcon />
           </a>
         </p>
       </section>

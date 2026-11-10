@@ -71,7 +71,12 @@ export function CookieSettingsButton() {
     <button
       type="button"
       className="lw-cookie-settings"
-      onClick={() => window.dispatchEvent(new Event("lw:privacy-settings"))}
+      onClick={(event) => {
+        // Safari does not focus buttons on pointer activation. Capture the
+        // trigger explicitly so closing settings restores keyboard position.
+        event.currentTarget.focus();
+        window.dispatchEvent(new Event("lw:privacy-settings"));
+      }}
     >
       Cookie settings
     </button>

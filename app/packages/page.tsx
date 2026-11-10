@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import Link from "next/link";
 import { PageHero } from "../_components/PageHero";
 import { OfferCard } from "../_components/OfferCard";
@@ -26,9 +27,9 @@ export default function Packages() {
         imageAlt="Private infrared sauna at Lymph & Wellness"
       />
       <nav className="lw-subnav" aria-label="Package options">
-        <a href="#experiences">Book an experience ↓</a>
-        <a href="#packs">Buy a session pack ↓</a>
-        <Link href="/memberships">Compare memberships ↗</Link>
+        <a href="#experiences">Book an experience <ArrowIcon direction="down" /></a>
+        <a href="#packs">Buy a session pack <ArrowIcon direction="down" /></a>
+        <Link href="/memberships">Compare memberships <ArrowIcon /></Link>
       </nav>
       <section className="lw-section" id="experiences">
         <div className="lw-section-heading">

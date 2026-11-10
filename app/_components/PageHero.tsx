@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import Image from "next/image";
 import { SectionLabel } from "./SectionLabel";
 
@@ -26,7 +27,7 @@ export function PageHero({
         <p>{intro}</p>
         {action && (
           <a className="lw-text-link" href={action.href}>
-            {action.label} ↓
+            {action.label} <ArrowIcon direction="down" />
           </a>
         )}
       </div>

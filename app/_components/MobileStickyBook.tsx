@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -52,7 +54,7 @@ export function MobileStickyBook() {
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
     >
-      Choose a treatment <span aria-hidden="true">↗</span>
+      Choose a treatment <span aria-hidden="true"><ArrowIcon /></span>
     </Link>
   );
 }

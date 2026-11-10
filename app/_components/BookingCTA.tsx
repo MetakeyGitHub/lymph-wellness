@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import Link from "next/link";
 export function BookingCTA({ compact = false }: { compact?: boolean }) {
   return (
@@ -7,7 +8,7 @@ export function BookingCTA({ compact = false }: { compact?: boolean }) {
         <h2>Find your next ritual.</h2>
       </div>
       <Link className="lw-button" href="/services">
-        Explore treatments & times ↗
+        Explore treatments & times <ArrowIcon />
       </Link>
     </section>
   );

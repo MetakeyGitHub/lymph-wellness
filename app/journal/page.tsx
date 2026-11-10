@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { BookingCTA } from "../_components/BookingCTA";
@@ -38,7 +39,7 @@ export default function JournalPage() {
               <p className="eyebrow">{String(index + 1).padStart(2, "0")} / {article.category}</p>
               <h2><Link href={`/journal/${article.slug}`}>{article.title}</Link></h2>
               <p>{article.excerpt}</p>
-              <div><span>{article.readingTime}</span><Link className="text-link" href={`/journal/${article.slug}`}>Read guide <span aria-hidden="true">↗</span></Link></div>
+              <div><span>{article.readingTime}</span><Link className="text-link" href={`/journal/${article.slug}`}>Read guide <span aria-hidden="true"><ArrowIcon /></span></Link></div>
             </div>
           </article>
         ))}

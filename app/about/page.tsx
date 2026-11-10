@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "../_components/PageHero";
@@ -74,10 +75,10 @@ export default function About() {
             target="_blank"
             rel="noreferrer"
           >
-            Meet us on Instagram ↗
+            Meet us on Instagram <ArrowIcon />
           </a>
           <Link className="lw-button" href="/contact">
-            Get in touch ↗
+            Get in touch <ArrowIcon />
           </Link>
         </div>
       </section>
@@ -110,7 +111,7 @@ export default function About() {
           ))}
         </div>
         <Link className="lw-button" href="/services">
-          Explore your next visit ↗
+          Explore your next visit <ArrowIcon />
         </Link>
       </section>
     </main>

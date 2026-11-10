@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./ArrowIcon";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -14,7 +15,7 @@ export function Button({ href, children, variant = "dark", external, className =
   const isBookingCta = href.includes("/webstoreNew/");
   return (
     <Link className={`button button-${variant} ${className}`} href={href} data-booking-cta={isBookingCta ? "true" : undefined} {...props}>
-      <span>{children}</span><span aria-hidden="true">↗</span>
+      <span>{children}</span><span aria-hidden="true"><ArrowIcon /></span>
     </Link>
   );
 }

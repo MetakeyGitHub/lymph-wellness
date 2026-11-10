@@ -1,4 +1,6 @@
 "use client";
+import { ArrowIcon } from "./ArrowIcon";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -41,7 +43,7 @@ export function Header() {
         ))}
       </nav>
       <Link href="/services" className="lw-book">
-        Book a visit <span aria-hidden="true">↗</span>
+        Book a visit <span aria-hidden="true"><ArrowIcon /></span>
       </Link>
       <button
         ref={toggle}
@@ -62,14 +64,14 @@ export function Header() {
         {navigation.map((n) => (
           <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>
             {n.label}
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true"><ArrowIcon /></span>
           </Link>
         ))}
         <Link href="/contact" onClick={() => setOpen(false)}>
-          Visit & contact ↗
+          Visit & contact <ArrowIcon />
         </Link>
         <Link href="/services" onClick={() => setOpen(false)}>
-          Book a visit ↗
+          Book a visit <ArrowIcon />
         </Link>
       </nav>
     </header>

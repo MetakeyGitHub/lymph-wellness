@@ -1,3 +1,4 @@
+import { ArrowIcon } from "../_components/ArrowIcon";
 import Link from "next/link";
 import { BookingCTA } from "../_components/BookingCTA";
 import { Button } from "../_components/Button";
@@ -45,7 +46,7 @@ export default function AreasWeServePage() {
 
       <section className="areas-intro section-space" data-reveal>
         <div><SectionLabel number="01">Our location</SectionLabel><h2>1/22 Pier Street,<br /><em>Altona.</em></h2></div>
-        <div><p className="lead">A calm treatment space for clients across Hobsons Bay and Melbourne’s western suburbs.</p><p>The clinic is open Monday to Saturday. Check the Contact page for daily hours and the booking portal for live appointment times.</p><div><Button href={BOOKING_URL}>Book a treatment</Button><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true">↗</span></a></div></div>
+        <div><p className="lead">A calm treatment space for clients across Hobsons Bay and Melbourne’s western suburbs.</p><p>The clinic is open Monday to Saturday. Check the Contact page for daily hours and the booking portal for live appointment times.</p><div><Button href={BOOKING_URL}>Book a treatment</Button><a className="text-link" href={MAPS_URL} target="_blank" rel="noreferrer">Open Google Maps <span aria-hidden="true"><ArrowIcon /></span></a></div></div>
       </section>
 
       <section className="areas-list section-space" data-reveal>
@@ -63,7 +64,7 @@ export default function AreasWeServePage() {
           ["Facial treatments", "Facial sculpting, cupping and LED face light therapy.", "/treatments/facial-sculpting-melbourne"],
           ["Body sculpting", "EMS body-contouring wellness treatments.", "/treatments/ems-body-sculpting-melbourne"],
           ["Post-operative care", "Gentle support for suitable clients with appropriate clearance.", "/post-op"],
-        ].map(([title, copy, href], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={href}>Explore <span aria-hidden="true">↗</span></Link></article>)}</div>
+        ].map(([title, copy, href], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={href}>Explore <span aria-hidden="true"><ArrowIcon /></span></Link></article>)}</div>
       </section>
 
       <section className="areas-note section-space"><p className="eyebrow">One clear destination</p><h2>All appointments<br /><em>in Altona.</em></h2><p>The suburbs above describe the community we welcome. Every appointment takes place at 1/22 Pier Street, Altona. Check your route and allow enough travel time before your treatment.</p></section>
