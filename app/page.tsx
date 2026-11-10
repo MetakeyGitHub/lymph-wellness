@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { findOffer, formatPrice } from "./_data/offerings";
 import { INSTAGRAM_URL, MAPS_URL } from "./_data/site";
+import { TreatmentFinder } from "./_components/TreatmentFinder";
+import { FeaturedOffers } from "./_components/FeaturedOffers";
+import { ServiceCatalogue } from "./_components/ServiceCatalogue";
 const rituals = [
   {
     code: "LWC019",
@@ -38,11 +41,11 @@ export default function Home() {
             <br />A space that feels like it’s yours.
           </p>
           <div className="lw-actions">
-            <Link className="lw-button" href="/services">
+            <Link className="lw-button" href="#treatment-finder">
               Find your treatment <span aria-hidden="true">↗</span>
             </Link>
-            <Link className="lw-text-link" href="/about">
-              Step inside the clinic ↗
+            <Link className="lw-text-link" href="/services#service-prices">
+              Browse treatments & prices ↗
             </Link>
           </div>
           <div className="lw-hero-bottom">
@@ -72,6 +75,7 @@ export default function Home() {
         <span aria-hidden="true">✳</span>
         <span>Here in Altona</span>
       </div>
+      <TreatmentFinder />
       <section className="lw-section lw-intro">
         <p className="lw-overline">Welcome to Lymph & Wellness</p>
         <h2>
@@ -94,49 +98,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="lw-section lw-pathways">
-        <div className="lw-section-heading">
-          <div>
-            <p className="lw-overline">Care, your way</p>
-            <h2>What brings you in?</h2>
-          </div>
-          <Link className="lw-text-link" href="/services">
-            See the full treatment menu ↗
-          </Link>
-        </div>
-        <div className="lw-pathway-grid">
-          {[
-            {
-              n: "01",
-              title: "Lymphatic & body care",
-              copy: "Hands-on massage, facial sculpting and tailored body treatments.",
-              href: "/services#service-prices",
-              label: "Explore treatments",
-            },
-            {
-              n: "02",
-              title: "Rest & reset",
-              copy: "Sauna, red light, rollers and recovery. A little breathing space in your week.",
-              href: "/packages",
-              label: "Explore experiences",
-            },
-            {
-              n: "03",
-              title: "Post-operative support",
-              copy: "Individual care after surgery, guided by your recovery and treating team.",
-              href: "/post-op",
-              label: "Understand your care",
-            },
-          ].map((p) => (
-            <Link className="lw-pathway" href={p.href} key={p.n}>
-              <span>{p.n} /</span>
-              <h3>{p.title}</h3>
-              <p>{p.copy}</p>
-              <span className="lw-text-link">{p.label} ↗</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <FeaturedOffers />
       <section className="lw-section lw-rituals" id="equipment">
         <div className="lw-section-heading">
           <div>
@@ -186,6 +148,25 @@ export default function Home() {
               </article>
             );
           })}
+        </div>
+      </section>
+      <ServiceCatalogue compact />
+      <section className="lw-postop-band">
+        <p className="lw-overline">A little extra care</p>
+        <h2>
+          Your recovery.
+          <br />
+          <span>Your own pace.</span>
+        </h2>
+        <div>
+          <p>
+            Thoughtful post-operative care starts with understanding where you
+            are in your recovery. We’ll help you plan your next step alongside
+            your treating team’s advice.
+          </p>
+          <Link className="lw-text-link" href="/post-op">
+            Explore post-operative care ↗
+          </Link>
         </div>
       </section>
       <section className="lw-membership-story">
