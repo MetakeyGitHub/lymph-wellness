@@ -125,7 +125,7 @@ export const faqGroups = [
     items: [
       {
         q: "Where is Lymph & Wellness?",
-        a: "Our women’s wellness clinic is at 1/22 Pier Street, Altona VIC 3018. All appointments take place at this Altona address. We welcome visitors from Hobsons Bay and Melbourne’s western suburbs, including Williamstown, Newport, Altona North, Yarraville and Point Cook.",
+        a: "Our women’s wellness clinic is at Level 1/22 Pier Street, Altona VIC 3018. All appointments take place at this Altona address. We welcome visitors from Hobsons Bay and Melbourne’s western suburbs, including Williamstown, Newport, Altona North, Yarraville and Point Cook.",
       },
       {
         q: "What are your opening hours?",

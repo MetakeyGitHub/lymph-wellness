@@ -4,7 +4,7 @@ export const locationPages = [
     name: "Altona",
     title: "Lymphatic Drainage Altona",
     intro: "Women-only lymphatic drainage and considered body care at our private Altona studio.",
-    localCopy: "Lymph & Wellness is located at 1/22 Pier Street, Altona. Every treatment, membership visit and equipment session takes place at this address.",
+    localCopy: "Lymph & Wellness is located at Level 1/22 Pier Street, Altona. Every treatment, membership visit and equipment session takes place at this address.",
   },
   {
     slug: "williamstown",
@@ -18,7 +18,7 @@ export const locationPages = [
     name: "Newport",
     title: "Lymphatic Drainage Near Newport",
     intro: "Considered lymphatic and body-care treatments for women travelling from Newport to our Altona studio.",
-    localCopy: "Appointments are held at 1/22 Pier Street, Altona. Check your current route from Newport and allow comfortable travel time before your treatment.",
+    localCopy: "Appointments are held at Level 1/22 Pier Street, Altona. Check your current route from Newport and allow comfortable travel time before your treatment.",
   },
   {
     slug: "altona-north",
@@ -39,7 +39,7 @@ export const locationPages = [
     name: "Point Cook",
     title: "Lymphatic Drainage Near Point Cook",
     intro: "Private lymphatic and wellness appointments for women travelling from Point Cook to Altona.",
-    localCopy: "The clinic is located at 1/22 Pier Street, Altona. Review the treatment guide before booking or contact Seda if you are unsure which appointment suits your needs.",
+    localCopy: "The clinic is located at Level 1/22 Pier Street, Altona. Review the treatment guide before booking or contact Seda if you are unsure which appointment suits your needs.",
   },
 ] as const;
 

@@ -218,7 +218,7 @@ export default async function TreatmentLandingPage({ params }: Props) {
             North, Yarraville, Point Cook and surrounding western suburbs.
           </p>
           <p>
-            Visit us at 1/22 Pier Street, Altona VIC 3018. Appointment
+            Visit us at Level 1/22 Pier Street, Altona VIC 3018. Appointment
             availability varies by treatment; choose a time in booking.
           </p>
           <Link className="text-link" href="/areas-we-serve">
