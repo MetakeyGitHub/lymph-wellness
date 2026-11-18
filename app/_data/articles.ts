@@ -84,7 +84,7 @@ export const articles: Article[] = [
     faqs: [
       { question: "Is lymphatic drainage a deep massage?", answer: "No. Lymphatic techniques are usually light and rhythmic because superficial lymphatic vessels sit close to the skin." },
       { question: "Will one treatment permanently reduce swelling?", answer: "No outcome should be guaranteed. Responses vary, and persistent or unexplained swelling needs medical assessment." },
-      { question: "Where is Lymph & Wellness located?", answer: "The women-only clinic is at 1/22 Pier Street, Altona, serving clients across Melbourne's western suburbs." },
+      { question: "Where is Lymph & Wellness located?", answer: "The women-only clinic is at Level 1/22 Pier Street, Altona, serving clients across Melbourne's western suburbs." },
     ],
     sources: [healthdirect, nhsTreatment],
   },
@@ -561,7 +561,7 @@ export const articles: Article[] = [
       {
         heading: "Local care in Melbourne's west",
         paragraphs: [
-          "Lymph & Wellness is a private women-only clinic at 1/22 Pier Street, Altona. The studio serves clients from Altona, Williamstown, Newport, Altona North, Seaholme, Yarraville, Point Cook and surrounding western suburbs.",
+          "Lymph & Wellness is a private women-only clinic at Level 1/22 Pier Street, Altona. The studio serves clients from Altona, Williamstown, Newport, Altona North, Seaholme, Yarraville, Point Cook and surrounding western suburbs.",
           "The clinic offers Brazilian manual lymphatic drainage, facial treatments, EMS body sculpting, post-operative lymphatic care and selected wellness memberships. Booking remains subject to individual suitability.",
         ],
       },

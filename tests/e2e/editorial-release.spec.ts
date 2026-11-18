@@ -100,7 +100,7 @@ test("first-time visitor can follow every stage, get directions and compare appo
   }
   await expect(
     page.getByRole("region", { name: "Clinic address and hours" }),
-  ).toContainText("1/22 Pier Street");
+  ).toContainText("Level 1/22 Pier Street");
   await expect(
     page
       .getByRole("region", { name: "Clinic address and hours" })

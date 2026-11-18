@@ -46,7 +46,7 @@ const stages = [
     label: "Finding us",
     title: "Your pause, on Pier Street.",
     intro:
-      "All appointments take place at our Altona clinic: 1/22 Pier Street, Altona VIC 3018. Allow enough time for your journey and use the appointment time in your confirmation.",
+      "All appointments take place at our Altona clinic: Level 1/22 Pier Street, Altona VIC 3018. Allow enough time for your journey and use the appointment time in your confirmation.",
     details: [
       [
         "Plan the journey",

@@ -1,31 +1,35 @@
-import { ArrowIcon } from "./ArrowIcon";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowIcon } from "./ArrowIcon";
 import { findOffer, formatPrice } from "../_data/offerings";
 
 const featured = [
   {
     code: "RR",
-    image: "body-roller-session.webp",
+    image: "body-roller-session",
+    imageAlt: "Visitors using the body rollers inside the clinic",
     title: "Roll + Recover",
     note: "Body roller therapy, followed by recovery boots.",
     label: "A little reset",
   },
   {
     code: "PR",
-    image: "private-sauna.webp",
+    image: "private-sauna",
+    imageAlt: "The private infrared sauna at Lymph & Wellness",
     title: "Pier Reset",
     note: "Sauna and body roller therapy, brought together in one visit.",
     label: "Make a moment of it",
   },
   {
     code: "PrivateSauna5",
-    image: "sauna-ritual.webp",
+    image: "sauna-ritual",
+    imageAlt: "A visitor relaxing in the private infrared sauna",
     title: "Your sauna ritual",
     note: "Five private infrared sauna sessions for one person. Buy your pack, then book each visit.",
     label: "Something to return to",
   },
 ];
+
 export function FeaturedOffers() {
   return (
     <section className="lw-section lw-featured" id="curated-experiences">
@@ -35,7 +39,7 @@ export function FeaturedOffers() {
           <h2>
             A little time.
             <br />
-            <span>A lovely ritual.</span>
+            <em>A lovely ritual.</em>
           </h2>
         </div>
         <div className="lw-featured-intro">
@@ -54,48 +58,34 @@ export function FeaturedOffers() {
           const pack = offer.kind === "series_package";
           return (
             <article className="lw-feature-card" key={offer.code}>
-              <div className="lw-feature-image">
-                <Image
-                  src={`/images/clinic/${entry.image}`}
-                  alt={
-                    index === 0
-                      ? "Visitors using the body rollers inside the clinic"
-                      : index === 1
-                        ? "Our private infrared sauna"
-                        : "A visitor relaxing in the private infrared sauna"
-                  }
-                  fill
-                  sizes="(max-width:760px) 100vw, 33vw"
-                />
-                <span>{entry.label}</span>
-              </div>
-              <div className="lw-feature-copy">
+              <header>
+                <span aria-hidden="true">0{index + 1}</span>
                 <p className="lw-overline">
                   {pack ? "Buy now · book later" : "Book one visit"}
                 </p>
-                <h3>{entry.title}</h3>
-                <p>{entry.note}</p>
-                <div className="lw-feature-price">
-                  <strong>{formatPrice(offer.price)}</strong>
-                  <span>
-                    {pack ? "5 sessions" : `${offer.minutes} min appointment`}
-                  </span>
-                </div>
-                {offer.expiry && (
-                  <p className="lw-feature-expiry">
-                    Valid {offer.expiry.toLowerCase()}.
-                  </p>
-                )}
-                <a
-                  className="lw-button"
-                  data-booking-cta="true"
-                  href={offer.url}
-                >
-                  {pack ? "Choose this pack" : "Choose a time"}
-                  <span aria-hidden="true"><ArrowIcon /></span>
-                  <span className="sr-only"> — {offer.name}</span>
-                </a>
+              </header>
+              <div className="lw-offer-photo"><Image src={`/images/clinic/${entry.image}.webp`} alt={entry.imageAlt} fill sizes="(max-width:1000px) 82vw, 26vw" /></div>
+              <p className="lw-feature-label">{entry.label}</p>
+              <h3>{entry.title}</h3>
+              <p className="lw-feature-note">{entry.note}</p>
+              <div className="lw-feature-price">
+                <strong>{formatPrice(offer.price)}</strong>
+                <span>
+                  {pack ? "5 sessions" : `${offer.minutes} min appointment`}
+                  {offer.expiry && (
+                    <small>Valid {offer.expiry.toLowerCase()}.</small>
+                  )}
+                </span>
               </div>
+              <a
+                className="lw-button light"
+                data-booking-cta="true"
+                href={offer.url}
+              >
+                {pack ? "Choose this pack" : "Choose a time"}
+                <span aria-hidden="true"><ArrowIcon /></span>
+                <span className="sr-only"> — {offer.name}</span>
+              </a>
             </article>
           );
         })}

@@ -1,0 +1,193 @@
+{
+  "reviewed": "2026-11-19",
+  "photographsReviewed": 105,
+  "videosReviewed": 27,
+  "selected": [
+    {
+      "id": "A04",
+      "source": "originals/folder-1/IMG_4055.HEIC",
+      "output": "/images/clinic/welcome-lounge.webp",
+      "bytes": 208894,
+      "placement": "Homepage hero"
+    },
+    {
+      "id": "A05",
+      "source": "originals/folder-1/IMG_4060.JPG",
+      "output": "/images/clinic/clinic-welcome.webp",
+      "bytes": 120020,
+      "placement": "About hero"
+    },
+    {
+      "id": "A08",
+      "source": "originals/folder-1/IMG_4130.HEIC",
+      "output": "/images/clinic/sauna-ritual.webp",
+      "bytes": 148850,
+      "placement": "Sauna equipment page, homepage ritual and sauna pack"
+    },
+    {
+      "id": "A15",
+      "source": "originals/folder-1/IMG_4214.HEIC",
+      "output": "/images/clinic/body-roller-session.webp",
+      "bytes": 172530,
+      "placement": "Roller equipment page, homepage ritual and offer, About gallery, packages hero"
+    },
+    {
+      "id": "A20",
+      "source": "originals/folder-1/IMG_4280.HEIC",
+      "output": "/images/clinic/quiet-moment.webp",
+      "bytes": 217864,
+      "placement": "Gift cards hero and About gallery"
+    },
+    {
+      "id": "A25",
+      "source": "originals/folder-1/IMG_4285.HEIC",
+      "output": "/images/clinic/facial-light-care.webp",
+      "bytes": 243166,
+      "placement": "Facial treatments hero (explicitly labelled facial light care)"
+    },
+    {
+      "id": "A44",
+      "source": "originals/folder-1/IMG_4326.HEIC",
+      "output": "/images/clinic/personal-care.webp",
+      "bytes": 232110,
+      "placement": "About care-team story"
+    },
+    {
+      "id": "A18",
+      "source": "originals/folder-1/IMG_4261.HEIC",
+      "output": "/images/clinic/clinic-gathering.webp",
+      "bytes": 254076,
+      "placement": "About gallery, explicitly described as a gathering"
+    },
+    {
+      "id": "A11",
+      "source": "originals/folder-1/IMG_4199.heic",
+      "output": "/images/clinic/recovery-boots-session.webp",
+      "bytes": 88474,
+      "placement": "Recovery boots equipment page, homepage membership story and memberships hero"
+    },
+    {
+      "id": "A51",
+      "source": "originals/folder-1/IMG_4430.HEIC",
+      "output": "/images/clinic/infrastep-session.webp",
+      "bytes": 113464,
+      "placement": "Infrastep equipment hero"
+    },
+    {
+      "id": "A53",
+      "source": "originals/folder-1/IMG_4452.HEIC",
+      "output": "/images/clinic/sunlit-lounge.webp",
+      "bytes": 123596,
+      "placement": "Treatment finder and services hero"
+    },
+    {
+      "id": "P14",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 07 05 pm.jpg",
+      "output": "/images/clinic/reception.webp",
+      "bytes": 63436,
+      "placement": "First-visit hero, contact, EMS clinic interior, business structured-data image"
+    },
+    {
+      "id": "P26",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 08 34 pm.jpg",
+      "output": "/images/clinic/quiet-corridor.webp",
+      "bytes": 66466,
+      "placement": "Lymphatic and post-op clinic interiors; first-visit arrival"
+    },
+    {
+      "id": "P25",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 08 32 pm.jpg",
+      "output": "/images/clinic/recovery-seating.webp",
+      "bytes": 104604,
+      "placement": "Post-op hero and FAQ hero"
+    },
+    {
+      "id": "P08",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 06 39 pm.jpg",
+      "output": "/images/clinic/movement-studio.webp",
+      "bytes": 97526,
+      "placement": "Treadmill equipment hero (both movement machines visible)"
+    },
+    {
+      "id": "P27",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 08 48 pm.jpg",
+      "output": "/images/clinic/red-light-room.webp",
+      "bytes": 39002,
+      "placement": "LED equipment hero and homepage ritual"
+    },
+    {
+      "id": "P30",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 08 56 pm.jpg",
+      "output": "/images/clinic/private-sauna.webp",
+      "bytes": 63054,
+      "placement": "Pier Reset offer"
+    },
+    {
+      "id": "P18",
+      "source": "originals/folder-2/Photo 26-10-2026, 3 07 44 pm.jpg",
+      "output": "/images/clinic/changing-space.webp",
+      "bytes": 142038,
+      "placement": "First-visit guide, facilities photograph"
+    },
+    {
+      "id": "V22",
+      "source": "originals/folder-1/Video 25-10-2026, 10 53 28.MOV",
+      "output": "/videos/clinic/lounge-walkthrough.mp4",
+      "poster": "/images/clinic/lounge-walkthrough-poster.webp",
+      "duration": 13.21,
+      "bytes": 1347786,
+      "audio": "Removed; silent visual film",
+      "placement": "Homepage first-visit preview"
+    },
+    {
+      "id": "V14",
+      "source": "originals/folder-1/IMG_4212.MP4",
+      "output": "/videos/clinic/body-roller.mp4",
+      "poster": "/images/clinic/body-roller-poster.webp",
+      "duration": 2.5,
+      "bytes": 227910,
+      "audio": "Removed; silent visual film",
+      "placement": "Body roller equipment page"
+    },
+    {
+      "id": "V24",
+      "source": "originals/folder-1/Video 25-10-2026, 13 30 02 (1).MP4",
+      "output": "/videos/clinic/infrared-sauna.mp4",
+      "poster": "/images/clinic/infrared-sauna-poster.webp",
+      "duration": 14.345,
+      "bytes": 1841754,
+      "audio": "Removed; silent visual film",
+      "placement": "Sauna equipment page"
+    },
+    {
+      "id": "V21",
+      "source": "originals/folder-1/IMG_4571.MP4",
+      "output": "/videos/clinic/infrastep.mp4",
+      "poster": "/images/clinic/infrastep-poster.webp",
+      "duration": 9.9,
+      "bytes": 1315971,
+      "audio": "Removed; silent visual film",
+      "placement": "Infrastep equipment page"
+    },
+    {
+      "id": "V09",
+      "source": "originals/folder-1/IMG_1916.MP4",
+      "output": "/videos/clinic/recovery-boots.mp4",
+      "poster": "/images/clinic/recovery-boots-poster.webp",
+      "duration": 22.978333,
+      "bytes": 2556341,
+      "audio": "Removed; silent visual film",
+      "placement": "Recovery boots equipment page"
+    },
+    {
+      "id": "V10",
+      "source": "originals/folder-1/IMG_4066.MOV",
+      "output": "/videos/clinic/red-light-bed.mp4",
+      "poster": "/images/clinic/red-light-bed-poster.webp",
+      "duration": 8.77,
+      "bytes": 444437,
+      "audio": "Removed; silent visual film",
+      "placement": "LED bed equipment page"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "../../_components/JsonLd";
 import { articles, getArticle } from "../../_data/articles";
 import { SITE_URL } from "../../_data/seo";
+import { FOUNDER } from "../../_data/site";
 import { pageMetadata } from "../../_data/metadata";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     type: "article",
     publishedTime: article.published,
     modifiedTime: article.modified,
+    author: { name: FOUNDER.name, url: `${SITE_URL}${FOUNDER.path}` },
   });
 }
 
@@ -55,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
       datePublished: article.published,
       dateModified: article.modified,
       mainEntityOfPage: canonical,
-      author: { "@type": "Organization", name: "Lymph & Wellness", url: `${SITE_URL}/about` },
+      author: { "@type": "Person", name: FOUNDER.name, jobTitle: FOUNDER.role, url: `${SITE_URL}${FOUNDER.path}`, worksFor: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL } },
       publisher: { "@type": "Organization", name: "Lymph & Wellness", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/logomark-dark.svg` } },
     },
     {
@@ -79,7 +81,7 @@ export default async function ArticlePage({ params }: Props) {
             <p className="eyebrow">{article.category}</p>
             <h1>{article.title}</h1>
             <p className="lead">{article.excerpt}</p>
-            <div className="article-meta"><span>From <Link href="/about">Lymph & Wellness</Link></span><span>Published {new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${article.published}T00:00:00+10:00`))}</span><span>{article.readingTime}</span><span>General wellness information</span></div>
+            <div className="article-meta"><span>By <Link href={FOUNDER.path}>{FOUNDER.name}</Link>, {FOUNDER.role}</span>{" "}<span>Published {new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${article.published}T00:00:00+10:00`))}</span>{" "}<span>{article.readingTime}</span>{" "}<span>General wellness information</span></div>
           </div>
           <div className="article-hero-image"><Image src={article.image} alt={article.imageAlt} fill loading="eager" fetchPriority="high" sizes="(max-width: 780px) 100vw, 48vw" /></div>
         </header>

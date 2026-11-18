@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 
 
-import "./globals.css";
-import "./redesign.css";
-import "./editorial.css";
+import localFont from "next/font/local";
+import "./site.css";
+import "./design.css";
 import "./clinic-media.css";
 import { Header } from "./_components/Header";
 import { GoogleAnalytics } from "./_components/GoogleAnalytics";
@@ -12,6 +12,16 @@ import { Footer } from "./_components/Footer";
 import { MobileStickyBook } from "./_components/MobileStickyBook";
 
 import { serviceAreas, SITE_URL } from "./_data/seo";
+
+const display = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", style: "normal", weight: "300 700" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", style: "italic", weight: "300 700" },
+  ],
+  variable: "--font-display",
+  display: "swap",
+  adjustFontFallback: "Times New Roman",
+});
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F2F0E9" };
 
@@ -39,7 +49,7 @@ const structuredData = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Lymph & Wellness",
-    alternateName: "Lymph and Wellness",
+    alternateName: ["Lymph and Wellness", "Lymph & Wellness Altona"],
     url: SITE_URL,
   },
   {
@@ -53,12 +63,13 @@ const structuredData = [
     areaServed: serviceAreas.map((area) => ({ "@type": "Place", name: `${area}, Victoria` })),
     telephone: "+61452599300",
     email: "info@lymphandwellnessco.com.au",
-    address: { "@type": "PostalAddress", streetAddress: "1/22 Pier Street", addressLocality: "Altona", postalCode: "3018", addressRegion: "VIC", addressCountry: "AU" },
+    address: { "@type": "PostalAddress", streetAddress: "Level 1/22 Pier Street", addressLocality: "Altona", postalCode: "3018", addressRegion: "VIC", addressCountry: "AU" },
     openingHoursSpecification: [
       ["Monday","10:30","19:30"], ["Tuesday","09:30","19:30"], ["Wednesday","09:00","19:30"],
       ["Thursday","10:00","21:00"], ["Friday","10:00","21:00"], ["Saturday","11:00","17:00"],
     ].map(([day,opens,closes])=>({"@type":"OpeningHoursSpecification",dayOfWeek:day,opens,closes})),
     priceRange: "$$",
+    founder: { "@type": "Person", name: "Seda Yener", jobTitle: "Founder & Director", url: `${SITE_URL}/about#seda-yener` },
     sameAs: ["https://www.instagram.com/lymph.andwellness/", "https://share.google/PfSn7CcBq24fN0Uwy"],
     hasOfferCatalog: {
       "@type": "OfferCatalog", name: "Treatments", itemListElement: [
@@ -70,7 +81,7 @@ const structuredData = [
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={display.variable}>
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
         <Header />

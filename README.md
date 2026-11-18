@@ -14,7 +14,7 @@ npm run dev
 - Next.js App Router
 - React and TypeScript
 - Tailwind CSS
-- Optimised local imagery and self-hosted fonts
+- Optimised local imagery and self-hosted fonts (Nunito Sans; Cormorant Garamond for display, OFL, loaded through `next/font/local` from `app/fonts`)
 - Vercel-ready metadata, sitemap, structured data and responsive layouts
 
 Run `npm ci`, `npm run lint`, `npm run build`, then `npm test` before deployment. Tests inspect the production HTML, so build before testing.
@@ -58,3 +58,24 @@ The HTML report is `playwright-report/index.html`; machine-readable results are 
 ## Editorial care and visit guides
 
 `/compare-treatments` compares ten current lymphatic, facial and EMS appointments. Names, prices, durations and booking URLs come from the shared catalogue; editorial inclusion notes live in `app/_data/comparisons.ts`. The same component appears on the three treatment landing pages. Do not infer treatment-area coverage or added techniques from a longer appointment. `/your-first-visit` collects practical preparation, arrival, comfort and follow-up guidance. Unverified parking, access and arrival-time requirements are referred to the clinic. Both routes are included in search, the sitemap, footer and relevant visitor flows. The architectural SVG artwork is decorative and is not an anatomical diagram.
+
+## Design system
+
+Styles live in two files. `app/site.css` holds structural rules for the inner page templates. `app/design.css` is the design layer: tokens, typography, buttons, header, footer, homepage and motion. Change colour, type or spacing in the `:root` tokens at the top of `design.css` first.
+
+The visual language is drawn from the clinic itself: arches frame photography (`--arch`), a serif display voice carries headings with italic emphasis via `<em>`, and one clay accent (`--clay`) stands in for the cove lighting. Clay passes AA on ivory only; on darker surfaces `--accent` switches to sand. Keep clay to display text and decoration.
+
+Motion is CSS only. Entrance animations use scroll-driven timelines where supported and are removed under `prefers-reduced-motion`. `OpenStatus` and `HoursList` read the regular hours in `app/_data/site.ts` in Melbourne time; they do not know about public holidays or one-off closures, so keep that data current.
+
+Client reviews and star ratings are intentionally absent. Testimonials are restricted when advertising regulated health services in Australia (the catalogue includes acupuncture); take advice before adding any.
+
+
+### Client media (19 November 2026)
+
+The two client-supplied Dropbox collections were visually reviewed: 105 image files and 27 videos (including duplicates). The website uses 18 selected photographs and six silent clips, plus video posters. `MEDIA_REVIEW.json` records source filenames, optimized outputs and placements. Full originals, contact sheets and video frame reviews are retained outside the repository under `../audit/2026-11-19/media-review/`.
+
+Images are auto-oriented, metadata-stripped WebP assets (up to 1600 × 2000), served responsively through Next Image. Films are 720p portrait H.264 MP4 with fast-start metadata and no audio, rendered by the server component `ClinicFilm` with native controls, `playsInline`, a poster and `preload="none"`. They do not autoplay, including for reduced-motion visitors, and add no player library or client JavaScript. Descriptive text accompanies each silent film.
+
+Use equipment footage only for the equipment shown. Gathering imagery is labelled as clinic life, not an appointment inclusion. Interior photographs on hands-on treatment pages are identified as clinic interiors. Do not relabel roller or compression footage as manual lymphatic drainage or EMS. The private email screenshot, unrelated workplace material, personal family photographs and redundant shots were not published.
+
+Run `npm run build && npm test && npm run test:e2e` before deployment. `tests/e2e/clinic-media.spec.ts` checks real video decoding and posters in Chromium, desktop WebKit and iPhone WebKit, confirms no video request before playback, and checks contextual photography loading. Browser emulation does not substitute for a physical-device check.
