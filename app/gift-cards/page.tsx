@@ -26,8 +26,8 @@ export default function GiftCards() {
           </>
         }
         intro="A thoughtful invitation to slow down. Let them choose the wellness experience that feels right for them."
-        image="/images/clinic/recovery-lounge.jpg"
-        imageAlt="Calm recovery lounge at Lymph & Wellness"
+        image="/images/clinic/quiet-moment.webp"
+        imageAlt="A visitor enjoying a quiet moment with a book during facial light care"
       />
       <section className="lw-section" id="gift-options">
         <div className="lw-gift-panel">

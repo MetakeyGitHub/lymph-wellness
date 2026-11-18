@@ -1,5 +1,6 @@
 import { ArrowIcon } from "../_components/ArrowIcon";
 import Image from "next/image";
+import { ClinicGallery } from "../_components/ClinicGallery";
 import Link from "next/link";
 import { PageHero } from "../_components/PageHero";
 import { INSTAGRAM_URL } from "../_data/site";
@@ -23,8 +24,8 @@ export default function About() {
           </>
         }
         intro="Warm surroundings. Personal attention. Time that belongs to you. Welcome to our women’s wellness clinic on Pier Street."
-        image="/images/clinic/lounge.jpg"
-        imageAlt="The real Lymph & Wellness clinic lounge"
+        image="/images/clinic/clinic-welcome.webp"
+        imageAlt="A warm welcome at the Lymph & Wellness entrance"
       />
       <section className="lw-section lw-intro">
         <p className="lw-overline">Our approach</p>
@@ -52,8 +53,8 @@ export default function About() {
       <section className="lw-membership-story" id="seda-yener">
         <div className="lw-story-image">
           <Image
-            src="/images/clinic/recovery-lounge.jpg"
-            alt="The clinic’s soft seating and private recovery spaces"
+            src="/images/clinic/personal-care.webp"
+            alt="A conversation beside a visitor relaxing with a facial mask in the lounge"
             fill
             sizes="(max-width:760px) 100vw, 50vw"
           />
@@ -82,6 +83,7 @@ export default function About() {
           </Link>
         </div>
       </section>
+      <ClinicGallery />
       <section className="lw-section lw-first-visit">
         <p className="lw-overline">Considered from the beginning</p>
         <h2>Your comfort comes first.</h2>

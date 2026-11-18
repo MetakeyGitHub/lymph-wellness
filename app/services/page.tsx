@@ -22,8 +22,8 @@ export default function Services() {
           </>
         }
         intro="Hands-on treatments, quiet wellness rituals and considered recovery care. Find your treatment, see the price, and choose your time."
-        image="/images/clinic/lounge.jpg"
-        imageAlt="The light-filled lounge at our Altona clinic"
+        image="/images/clinic/sunlit-lounge.webp"
+        imageAlt="Daylight through the skylight above the clinic lounge"
       />
       <ServiceCatalogue />
       <section className="lw-section lw-suitability">

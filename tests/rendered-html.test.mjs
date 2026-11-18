@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile, readdir } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import test from "node:test";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -142,6 +142,12 @@ test("all internal rendered links resolve to retained pages or real anchors", as
       )
         continue;
       const [pathname, anchor] = raw.split("#");
+      if (pathname.startsWith("/videos/clinic/") && pathname.endsWith(".mp4")) {
+        const asset = await stat(new URL(`public${pathname}`, root));
+        assert.ok(asset.isFile() && asset.size > 0, `Missing film ${raw} on ${route}`);
+        checked++;
+        continue;
+      }
       const target = pages.get(pathname === "/" ? "/" : pathname);
       assert.ok(target, `Missing internal route ${raw} on ${route}`);
       if (anchor)

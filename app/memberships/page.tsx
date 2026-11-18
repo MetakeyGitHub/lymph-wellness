@@ -22,8 +22,8 @@ export default function Memberships() {
           </>
         }
         intro="Choose a monthly rhythm for your wellness routine. From four machine sessions to a fuller combination of machine and hands-on care."
-        image="/images/clinic/recovery-lounge.jpg"
-        imageAlt="Private recovery lounge at Lymph & Wellness"
+        image="/images/clinic/recovery-boots-session.webp"
+        imageAlt="A visitor reclining with recovery boots in the lounge"
       />
       <section className="lw-section" id="membership-plans">
         <div className="lw-section-heading">

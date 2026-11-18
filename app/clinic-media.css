@@ -1,0 +1,43 @@
+/* Real clinic imagery: generous portrait crops and deliberately quiet films. */
+.lw-hero-image img { object-position: 54% 55%; }
+.lw-image-caption { background: rgba(48, 39, 33, 0.8); padding: 9px 14px; }
+.lw-clinic-film { width: 100%; margin: 0; }
+.lw-clinic-film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #443730;
+}
+.lw-clinic-film video:focus-visible { outline: 3px solid var(--espresso); outline-offset: 5px; }
+.lw-clinic-film figcaption { display: grid; gap: 8px; margin-top: 16px; font-size: 12px; line-height: 1.6; max-width: 440px; }
+.lw-film-label { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
+.lw-first-visit-art .lw-clinic-film { max-width: 304px; }
+
+.lw-equipment-film { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: center; background: var(--off-white); }
+.lw-equipment-film .lw-clinic-film { max-width: 340px; justify-self: center; }
+.lw-equipment-film h2 { font-size: clamp(32px, 4vw, 58px); line-height: 1.12; margin-bottom: 24px; }
+.lw-equipment-film p { max-width: 430px; }
+.lw-moments-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.lw-moments-grid figure { margin: 0; min-width: 0; }
+.lw-moments-grid figure:nth-child(2) { padding-top: 60px; }
+.lw-moment-image { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+.lw-moment-image img { object-fit: cover; }
+.lw-moments-grid figcaption { padding-top: 15px; font-size: clamp(18px, 2vw, 26px); line-height: 1.3; }
+.lw-clinic-gallery h2 span { color: var(--taupe); }
+.lw-arrival-photo { position: relative; width: 100%; aspect-ratio: 4 / 5; margin: 24px 0 0; max-height: 460px; overflow: hidden; }
+.lw-arrival-photo img { object-fit: cover; }
+.lw-editorial-photo { padding: 0; position: relative; overflow: hidden; }
+.lw-editorial-photo img { object-fit: cover; }
+.lw-editorial-photo > span { z-index: 1; background: rgba(48, 39, 33, .8); color: #fff; padding: 8px 12px; position: absolute; bottom: 20px; left: 20px; right: 20px; width: fit-content; }
+.lw-treatment-photo-note { position: absolute; left: 20px; bottom: 20px; right: 20px; background: rgba(48,39,33,.8); color: #fff; padding: 10px 14px; font-size: 12px; line-height: 1.5; margin: 0; }
+@media (max-width:760px) {
+  .lw-hero-image img { object-position: 54% 56%; }
+  .lw-equipment-film { grid-template-columns: 1fr; gap: 32px; }
+  .lw-equipment-film .lw-clinic-film { width: min(100%, 340px); }
+  .lw-moments-grid { grid-template-columns: 1fr; gap: 32px; }
+  .lw-moments-grid figure:nth-child(2) { padding-top: 0; }
+  .lw-moments-grid figure:nth-child(2) .lw-moment-image { aspect-ratio: 1; }
+  .lw-editorial-photo { min-height: 360px; }
+}

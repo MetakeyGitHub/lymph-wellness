@@ -39,8 +39,8 @@ export default function FaqPage() {
           </>
         }
         intro="Practical answers about choosing, booking and making the most of your time with us. Explore a topic below, or speak with our team."
-        image="/images/clinic/lounge.jpg"
-        imageAlt="The Lymph & Wellness lounge in Altona"
+        image="/images/clinic/recovery-seating.webp"
+        imageAlt="Curtained lounge chairs inside Lymph & Wellness"
         action={{ href: "#booking", label: "Explore the answers" }}
       />
       <nav className="lw-faq-nav" aria-label="Question topics">

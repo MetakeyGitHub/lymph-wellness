@@ -51,7 +51,8 @@ export const equipmentPages = [
     intro: "A self-guided roller experience available to book online at our women-only Altona studio.",
     description: "The body roller uses rotating wooden contours as part of a structured body-care routine. Settings and session suitability are discussed before use, with comfort and privacy kept central.",
     expectations: ["A private, women-only environment", "Guidance before your first session", "Individual sessions and series packages"],
-    image: "/images/clinic/body-rollers.jpg",
+    image: "/images/clinic/body-roller-session.webp",
+    imageAlt: "Women using the body rollers in the clinic",
   },
   {
     slug: "full-body-red-light-therapy-bed",
@@ -60,7 +61,8 @@ export const equipmentPages = [
     intro: "A quiet, non-invasive light-based wellness session available to book online.",
     description: "The full-body bed provides a calm, contained session without hands-on treatment. Individual sessions and premium credit packages are available, subject to suitability.",
     expectations: ["A simple pre-session check-in", "A quiet, time-limited session", "Individual sessions and series packages"],
-    image: "/images/clinic/led-bed.jpg",
+    image: "/images/clinic/red-light-room.webp",
+    imageAlt: "The illuminated whole-body red light bed",
   },
   {
     slug: "full-spectrum-infrared-sauna",
@@ -69,7 +71,8 @@ export const equipmentPages = [
     intro: "A private sauna experience designed around warmth, rest and an unhurried women-only wellness ritual.",
     description: "Individual sauna sessions and series packages are available in Zenoti. Session settings should always reflect your comfort, health history and any guidance from your medical practitioner.",
     expectations: ["A private studio setting", "Time to cool down after the session", "Individual sessions and series packages"],
-    image: "/images/clinic/infrared-sauna.jpg",
+    image: "/images/clinic/sauna-ritual.webp",
+    imageAlt: "A visitor relaxing in the infrared sauna",
   },
   {
     slug: "vacu-activ-treadmill-v3",
@@ -78,7 +81,8 @@ export const equipmentPages = [
     intro: "A technology-led walking experience with adjustable vacuum and infrared functions in a private women-only setting.",
     description: "The treadmill combines controlled walking with machine settings selected around comfort and experience. It is a wellness and movement session, not a guaranteed weight-loss treatment.",
     expectations: ["An introductory suitability check", "Settings adjusted to your comfort", "Book sessions through Zenoti"],
-    image: "/images/clinic/lounge.jpg",
+    image: "/images/clinic/movement-studio.webp",
+    imageAlt: "The treadmill and Infrastep machines beside the clinic windows",
   },
   {
     slug: "vacu-activ-infrastep-stairmill",
@@ -87,7 +91,8 @@ export const equipmentPages = [
     intro: "A guided stair-climbing machine with adjustable movement, infrared and red-light functions.",
     description: "The Infrastep offers a structured movement session within the studio. Intensity is individual, and no specific body-composition outcome can be guaranteed.",
     expectations: ["A considered introduction", "Adjustable pace and settings", "Book sessions through Zenoti"],
-    image: "/images/clinic/lounge.jpg",
+    image: "/images/clinic/infrastep-session.webp",
+    imageAlt: "A visitor using the Infrastep stair-climbing machine",
   },
   {
     slug: "recovery-boots",
@@ -96,6 +101,7 @@ export const equipmentPages = [
     intro: "A 15-minute recovery boot session available to book individually or through a series package.",
     description: "Compression-based recovery boots offer a quiet studio session. Ask the studio about suitability before use if you have a health condition or are recovering from surgery.",
     expectations: ["A suitability check before use", "15-minute sessions", "Individual bookings and series packages"],
-    image: "/images/clinic/recovery-lounge.jpg",
+    image: "/images/clinic/recovery-boots-session.webp",
+    imageAlt: "A visitor resting with recovery boots in the lounge",
   },
 ] as const;

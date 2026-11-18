@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./redesign.css";
 import "./editorial.css";
+import "./clinic-media.css";
 import { Header } from "./_components/Header";
 import { GoogleAnalytics } from "./_components/GoogleAnalytics";
 import { Footer } from "./_components/Footer";
@@ -47,7 +48,7 @@ const structuredData = [
     "@id": `${SITE_URL}/#business`,
     name: "Lymph & Wellness",
     url: SITE_URL,
-    image: `${SITE_URL}/images/clinic/lounge.jpg`,
+    image: `${SITE_URL}/images/clinic/reception.webp`,
     description,
     areaServed: serviceAreas.map((area) => ({ "@type": "Place", name: `${area}, Victoria` })),
     telephone: "+61452599300",

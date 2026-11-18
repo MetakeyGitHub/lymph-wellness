@@ -110,6 +110,11 @@ export default async function TreatmentLandingPage({ params }: Props) {
             fetchPriority="high"
             sizes="(max-width: 780px) 100vw, 50vw"
           />
+          <p className="lw-treatment-photo-note">
+            {slug === "facial-sculpting-melbourne"
+              ? "Facial light care at the clinic. Inclusions vary by appointment."
+              : "Inside our Altona clinic. Your treatment takes place in an appropriate care space."}
+          </p>
         </div>
       </section>
 

@@ -136,7 +136,7 @@ test("new guides are discoverable through search and embedded treatment comparis
   );
 });
 
-test("editorial pages fit small screens and retain vector artwork", async ({
+test("editorial pages fit small screens and show their reviewed artwork or clinic photo", async ({
   page,
 }) => {
   for (const path of [
@@ -152,7 +152,9 @@ test("editorial pages fit small screens and retain vector artwork", async ({
         () => document.documentElement.scrollWidth <= innerWidth + 1,
       ),
     ).toBe(true);
-    if (!path.startsWith("/treatments/"))
+    if (path === "/your-first-visit")
+      await expect(page.locator(".lw-editorial-photo img")).toHaveAttribute("alt", /reception desk/);
+    else if (!path.startsWith("/treatments/"))
       await expect(page.locator("svg.lw-care-mark").first()).toHaveAttribute(
         "aria-hidden",
         "true",

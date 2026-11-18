@@ -6,21 +6,21 @@ import { findOffer, formatPrice } from "../_data/offerings";
 const featured = [
   {
     code: "RR",
-    image: "body-rollers.jpg",
+    image: "body-roller-session.webp",
     title: "Roll + Recover",
     note: "Body roller therapy, followed by recovery boots.",
     label: "A little reset",
   },
   {
     code: "PR",
-    image: "infrared-sauna.jpg",
+    image: "private-sauna.webp",
     title: "Pier Reset",
     note: "Sauna and body roller therapy, brought together in one visit.",
     label: "Make a moment of it",
   },
   {
     code: "PrivateSauna5",
-    image: "recovery-lounge.jpg",
+    image: "sauna-ritual.webp",
     title: "Your sauna ritual",
     note: "Five private infrared sauna sessions for one person. Buy your pack, then book each visit.",
     label: "Something to return to",
@@ -59,10 +59,10 @@ export function FeaturedOffers() {
                   src={`/images/clinic/${entry.image}`}
                   alt={
                     index === 0
-                      ? "Body roller equipment inside the clinic"
+                      ? "Visitors using the body rollers inside the clinic"
                       : index === 1
                         ? "Our private infrared sauna"
-                        : "The clinic’s quiet recovery lounge"
+                        : "A visitor relaxing in the private infrared sauna"
                   }
                   fill
                   sizes="(max-width:760px) 100vw, 33vw"

@@ -56,7 +56,7 @@ export const services = [
     suitable:
       "Often chosen by clients seeking considered support for fluid retention, circulation, relaxation or general wellbeing.",
     addOns: ["60-Min Lymphatic Drainage Massage + Abdominal EMS Session"],
-    image: "/images/cream-texture.jpg",
+    image: "/images/clinic/quiet-corridor.webp",
     href: "/treatments/lymphatic-drainage-melbourne",
   },
   {
@@ -78,7 +78,7 @@ export const services = [
       "Signature Qi Eye Therapy",
       "Signature Qi Facial Therapy",
     ],
-    image: "/images/skin-closeup.jpg",
+    image: "/images/clinic/facial-light-care.webp",
     href: "/treatments/facial-sculpting-melbourne",
   },
   {
@@ -94,7 +94,7 @@ export const services = [
     suitable:
       "Treatment plans may include a series of sessions depending on individual goals and suitability.",
     addOns: [],
-    image: "/images/clinic/lounge.jpg",
+    image: "/images/clinic/reception.webp",
     href: "/treatments/ems-body-sculpting-melbourne",
   },
   {
@@ -113,7 +113,7 @@ export const services = [
       "60-Min Post-Op Lymphatic Massage + Whole Body LED/Infrared Light Therapy",
       "90-Min Post-Op Lymphatic Massage + Whole Body LED/Infrared Light Therapy",
     ],
-    image: "/images/clinic/recovery-lounge.jpg",
+    image: "/images/clinic/recovery-seating.webp",
     href: "/post-op",
   },
 ];

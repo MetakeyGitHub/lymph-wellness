@@ -9,7 +9,7 @@ import { pageMetadata } from "../_data/metadata";
 export const metadata = pageMetadata({ title: "Book Lymphatic Drainage Altona", description: "Book lymphatic drainage, facial treatments, EMS body sculpting or post-operative care at 1/22 Pier Street, Altona VIC 3018.", path: "/contact", image: "/share-image", imageAlt: "Book a treatment at Lymph & Wellness in Altona" });
 
 export default function ContactPage() {
-  return <main id="main"><PageHero eyebrow="Contact / Book" title={<>Book your<br /><em>treatment.</em></>} intro="Choose a treatment through the booking portal or send a considered enquiry if you need help deciding." image="/images/clinic/lounge.jpg" imageAlt="Warm, sculptural archway in a calm wellness interior" />
+  return <main id="main"><PageHero eyebrow="Contact / Book" title={<>Book your<br /><em>treatment.</em></>} intro="Choose a treatment through the booking portal or send a considered enquiry if you need help deciding." image="/images/clinic/reception.webp" imageAlt="The reception desk at Lymph & Wellness in Altona" />
     <section className="booking-chooser section-space" id="book" data-reveal data-booking-cta>
       <div className="booking-chooser-intro"><SectionLabel number="01">Choose your appointment</SectionLabel><h2>Direct to the<br /><em>right treatment.</em></h2><p>Each appointment opens with your selected treatment ready in our booking portal. Choose an available time to continue. All prices are in AUD.</p></div>
       <div className="booking-option-list">{bookingOptions.map((option, index) => <a href={option.href} target="_blank" rel="noreferrer" key={option.label}><span>0{index + 1}</span><strong>{option.label}</strong><small>{option.price}</small><i aria-hidden="true"><ArrowIcon /></i></a>)}</div>

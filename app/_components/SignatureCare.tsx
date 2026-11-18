@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClinicFilm } from "./ClinicFilm";
 import { ArrowIcon } from "./ArrowIcon";
 import { CareMark } from "./CareMark";
 import { findOffer, formatPrice } from "../_data/offerings";
@@ -159,8 +160,7 @@ export function FirstVisitPreview() {
       aria-labelledby="first-visit-heading"
     >
       <div className="lw-first-visit-art">
-        <CareMark />
-        <p className="lw-overline">Your pause, on Pier Street.</p>
+        <ClinicFilm clip="lounge" />
       </div>
       <div>
         <p className="lw-overline">Your first visit</p>

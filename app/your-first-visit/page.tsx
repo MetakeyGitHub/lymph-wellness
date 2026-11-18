@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowIcon } from "../_components/ArrowIcon";
-import { CareMark } from "../_components/CareMark";
+import Image from "next/image";
 import { Accordion } from "../_components/Accordion";
 import { pageMetadata } from "../_data/metadata";
 import {
@@ -134,8 +134,8 @@ export default function FirstVisit() {
             Walk through your visit <ArrowIcon direction="down" />
           </a>
         </div>
-        <div className="lw-editorial-art">
-          <CareMark />
+        <div className="lw-editorial-art lw-editorial-photo">
+          <Image src="/images/clinic/reception.webp" alt="The illuminated reception desk and Lymph & Wellness sign inside the clinic" fill priority sizes="(max-width:760px) 100vw, 40vw" />
           <span>A place for you, on Pier Street.</span>
         </div>
       </section>
@@ -178,12 +178,14 @@ export default function FirstVisit() {
               )}
             </div>
             <div className="lw-stage-details">
+              {stage.id === "arrival" && <div className="lw-arrival-photo"><Image src="/images/clinic/quiet-corridor.webp" alt="The softly lit corridor leading through the clinic" fill sizes="(max-width:760px) 86vw, 40vw" /></div>}
               {stage.details.map(([title, copy]) => (
                 <div key={title}>
                   <h3>{title}</h3>
                   <p>{copy}</p>
                 </div>
               ))}
+              {stage.id === "treatment" && <div className="lw-arrival-photo"><Image src="/images/clinic/changing-space.webp" alt="The clinic’s washbasins, stone finishes and illuminated mirrors" fill sizes="(max-width:760px) 86vw, 40vw" /></div>}
             </div>
           </section>
         ))}

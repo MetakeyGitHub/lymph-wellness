@@ -23,8 +23,8 @@ export default function Packages() {
           </>
         }
         intro="Combine your favourite wellness experiences in one visit, or buy a pack and plan your sessions later."
-        image="/images/clinic/infrared-sauna.jpg"
-        imageAlt="Private infrared sauna at Lymph & Wellness"
+        image="/images/clinic/body-roller-session.webp"
+        imageAlt="Women enjoying body roller sessions in the clinic"
       />
       <nav className="lw-subnav" aria-label="Package options">
         <a href="#experiences">Book an experience <ArrowIcon direction="down" /></a>

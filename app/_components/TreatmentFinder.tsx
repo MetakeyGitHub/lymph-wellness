@@ -90,7 +90,7 @@ export function TreatmentFinder() {
     >
       <div className="lw-finder-aside">
         <Image
-          src="/images/clinic/recovery-lounge.jpg"
+          src="/images/clinic/sunlit-lounge.webp"
           alt="A quiet corner of our Altona clinic"
           fill
           sizes="(max-width:760px) 100vw, 35vw"

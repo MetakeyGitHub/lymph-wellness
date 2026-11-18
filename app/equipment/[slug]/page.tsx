@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { ClinicFilm } from "../../_components/ClinicFilm";
+import { equipmentFilms, clinicFilms } from "../../_data/clinic-media";
 import { Accordion } from "../../_components/Accordion";
 import { equipmentGuides } from "../../_data/equipment-guides";
 import { notFound } from "next/navigation";
@@ -57,6 +59,7 @@ export default async function EquipmentPage({
     "recovery-boots": "LWC020",
   };
   const offer = findOffer(codes[item.slug]);
+  const filmKey = equipmentFilms[item.slug];
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -107,7 +110,7 @@ export default async function EquipmentPage({
         <div className="equipment-hero-image">
           <Image
             src={item.image}
-            alt="Inside the Lymph & Wellness clinic"
+            alt={item.imageAlt}
             fill
             loading="eager"
             fetchPriority="high"
@@ -145,6 +148,15 @@ export default async function EquipmentPage({
           ))}
         </div>
       </section>
+      {filmKey && <section className="lw-section lw-equipment-film" aria-label="See the experience">
+        <div>
+          <p className="lw-overline">Filmed here in Altona</p>
+          <h2>{clinicFilms[filmKey].title}.</h2>
+          <p>A little glimpse before you visit. Explore the space and equipment, then ask the team anything you would like to know about your session.</p>
+          <Button href={offer.url}>Choose a time</Button>
+        </div>
+        <ClinicFilm clip={filmKey} />
+      </section>}
       <section className="lw-section lw-treatment-faq" data-reveal>
         <div className="lw-section-intro">
           <p className="lw-overline">Before your visit</p>

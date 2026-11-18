@@ -8,6 +8,8 @@ for (const path of [
   "/search",
   "/faq",
   "/contact",
+  "/about",
+  "/equipment/full-spectrum-infrared-sauna",
   "/compare-treatments",
   "/your-first-visit",
   "/treatments/lymphatic-drainage-melbourne",

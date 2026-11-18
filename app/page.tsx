@@ -13,19 +13,19 @@ const rituals = [
     code: "LWC019",
     title: "A softer pace.",
     sub: "Private infrared sauna",
-    image: "infrared-sauna.jpg",
+    image: "sauna-ritual.webp",
   },
   {
     code: "LWC018",
     title: "Time to unwind.",
     sub: "Lymphatic body roller",
-    image: "body-rollers.jpg",
+    image: "body-roller-session.webp",
   },
   {
     code: "LWC017",
     title: "Your quiet moment.",
     sub: "Whole-body red light therapy",
-    image: "led-bed.jpg",
+    image: "red-light-room.webp",
   },
 ];
 export default function Home() {
@@ -60,8 +60,8 @@ export default function Home() {
         </div>
         <div className="lw-hero-image">
           <Image
-            src="/images/clinic/lounge.jpg"
-            alt="Sunlight falling through the skylight into the Lymph & Wellness lounge in Altona"
+            src="/images/clinic/welcome-lounge.webp"
+            alt="Two women seated in the light-filled Lymph & Wellness lounge"
             fill
             priority
             sizes="(max-width: 760px) 100vw, 51vw"
@@ -137,8 +137,8 @@ export default function Home() {
       <section className="lw-membership-story">
         <div className="lw-story-image">
           <Image
-            src="/images/clinic/recovery-lounge.jpg"
-            alt="Soft seating and private recovery spaces at the Altona clinic"
+            src="/images/clinic/recovery-boots-session.webp"
+            alt="A visitor resting with recovery boots in the clinic lounge"
             fill
             sizes="(max-width:760px) 100vw, 50vw"
           />
